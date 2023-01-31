@@ -71,12 +71,15 @@
 
 .swiper {
     height: 600px;
+    
 
     img {
         height: 550px;
+        width: 400px;
         border-radius: .5em;
         position: relative;
-        box-shadow: -6px 5px 11px -3px rgba(0,0,0,0.75);
+        margin-inline: auto ;
+        
     }
     img::after {
         content:'';
@@ -87,7 +90,7 @@
     }
     p {
         position: absolute;
-        background-color: $neutral-clr-200;
+        background-color: $neutral-clr-100;
         font-weight: $fw-semibold;
         bottom: 10%;
         padding: 1em;
