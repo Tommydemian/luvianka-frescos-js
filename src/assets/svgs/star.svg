@@ -1,0 +1,56 @@
+<svg>
+  <symbol fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlnsSerif="http://www.serif.com/" viewBox="0 0 64 64" id="star">
+    <rect id="Icons"></rect>
+    <g id="Icons1" serifId="Icons">
+      <g id="Strike"></g>
+      <g id="H1"></g>
+      <g id="H2"></g>
+      <g id="H3"></g>
+      <g id="list-ul"></g>
+      <g id="hamburger-1"></g>
+      <g id="hamburger-2"></g>
+      <g id="list-ol"></g>
+      <g id="list-task"></g>
+      <g id="trash"></g>
+      <g id="vertical-menu"></g>
+      <g id="horizontal-menu"></g>
+      <g id="sidebar-2"></g>
+      <g id="Pen"></g>
+      <g id="Pen1" serifId="Pen"></g>
+      <g id="clock"></g>
+      <g id="external-link"></g>
+      <g id="hr"></g>
+      <g id="info"></g>
+      <g id="warning"></g>
+      <g id="plus-circle"></g>
+      <g id="minus-circle"></g>
+      <g id="vue"></g>
+      <g id="cog"></g>
+      <g id="logo"></g>
+      <path id="star" d="M32.001,9.188l5.666,17.438l18.335,0l-14.833,10.777l5.666,17.438l-14.834,-10.777l-14.833,10.777l5.666,-17.438l-14.834,-10.777l18.335,0l5.666,-17.438Z"></path>
+      <g id="radio-check"></g>
+      <g id="eye-slash"></g>
+      <g id="eye"></g>
+      <g id="toggle-off"></g>
+      <g id="shredder"></g>
+      <g id="spinner--loading--dots-" serifId="spinner [loading, dots]"></g>
+      <g id="react"></g>
+      <g id="check-selected"></g>
+      <g id="turn-off"></g>
+      <g id="code-block"></g>
+      <g id="user"></g>
+      <g id="coffee-bean"></g>
+      <g id="coffee-beans">
+        <g id="coffee-bean1" serifId="coffee-bean"></g>
+      </g>
+      <g id="coffee-bean-filled"></g>
+      <g id="coffee-beans-filled">
+        <g id="coffee-bean2" serifId="coffee-bean"></g>
+      </g>
+      <g id="clipboard"></g>
+      <g id="clipboard-paste"></g>
+      <g id="clipboard-copy"></g>
+      <g id="Layer1"></g>
+    </g>
+  </symbol>
+</svg>

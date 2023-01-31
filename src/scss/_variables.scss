@@ -1,0 +1,118 @@
+
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 300;
+    src: local('Poppins'),
+      url(../assets/fonts/Poppins-Light.ttf) format('truetype');
+  }
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    src: local('Poppins'),
+      url(../assets/fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+  }
+@font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    src: local('Poppins'),
+      url(../assets/fonts/Poppins/Poppins-Regular.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 500;
+    src: local('Poppins'),
+      url(../assets/fonts/Poppins/Poppins-Medium.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 600;
+    src: local('Poppins'),
+      url(../assets/fonts/Poppins-SemiBold.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 700;
+    src: local('Poppins'),
+      url(../assets/fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+}
+
+$primary-clr-400: 	hsl(0, 91%, 36%);
+
+
+$neutral-clr-50: hsla(0, 0%, 100%, 1); 
+$neutral-clr-100: hsla(0, 0%, 98%, 1); // bg header
+$bg-header-clr: $neutral-clr-100;
+$neutral-clr-200: hsla(0, 0%, 93%, 1);
+$bg-body-clr: $neutral-clr-200;
+
+$neutral-clr-250:hsla(216, 34%, 96%, 1);
+$neutral-clr-300: 	hsl(0, 0%, 32%);
+$neutral-clr-800: hsl(0, 0%, 12%);
+$neutral-clr-900: hsl(0, 0%, 0%);
+
+$header-bg-clr: $neutral-clr-100;
+$header-text-clr: $neutral-clr-900;
+
+$text-body-clr: $neutral-clr-800;
+$text-accent-clr: $primary-clr-400;
+
+$ff-primary: 'Poppins', sans-serif;
+$ff-secondary: 'Poppins', sans-serif;
+
+
+$fw-light:300;
+$fw-regular:400;
+$fw-medium:500;
+$fw-semibold:600;
+$fw-bold:700;
+
+
+$fs-200: 0.75rem; // 12px
+$fs-300: 0.875rem; // 14px
+// $fs-500: 0.9375rem;
+$fs-400: 1rem; // 16px
+$fs-500: 1.125rem; //18px
+$fs-600: 1.25rem; // 20px
+$fs-650: 1.5rem; // 24px
+$fs-670: 1.875rem; // 30px
+$fs-675: 2rem; // 32px
+$fs-700: 2.125rem; // 34px
+$fs-750: 2.25rem; // 36px
+$fs-800: 3rem; // 48px
+$fs-900: 3.375rem; // 54px
+$fs-950: 4rem; // 64px
+
+$fs-nav-links:$fs-300; 
+$fs-button: $fs-400;
+
+$size-100: .25em;
+$size-200: .5em;
+$size-300: .75em;
+$size-400: 1em;
+$size-500: 1.25em;
+
+$size-600: 2.5em; // first padding box
+
+$size-800: 3.875em; // from featuredProducts to images
+$size-900: 7.6875em; // from hero to featuredProducts title
+$size-950: 9.375em; // featuredProducts images to next section
+
+@media (max-width:50em) {
+  $fs-300: 0.875rem; // 14px
+// $fs-500: 0.9375rem;
+$fs-400: 1rem; // 16px
+$fs-500: 1.125rem; //18px
+$fs-600: 1.25rem; // 20px
+$fs-650: 1.5rem; // 24px
+
+$fs-675: 1.125rem; // 18px
+
+$fs-700: 2.125; // 34px
+$fs-750: 2.25rem; // 36px
+$fs-800: 3rem; // 48px
+$fs-900: 3.375rem; // 54px
+$fs-950: 4rem; // 64px
+
+$fs-nav-links:$fs-300; 
+$fs-button: $fs-400;  
+}
