@@ -119,7 +119,6 @@
 </template>
 
 <script setup lang="ts">
-import Carousel from '../components/Carousel.vue';
 import CardCarrousel from '../components/CardCarrousel.vue';
 
 import { Icon } from '@iconify/vue';

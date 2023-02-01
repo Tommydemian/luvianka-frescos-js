@@ -59,7 +59,7 @@
                   <p>(011) 4205-3327</p>
                 </div>
 
-                <a class="footer-wtb__email" href="#">info@fiambresluvianka.com.ar</a>
+                <a class="footer-wtb__email" href="mailto:info@fiambresluvianka.com.ar">info@fiambresluvianka.com.ar</a>
             </div>
     
           </div>

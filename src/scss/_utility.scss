@@ -148,6 +148,16 @@
     width: min($max-width,100% - ($container-padding * 2));
     margin-inline: auto;
   }
+  @media (max-width: 95em) {
+    .container {
+      padding-inline: 2em;
+    } 
+  }
+  @media (max-width: 50em) {
+    .container {
+      padding-inline: 0;
+    } 
+  }
 
   .button {
     display: inline-flex;
