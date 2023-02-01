@@ -14,74 +14,44 @@
   <h2 class="capitalize">Productos destacados</h2>
   <div class="feature-produts__cards">
     <div class="flow">
-    <img src="../assets/images/featured-products/productodestacado1.jpg" alt="producto-destacado-1">
+    <img src="../assets/images/featured-products/featuredproductstesting1.jpg" alt="producto-destacado-1">
       <div class="card-text">
         <h3 class="capitalize | cards-title">solomillo de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
         <div class="stars">
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
       </div>
       </div>
     </div>
     <div class="flow">
-      <img src="../assets/images/featured-products/productodestacado2.jpg" alt="producto-destacado-2">
+      <img src="../assets/images/featured-products/featuredproductstesting2.jpg" alt="producto-destacado-2">
       <div class="card-text">
         <h3 class="capitalize | cards-title">bondiola de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
         <div class="stars">
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
       </div>
       </div>
     </div>
     <div class="flow">
-      <img src="../assets/images/featured-products/productosdestacados3.jpg" alt="producto-destacado-3">
+      <img src="../assets/images/featured-products/productosdestacadostesting4.jpg" alt="producto-destacado-3">
       <div class="card-text">
         <h3 class="capitalize | cards-title">churrasquitos de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
         <div class="stars">
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
-          <svg class="icon">
-          <use xlink:href="../assets/svgs/star.svg#star"></use>
-        </svg>
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
+          <Icon class="star-icon" icon="material-symbols:star" color="black" />
       </div>
       </div>
     </div>
@@ -91,8 +61,8 @@
 <!-- ttbuild Section -->
 
 <section class="ttbuild | container default-margin-block">
- <div class="ttbuild-grid">
-  <div class="ttbuild-text">
+ <div style="--flow-spacer:.3em" class="ttbuild-grid flow">
+  <div class="ttbuild-text ">
     <h3 class="ttbuild-grid__h3">fuel your today</h3>
     <h2 class="ttbuild-grid__h2">Togueter to build better products</h2>
     <p class="ttbuild-grid__p">
@@ -123,20 +93,24 @@
   <h2>Why Luvianka</h2>
   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum</p>
 </div>
-<div class="why-us-grid">
-<div>
+<div class="why-us-grid flow">
+<div class="text-center">
+    <Icon class="why-us__icon" icon="mdi:medal-outline" color="white" />
+
   <h3>Calidad</h3>
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
   </p>
 </div>
-<div>
+<div class="text-center flow">
+  <Icon class="why-us__icon" icon="uil:technology" color="white" />
   <h3>Tecnologia</h3>
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
   </p>
 </div>
-<div>
+<div class="text-center flow">
+  <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
   <h3>Innovacion</h3>
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
@@ -160,6 +134,8 @@
 import Carousel from '../components/Carousel.vue';
 import CardCarrousel from '../components/CardCarrousel.vue';
 
+import { Icon } from '@iconify/vue';
+
 import {ref, computed, onMounted} from 'vue'
 
 const screenWidth = ref(window.innerWidth);
@@ -177,6 +153,10 @@ onMounted(() => {
 <style lang="scss" scoped>
 @import '../scss/variables'; 
 @import '../scss/utility'; 
+
+.flow * + * {
+  margin-top: var(--flow-spacer, .5em);
+}
 
 .hero {
   background-color: $bg-body-clr;
@@ -319,13 +299,14 @@ onMounted(() => {
     font-size: $fs-400; 
     max-width: 50ch;  
   }
-  .stars {
-    display: flex;
-  }
-  .stars svg {
-    width: 2em;
-    aspect-ratio: 1;
-  }
+}
+.stars {
+  display: flex;
+  align-items: center;
+.star-icon {
+  width: 2em;
+  height: 2em;
+}
 }
 
 /*
@@ -472,8 +453,19 @@ onMounted(() => {
     }  
   }
 
+  .why-us__icon {
+    width: 5em;
+    height: 5em;
+    padding: 1em;
+    text-align: center;
+    display: block;
+    margin-inline: auto;
+    background-color: $primary-clr-400;
+    border-radius: 100vw;
+    }
+  
   & .why-us-grid h3 {
-    font-size: $fs-650;
+    font-size: 1.23rem;
     font-weight: $fw-semibold;
   }
   @media (max-width:50em) {

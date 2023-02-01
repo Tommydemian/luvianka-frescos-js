@@ -15,6 +15,7 @@
     "vue-carousel-3d": "^1.0.1"
   },
   "devDependencies": {
+    "@iconify/vue": "^4.1.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "sass": "^1.57.1",
     "vite": "^4.0.0",

@@ -1,9 +1,16 @@
 <template>
-    <footer class="primary-footer | bg-neutral-900 text-neutral-100 padding-block-700 flow">
+    <footer class="primary-footer |flow">
         <div class="container">
-          <div style="gap: 2em;" class="primary-footer-wrapper | even-columns">
-            <div>
-              <h3 class="fs-terciary-heading uppercase social-header">social media</h3>
+          <div class="primary-footer-wrapper | footer-grid">
+            <div class="footer-logos | flow">
+              <div class="footer-logos__imgs">
+                <img src="../../src/assets/images/logo/luvianka.png" alt="Luvinaka logo">
+                <img src="../../src/assets/images/logo/logo_red-deer.png" alt="Red-deer logo">
+              </div>
+              <p>
+                Luvianka is an Argentine company dedicated to the production of salted meats and cured meats, located in the province of Buenos Aires.
+              </p>
+              <!-- <h3 class="fs-terciary-heading uppercase social-header">social media</h3>
     
               <ul class="social-list" role="none" aria-label="social media links">
                 <li><a aria-label="facebook" href="#">
@@ -27,35 +34,37 @@
                       <use xlink:href="../assets/svgs/socialsites.svg#icon-youtube"></use>
                     </svg>
                   </a></li>
-              </ul>
+              </ul> -->
             </div>
             <div>
               <nav class="footer-nav">
-                <ul class="flow uppercase fw-bold footer-nav-list" aria-label="Footer" role="list">
-                  <li><a href="#"></a>Productos</li>
-                  <li><a href="#"></a>Recetas</li>
-                  <li><a href="#"></a>Catálogo</li>
-                  <li><a href="#"></a>Nosotros</li>
-                  <li><a href="#"></a>Donde Comprar</li>
+                <ul role="list" class="flow footer-nav-list" aria-label="Footer">
+                  <li><router-link class="footer-link" :to="{name:'products'}">Productos</router-link></li>
+                  <li><router-link class="footer-link" :to="{name:'recipes'}">Recetas</router-link></li>
+                  <li><router-link class="footer-link" to="#">Catálogo</router-link></li>
+                  <li><router-link class="footer-link" :to="{name:'who-we-are'}">Nosotros</router-link></li>
+                  <li><router-link class="footer-link" :to="{name:'where-to-buy'}">Donde Comprar</router-link></li>
                 </ul>
               </nav>
             </div>
-            <div>
-              Sobre Nosotros:<br> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum aliquam vitae iusto
-              assumenda, cupiditate similique nostrum porro nemo quam deleniti non, ex, harum veritatis! Dolorem vitae sed
-              esse molestiae quo.
+            <div class="footer-wtb">
+              <div class="footer-wtb__heading">
+                <p>Lafuente 740 - (1870) Avellaneda</p>
+                <p>Buenos Aires, ARGENTINA</p>
+              </div>
+                
+                <div class="footer-wtb__content">
+                  <p>(011) 4204-5808</p>
+                  <p>(011) 4265-1729</p>
+                  <p>(011) 4205-3327</p>
+                </div>
+
+                <a class="footer-wtb__email" href="#">info@fiambresluvianka.com.ar</a>
             </div>
     
           </div>
         </div>
       </footer>
-      <!-- <section class="sub-footer bg-neutral-300 text-neutral-900 padding-block-700">
-        <img class="footer-logo" src="assets/images/luvianka.png" alt="luvianka-logo">
-        <img class="footer-logo" src="assets/images/logo_red-deer.png" alt="red-deer-logo">
-        <p>© Luvianka 2023
-          Todos los derechos reservados.</p>
-      </section> -->
-    
 </template>
 
 <script setup lang="ts">
@@ -64,66 +73,90 @@
 
 <style lang="scss" scoped>
 @import '../scss/variables';
-  .primary-footer {
-    background-image: linear-gradient(to bottom, rgba(31, 30, 30, 0.8), $neutral-clr-900);
-    /* text-align: center; */
-  }
-  .primary-footer > .container .even-columns > *{
-    margin-inline: auto;
-  }
-  
-  /* social list */
-  
-  .social-header {
-    border-bottom: 1px solid $neutral-clr-100;
-    width: max-content;
-  }
-  
-  
-  .social-list {
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    margin-top: 1em;
-    //gap: $size-400;
 
-   li a {
-      text-decoration: none;
+.flow * + * {
+  margin-top: var(--flow-spacer, .5em);
+}
+  .primary-footer {
+    background: $neutral-clr-100;
+    color: $neutral-clr-300;
+    /* text-align: center; */
+  & > .container {
+    padding-top: $size-500;
+    padding-bottom: $size-900;
+  }
+  @media (max-width: 50em){
+    & > .container {
+      padding-top: $size-500;
+      padding-bottom: $size-400;
+    } 
+  }
+  & > .container .footer-grid > *{
+    margin-inline: auto;
   }
 }
   
-  .social-icon {
-   //width: $size-600;
-   fill: $neutral-clr-100;
-   aspect-ratio: 1;
+.footer-grid {
+    display: grid;
+    gap: 1rem;
+
+  @media (min-width: 50em) {
+    & {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
   }
-  
-  .social-list a:is(:hover, :focus-within) .social-icon {
-    fill: $primary-clr-400;
+}
+
+.footer-logos__imgs {
+  display: flex;
+  column-gap: 1em;
+
+  img {
+    height: 4em;
   }
-  
-  @media (max-width: 50em){
-  .social-icon {
-   //width: $size-600;
-   margin: auto;
+  p {
+    font-size: $fs-300;
   }
+  @media (max-width: 50em) {
+    p {
+      font-size: $fs-200;
+    } 
   }
-  
-  .sub-footer {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+}
+.footer-nav {
+  @media (max-width: 50em) {
+    padding-block: 1em;
+    text-align: left;
   }
-  
-  .footer-logo {
-    height: 10em;
+.footer-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: $fw-semibold;
+  font-size: $fs-500;
+  color: $neutral-clr-800;
+
+  @media (max-width: 50em) {
+    & {
+      font-size: $fs-300;
+    }
   }
-  
-  .footer-nav ul {
-    list-style: none !important;
+}
+}
+
+.footer-wtb {
+  div {
+    padding-block: .5em;
   }
-  
-  .footer-nav-list li {
-    cursor: pointer;
+  a {
+    text-decoration: none;
+    color: $primary-clr-400;
   }
+  @media (max-width: 50em) {
+    & {
+      font-size: $fs-300 ;
+    }
+  }
+}
+
 </style>
