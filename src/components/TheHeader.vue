@@ -40,13 +40,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
 </script>
 
 <style lang="scss" scoped>
 /* Dropdown menu */
 @import '../scss/variables';
-
 .primary-header {
   background-color: $bg-header-clr;
   margin-bottom: $size-600;
@@ -67,8 +65,6 @@ import { ref } from 'vue';
     }
   }
 }
-
-
 .primary-navigation {
   font-size: $fs-nav-links;
   color: $neutral-clr-900;
@@ -79,9 +75,6 @@ import { ref } from 'vue';
     column-gap: 6.3125em;
   }
 }
-
-
-
   .nav-list button {
     button {
       display: inline-flex;
@@ -98,12 +91,10 @@ import { ref } from 'vue';
   
     }
   }
-
 .link {
   text-decoration: none;
   color: $neutral-clr-800;
   transition: color 200ms ease-in-out;
-
   &:hover {
     color: $primary-clr-400;
   }
@@ -165,5 +156,4 @@ import { ref } from 'vue';
       }
   }
 }
-
 </style>

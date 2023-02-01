@@ -302,4 +302,13 @@
   .footer-icon {
     width: 3em;
   }
+
+  .default-margin-block {
+    margin-block: 7.5em;
+  }
+@media (max-width:50em) {
+  .default-margin-block {
+    margin-block: 5em;
+  }
+}
   

@@ -10,7 +10,7 @@
   </div>
 </section>
 
-<section class="featured-products | container padding-block-500">
+<section class="featured-products | container default-margin-block">
   <h2 class="capitalize">Productos destacados</h2>
   <div class="feature-produts__cards">
     <div class="flow">
@@ -90,7 +90,7 @@
 
 <!-- ttbuild Section -->
 
-<section class="ttbuild | container padding-block-500">
+<section class="ttbuild | container default-margin-block">
  <div class="ttbuild-grid">
   <div class="ttbuild-text">
     <h3 class="ttbuild-grid__h3">fuel your today</h3>
@@ -108,7 +108,7 @@
 
 <!-- hero2 section -->
 
-<section class="hero2" style="margin-block: 5em;">
+<section class="hero2 | default-margin-block">
   <div class="container | hero2-content">
   <h2 class="uppercase">NOT ADDED TRANS FAT, MSG, ARTIFICIAL FLAVORS, OR COLORS</h2>
   <p>Find out how deli should be done. Discover the world of wonderful porkmeat  from fiambres luvianka</p>
@@ -118,7 +118,7 @@
 
 <!-- why-us Section -->
 
-<section class="why-us | container" style="margin-block: 5em;">
+<section class="why-us | container default-margin-block">
 <div class="why-us-heading">
   <h2>Why Luvianka</h2>
   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum</p>
@@ -181,9 +181,9 @@ onMounted(() => {
 .hero {
   background-color: $bg-body-clr;
   background: url(../assets/images/hero/hero.jpg);
-  padding-block: 18.09375em;
   background-position: center 50%;
   background-repeat: no-repeat;
+  padding-block: 20em;
   background-size: cover;
   border-radius: $size-600;
   width: 100%;
