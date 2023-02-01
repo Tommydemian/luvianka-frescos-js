@@ -13,47 +13,35 @@
 <section class="featured-products | container default-margin-block">
   <h2 class="capitalize">Productos destacados</h2>
   <div class="feature-produts__cards">
-    <div class="flow">
+    <div class="fp-card | flow">
     <img src="../assets/images/featured-products/featuredproductstesting1.jpg" alt="producto-destacado-1">
       <div class="card-text">
         <h3 class="capitalize | cards-title">solomillo de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
-        <div class="stars">
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
       </div>
-      </div>
+      <div class="fp-card__gold-medal">
+        <Icon class="gold-medal" icon="ri:medal-fill" color="#fcc201" />
     </div>
-    <div class="flow">
+    </div>
+    <div class="fp-card | flow">
       <img src="../assets/images/featured-products/featuredproductstesting2.jpg" alt="producto-destacado-2">
       <div class="card-text">
         <h3 class="capitalize | cards-title">bondiola de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
-        <div class="stars">
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
       </div>
-      </div>
+      <div class="fp-card__gold-medal">
+        <Icon class="gold-medal" icon="ri:medal-fill" color="#fcc201" />
     </div>
-    <div class="flow">
+    </div>
+    <div class="fp-card | flow">
       <img src="../assets/images/featured-products/productosdestacadostesting4.jpg" alt="producto-destacado-3">
       <div class="card-text">
         <h3 class="capitalize | cards-title">churrasquitos de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
-        <div class="stars">
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
-          <Icon class="star-icon" icon="material-symbols:star" color="black" />
       </div>
-      </div>
+      <div class="fp-card__gold-medal">
+        <Icon class="gold-medal" icon="ri:medal-fill" color="#fcc201" />
+    </div>
     </div>
   </div>
 </section>
@@ -272,6 +260,22 @@ onMounted(() => {
     grid-template-rows: auto;
     gap: $size-500;
 
+    & .fp-card {
+      position: relative;
+    }
+
+    & .fp-card__gold-medal {
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+    }
+
+    & .gold-medal {
+      width: 5em;
+      height: 5em;
+    }
+
+
   @media (max-width: 50em) {
     & {
       display: block;
@@ -294,7 +298,8 @@ onMounted(() => {
   }
 
   & .card-text {
-    padding-inline: $size-500
+    padding-inline: $size-500;
+    position: relative;
   }
 
   & > div > .card-text > h3 {
