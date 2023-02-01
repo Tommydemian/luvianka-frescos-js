@@ -104,14 +104,14 @@
 </div>
 <div class="text-center flow">
   <Icon class="why-us__icon" icon="uil:technology" color="white" />
-  <h3>Tecnologia</h3>
+  <h3>Tecnología</h3>
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
   </p>
 </div>
 <div class="text-center flow">
   <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
-  <h3>Innovacion</h3>
+  <h3>Innovación</h3>
   <p>
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
   </p>
@@ -256,6 +256,13 @@ onMounted(() => {
     font-size: $fs-700;
     font-weight:$fw-semibold;
     text-align: center;
+    padding-bottom: $size-400;
+  }
+  @media (max-width: 50em) {
+    h2{
+      font-size: $fs-600;
+      padding-bottom: 0;
+    }
   }
 }
 
@@ -333,14 +340,29 @@ onMounted(() => {
     font-weight: $fw-medium;
     text-transform: uppercase;
   }
+  @media (max-width:50em) {
+    & .ttbuild-text h3 {
+      font-size: $fs-650 ;
+    } 
+  }
   & .ttbuild-text h2 {
     font-size: $fs-800;
     font-weight: $fw-bold;
     line-height: 1.3;
   }
+  @media (max-width:50em) {
+    & .ttbuild-text h2 {
+      font-size: 26px;
+    } 
+  }
   & .ttbuild-text p {
   font-size: $fs-500;
   margin-bottom: $size-400;
+  }
+  @media (max-width:50em) {
+    & .ttbuild-text p {
+      font-size: $fs-500;
+    } 
   }
 
   & .ttbuild-image {

@@ -98,12 +98,13 @@
   
 .footer-grid {
     display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
     gap: 1rem;
 
-  @media (min-width: 50em) {
+  @media (max-width: 50em) {
     & {
-      grid-auto-flow: column;
-      grid-auto-columns: 1fr;
+      display: block;
     }
   }
 }
