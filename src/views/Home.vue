@@ -419,6 +419,11 @@ onMounted(() => {
     text-align: center;
     margin-bottom: 4em;
   }
+  @media (max-width: 50em) {
+    & .why-us-heading {
+      margin-bottom: 1em;
+    } 
+  }
   & .why-us-heading h2 {
     font-size: $fs-750;
     font-weight: $fw-semibold;
@@ -450,7 +455,12 @@ onMounted(() => {
     }  
     & .why-us-grid div  {
       padding-block: 2em;
-    }  
+    } 
+    @media (max-width:50em) {
+      & .why-us-grid div  {
+        padding-block: 1em;
+      } 
+    } 
   }
 
   .why-us__icon {
