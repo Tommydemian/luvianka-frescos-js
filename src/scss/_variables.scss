@@ -46,7 +46,8 @@ $neutral-clr-200: hsla(0, 0%, 93%, 1);
 $bg-body-clr: $neutral-clr-200;
 
 $neutral-clr-250:hsla(216, 34%, 96%, 1);
-$neutral-clr-300: 	hsl(0, 0%, 32%);
+$neutral-clr-275: hsl(0, 0%, 52%);
+$neutral-clr-300: hsl(0, 0%, 32%);
 $neutral-clr-800: hsl(0, 0%, 12%);
 $neutral-clr-900: hsl(0, 0%, 0%);
 
@@ -66,6 +67,7 @@ $fw-medium:500;
 $fw-semibold:600;
 $fw-bold:700;
 
+$def-br: 1.25em;
 
 $fs-200: 0.75rem; // 12px
 $fs-300: 0.875rem; // 14px

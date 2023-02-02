@@ -47,9 +47,7 @@ import { ref } from 'vue';
 @import '../scss/variables';
 .primary-header {
   background-color: $bg-header-clr;
-  margin-bottom: $size-600;
   padding-block: .5em;
-  margin-bottom: $size-600;
   .nav-wrapper {
     display: flex;
     justify-content: space-between;
@@ -58,11 +56,6 @@ import { ref } from 'vue';
     .logo {
       width: 9.75em;
       height: auto;
-  }
-  & {
-    @media (max-width: 50em) {
-      margin-bottom: 0.8125em;
-    }
   }
 }
 .primary-navigation {

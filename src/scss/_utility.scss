@@ -150,7 +150,24 @@
   }
   @media (max-width: 95em) {
     .container {
-      padding-inline: 2em;
+      padding-inline: (--padding-inline, 2em);
+    } 
+  }
+  @media (max-width: 50em) {
+    .container {
+      padding-inline: 0;
+    } 
+  }
+  .container-alternate {
+    $max-width: 1240px;
+    $container-padding: .5em; //101px
+  
+    width: min($max-width,100% - ($container-padding * 2));
+    margin-inline: auto;
+  }
+  @media (max-width: 95em) {
+    .container {
+      padding-inline: 0.5em;
     } 
   }
   @media (max-width: 50em) {
