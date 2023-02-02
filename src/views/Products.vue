@@ -7,7 +7,7 @@
         </div>
         </div>
 
-        <div style="margin-block:2em" class="product-card-grid | container-alternate default-margin-block">
+        <div style="margin-block:2em" class="product-card-grid | snaps-inline container-alternate default-margin-block">
             <div class="product-card | flow" v-for="product in products" :key="product.id">
                 <img height="300" width="400" :src="product.image" :alt="product.title">
                 <div class="product-card__text">
@@ -55,16 +55,16 @@ import { ref } from 'vue'
         image: new URL('../assets/images/productsPage/productGallery/product3.jpg', import.meta.url).href
         
     },
-    // {
-    //     id: 4,
-    //     title: 'Vacio ',
-    //     subtitle: 'corte del lomo',
-    //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-    //     weight: '8kg Aprox',
-    //     price: '$10.50',
-    //     image: new URL('../assets/images/productsPage/productGallery/product1.jpg', import.meta.url).href
+    {
+        id: 4,
+        title: 'Vacio ',
+        subtitle: 'corte del lomo',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+        weight: '8kg Aprox',
+        price: '$10.50',
+        image: new URL('../assets/images/productsPage/productGallery/product4.jpg', import.meta.url).href
         
-    // },
+    },
     ]);
 </script>
 
@@ -126,7 +126,7 @@ import { ref } from 'vue'
         grid-auto-flow: column;
         grid-auto-columns: 71%;
         overflow-x: scroll;
-        overscroll-behavior-inline: contain;
+        overscroll-behavior-inline: contain; // containing the scrolling behaviour if it reaches the end
     }
   }
 }
@@ -151,6 +151,7 @@ import { ref } from 'vue'
 
     img {
         border-radius: $def-br; //20px
+        aspect-ratio: 16/9;
     }
     h2 {
         color: $primary-clr-400;
@@ -190,6 +191,29 @@ import { ref } from 'vue'
         }
       }
     } 
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: .25em;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
+}
+
+::-webkit-scrollbar {
+  height: .75em;
+}
+::-webkit-scrollbar-track {
+  background: $neutral-clr-275;
+  margin-inline: .5em;
+  border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb {
+  background: $neutral-clr-250;
+  border-radius: 100vw;
+  border: .25em solid $neutral-clr-275 ;
 }
 
 </style>

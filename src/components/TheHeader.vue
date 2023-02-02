@@ -2,9 +2,9 @@
     <header class="primary-header">
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#">
+          <router-link to="/">
             <img class="logo" src="../assets/images/logo/luvianka.png" alt="Logo">
-          </a>
+          </router-link>
   
           <!-- hamburguer icon svg -->
           <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
