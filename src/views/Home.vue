@@ -24,7 +24,7 @@
     </div>
     </div>
     <div class="fp-card | flow">
-      <img src="../assets/images/featured-products/featuredproductstesting2.jpg" alt="producto-destacado-2">
+      <img src="../assets/images/featured-products/newdestacado.jpg" alt="producto-destacado-2">
       <div class="card-text">
         <h3 class="capitalize | cards-title">bondiola de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
@@ -34,7 +34,7 @@
     </div>
     </div>
     <div class="fp-card | flow">
-      <img src="../assets/images/featured-products/productosdestacadostesting4.jpg" alt="producto-destacado-3">
+      <img src="../assets/images/featured-products/destacado.jpg" alt="producto-destacado-3">
       <div class="card-text">
         <h3 class="capitalize | cards-title">churrasquitos de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
@@ -154,6 +154,7 @@ onMounted(() => {
   background-size: cover;
   border-radius: $size-600;
   width: 100%;
+  margin-top: 5em;
   &::after{
       box-shadow: inset 0px 50px 50px 30px #000000;
       content: '';
@@ -166,7 +167,7 @@ onMounted(() => {
   @media (max-width: 50em) {
     & {
      padding-block: calc( 10em); // - content height 
-     
+     margin-top: 2em;
     }
   }
 }
@@ -175,9 +176,6 @@ onMounted(() => {
     text-align: center;
     color: $neutral-clr-100;
     max-width: 70ch;
-    top: 50%;  
-    left: 50%; 
-    z-index: 3;
     transform: translate(-50%, -50%);    
     & h3 {
       font-size: $fs-675;

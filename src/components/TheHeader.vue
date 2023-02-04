@@ -13,8 +13,8 @@
             <!-- <Icon @click="displayMenu" v-if="!mobileMenuClosed" class="mobilemenu-icon" icon="ep:close-bold" color="black" /> -->
             <span class="visually-hidden">Menu</span>
           </button>
-          <nav class="primary-navigation" id="primary-navigation" :class="{'opened': mobileMenuClosed}">
-            <ul aria-label="Primary" role="list" class="nav-list" :class="{'listopened': mobileMenuClosed}">
+          <nav class="primary-navigation" id="primary-navigation" :class="{'opened': mobileMenuOpen}">
+            <ul aria-label="Primary" role="list" class="nav-list" :class="{'listopened': mobileMenuOpen}">
               <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'products'}">Productos</router-link></li>
               <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'recipes'}">Recetas</router-link></li>
               <li class="margin-block-auto"><router-link @click="displayMenu" class="link" to="#">Catálogo</router-link></li>
@@ -33,11 +33,10 @@
 import { Icon } from '@iconify/vue';
 import { ref} from 'vue'
 
-const mobileMenuClosed = ref(true);
-
+const mobileMenuOpen = ref(false);
 
 const displayMenu = () => {
-  mobileMenuClosed.value = !mobileMenuClosed.value;  
+  mobileMenuOpen.value = !mobileMenuOpen.value;  
 }
 
 </script>
@@ -156,29 +155,33 @@ const displayMenu = () => {
   }
 }
 
-.opened {
-  display: block;
-  position: absolute;
-  inset: 7rem $size-400 auto;
-  border-radius: $def-br;
-  padding: 1em;
-  z-index: 999;
-
-  .listopened {
-    background-color: $neutral-clr-100;
-    display: grid;
-    gap: 1em;
-
-    li {
-      font-weight: $fw-bold;
+@media (max-width: 50em) {
+  .opened {
+    display: block;
+    position: absolute;
+    inset: 7rem $size-400 auto;
+    border-radius: $def-br;
+    padding: 1em;
+    z-index: 999;
+  
+    .listopened {
+      background-color: $neutral-clr-100;
+      display: grid;
+      gap: 1em;
+  
+      li {
+        font-weight: $fw-bold;
+      }
     }
   }
+  
+  .display-block {
+    display: block;
+  }
+  .display-none {
+    display: none;
+  }  
 }
 
-.display-block {
-  display: block;
-}
-.display-none {
-  display: none;
-}
+
 </style>
