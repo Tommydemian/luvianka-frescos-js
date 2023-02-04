@@ -7,8 +7,83 @@
         </div>
         </div>
 
-        <div style="margin-block:2em" class="product-card-grid | snaps-inline container-alternate default-margin-block">
-            <div class="product-card | flow" v-for="product in products" :key="product.id">
+        <!-- DropDown Filter -->
+
+        <div class="dropdown-section | container alternative-margin-block">
+            <div class="dropdown relative">
+                <p class="lookfor">Buscar productos...</p>    
+                <Icon v-if="!isOpen" @click="displayProducts" class="dropdown-icon" icon="material-symbols:keyboard-arrow-down-rounded" color="#777" />
+                <Icon class="dropdown-icon" v-if="isOpen" 
+                @click="displayProducts"
+                icon="material-symbols:keyboard-arrow-up-rounded" color="#777" />
+            </div>
+            
+            <div v-if="isOpen" class="dropdown-content | absolute">    
+              <ul class="flow">
+                  <li v-if="selected !== 'All'" @click="resetFilter">Todos</li>
+                  <li v-for="product in products" :key="product.id" :class="{'selectedprod': selected == product.title}" @click="selectProduct(product.title)">
+                    {{ product.title }}
+                  </li>
+                </ul>
+              
+            
+                <!-- <div>
+                    <h3>Especiales</h3>
+                    <ul class="flow">
+                        <li>Pechito de cerdo</li>
+                        <li>Bondiola de cerdo</li>
+                        <li>Costillita de cerdo</li>
+                        <li>Solomillo de cerdo</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Destacados</h3>
+                    <ul class="flow">
+                        <li>Matambrito de cerdo</li>
+                        <li>Milanesas de cerdo</li>
+                        <li>Carre Deshuesado</li>
+                        <li>Cuadril de cerdo</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Elite</h3>
+                    <ul class="flow">
+                        <li>Ribs de cerdo</li>
+                        <li>Chuleta de paleta de cerdo</li> 
+                        <li>Chuleta de pernil</li>
+                        <li>Churrasquito de cerdo</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Ganadores</h3>
+                    <ul class="flow">
+                        <li>Cortes de cerdo para milanesa</li>
+                        <li>Centro de pechito</li> 
+                        <li>Vacio</li>
+                    </ul>
+                </div> -->
+            </div>
+            <div class="sortby | relative">
+              <div class="sortby-mobile-content">
+                <Icon v-if="isMobile" class="arrowdown-icon" icon="ph:arrow-fat-lines-down-bold" color="#ae0908" />
+              </div>
+                <div v-if="!isMobile" class="sortby-desktop-content">
+                  <p>Filtrar por: <span>Mas vendido</span></p>
+                  <Icon @click="displayFilter" class="sortby-icon" icon="material-symbols:keyboard-arrow-down-rounded" color="#ae0908" />
+                </div>
+            </div>
+            <div class="filters | absolute" v-if="filterOpen"><ul>
+                <li>Mas relevante</li>
+                <li>Mas caro</li>
+                <li>Mas barato</li>
+            </ul>
+        </div>
+        </div>
+
+        <!-- filteredProducts cards -->
+
+        <div class="product-card-grid | snaps-inline container-alternate alternative-margin-block" :class="{'filtered-products': filtered}">
+            <div class="product-card | flow" v-for="product in filteredProducts" :key="product.id">
                 <img height="300" width="400" :src="product.image" :alt="product.title">
                 <div class="product-card__text">
                     <h2 class="uppercase">{{product.title}}</h2>
@@ -23,49 +98,86 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-    const products = ref([
-    {
-        id: 1,
-        title: 'Solomillo de cerdo',
-        subtitle: 'corte del costado',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-        weight: '5kg Aprox',
-        price: '$10.50',
-        image: new URL('../assets/images/productsPage/productGallery/product1new.jpg', import.meta.url).href
-        
+import { ref, computed, onMounted } from 'vue'
+import { Icon } from '@iconify/vue';
+  const products = ref([
+  {
+    id: 1,
+    title: 'Solomillo de cerdo',
+    subtitle: 'corte del costado',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    weight: '5kg Aprox',
+    price: '$10.50',
+    image: new URL('../assets/images/productsPage/productGallery/product1new.jpg', import.meta.url).href
+  },
+  {
+    id: 2,
+    title: 'Bondiola de cerdo',
+    subtitle: 'corte del costado',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    weight: '5kg Aprox',
+    price: '$10.50',
+    image: new URL('../assets/images/productsPage/productGallery/product2.jpg', import.meta.url).href
+    
+  },
+  {
+    id: 3,
+    title: 'Churrasquito de cerdo',
+    subtitle: 'corte del costado',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    weight: '5kg Aprox',
+    price: '$10.50',
+    image: new URL('../assets/images/productsPage/productGallery/product3.jpg', import.meta.url).href
     },
     {
-        id: 2,
-        title: 'Bondiola de cerdo',
-        subtitle: 'corte del costado',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-        weight: '5kg Aprox',
-        price: '$10.50',
-        image: new URL('../assets/images/productsPage/productGallery/product2.jpg', import.meta.url).href
-        
-    },
-    {
-        id: 3,
-        title: 'Churrasquito de cerdo',
-        subtitle: 'corte del costado',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-        weight: '5kg Aprox',
-        price: '$10.50',
-        image: new URL('../assets/images/productsPage/productGallery/product3.jpg', import.meta.url).href
-        
-    },
-    {
-        id: 4,
-        title: 'Vacio ',
-        subtitle: 'corte del lomo',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-        weight: '8kg Aprox',
-        price: '$10.50',
-        image: new URL('../assets/images/productsPage/productGallery/product4.jpg', import.meta.url).href
-        
+    id: 4,
+    title: 'Vacio ',
+    subtitle: 'corte del lomo',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    weight: '8kg Aprox',
+    price: '$10.50',
+    image: new URL('../assets/images/productsPage/productGallery/product4.jpg', import.meta.url).href
     },
     ]);
+    const isOpen = ref(false);
+    const filterOpen = ref(false);
+
+    const displayProducts = () => {
+      isOpen.value = !isOpen.value;
+    };
+    const displayFilter = () => {
+        filterOpen.value = !filterOpen.value;
+    }
+
+    const selected = ref('All');
+
+    const selectProduct = productTitle => {
+      selected.value = productTitle;
+      isOpen.value = false;
+    };
+
+    const filteredProducts = computed(() => {
+      return selected.value === 'All'
+        ? products.value
+        : products.value.filter(product => product.title === selected.value);
+    });
+
+    const filtered = computed(() => selected.value !== 'All'); // # a "All".
+
+    const resetFilter = () => {
+      selected.value = "All";
+    }
+
+// Desktop & mobile # renders.
+const screenWidth = ref(window.innerWidth);
+const isMobile = computed(() => screenWidth.value < 800);
+
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    screenWidth.value = window.innerWidth;
+  });
+})
+
 </script>
 
 <style lang="scss" scoped>
@@ -113,6 +225,118 @@ import { ref } from 'vue'
   }
 }
 }
+
+/*Dropdown 
+/* Dropdown 
+*/  
+.dropdown-section {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border: 2px solid lime;  
+   .dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color:$neutral-clr-290;
+        border-radius: 100vw;
+        border: 1px solid $neutral-clr-260;
+        flex-basis: 75%;
+        padding-inline: 1em;
+        padding-block: .5em;
+        flex-shrink:2;
+        margin-right: 1em;
+        
+     p {
+        font-size: $fs-400;
+    }
+    .dropdown-icon {
+            width: 1.5em;
+            height: 1.5em;
+            cursor: pointer;
+    }  
+  }
+
+.dropdown-content{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-columns: 20%;
+    column-gap: 1em;
+    padding: 1em;
+    top: calc(100%);
+    background-color: $neutral-clr-200;
+    border-radius: 1.875em;
+    border: 1px solid #ABABAB;
+    box-shadow: 0px 16px 16px 5px rgba(0, 0, 0, 0.3);
+
+    @media (max-width:50em) {
+      grid-template-columns: 1fr;
+    }
+
+    h3 {
+        color: $primary-clr-400;
+        font-size: $fs-500;
+        font-weight: $fw-semibold;
+        text-transform: uppercase;
+        padding-bottom: .5em;
+    }
+    ul {
+        list-style: none;
+    }
+    ul li {
+      text-transform: capitalize;
+      cursor: pointer;
+      @media (max-width: 50em) {
+        & {
+          font-size: $fs-400;
+        }
+      }
+
+
+    }
+    div {
+        max-width: 35ch;
+    }
+}
+
+.selectedprod {
+  color: $primary-clr-400;
+}
+  .sortby {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary-clr-400;
+    font-size: $fs-400;
+    border: 1px solid $primary-clr-400;
+    border-radius: 100vw;
+    padding: .5em;
+    flex-basis: 20em;
+    flex-grow: 2;
+    @media (max-width: 50em) {
+      flex-basis: auto;
+    }
+
+    span {
+      font-weight: $fw-semibold;
+    }
+    .sortby-icon {
+      width: 1em;
+      height: 1em ;
+      cursor: pointer;
+    }
+  }
+}
+
+.filters {
+  right: 5em;
+  bottom: 0;
+  ul {
+    list-style: none;
+  }
+}
+
+
 
 .product-card-grid {
   display: grid;
@@ -191,6 +415,12 @@ import { ref } from 'vue'
         }
       }
     } 
+}
+
+.filtered-products {
+  display: block;
+  margin-inline: auto;
+  padding-inline: $size-400;
 }
 
 .snaps-inline {

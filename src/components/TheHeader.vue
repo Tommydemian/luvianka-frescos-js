@@ -8,27 +8,18 @@
   
           <!-- hamburguer icon svg -->
           <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-            <svg class="icon-hamburguer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"
-              stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-  
+            <Icon @click="displayMenu" class="mobilemenu-icon" icon="mingcute:menu-fill" color="black" />
             <!-- close icon svg -->
-            <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-  
-  
+            <!-- <Icon @click="displayMenu" v-if="!mobileMenuClosed" class="mobilemenu-icon" icon="ep:close-bold" color="black" /> -->
             <span class="visually-hidden">Menu</span>
           </button>
-          <nav class="primary-navigation" id="primary-navigation">
-            <ul aria-label="Primary" role="list" class="nav-list">
-              <li class="margin-block-auto"><router-link class="link" :to="{name: 'products'}">Productos</router-link></li>
-              <li class="margin-block-auto"><router-link class="link" :to="{name: 'recipes'}">Recetas</router-link></li>
-              <li class="margin-block-auto"><router-link class="link" to="#">Catálogo</router-link></li>
-              <li class="margin-block-auto"><router-link class="link" :to="{name: 'who-we-are'}">Nosotros</router-link></li>
-              <li class="margin-block-auto"><router-link class="link" :to="{name:'where-to-buy'}">Donde Comprar</router-link></li>
+          <nav class="primary-navigation" id="primary-navigation" :class="{'opened': mobileMenuClosed}">
+            <ul aria-label="Primary" role="list" class="nav-list" :class="{'listopened': mobileMenuClosed}">
+              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'products'}">Productos</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'recipes'}">Recetas</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" to="#">Catálogo</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'who-we-are'}">Nosotros</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name:'where-to-buy'}">Donde Comprar</router-link></li>
             </ul>
             <!-- no se si empresa y nosotros es similar? -->
         </nav>
@@ -38,8 +29,17 @@
     </header>  
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
+<script setup>
+import { Icon } from '@iconify/vue';
+import { ref} from 'vue'
+
+const mobileMenuClosed = ref(true);
+
+
+const displayMenu = () => {
+  mobileMenuClosed.value = !mobileMenuClosed.value;  
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -115,6 +115,12 @@ import { ref } from 'vue';
       z-index: 998;
       background-image:linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8))
     }
+
+    .mobilemenu-icon {
+      width: 2.5em;
+      height: 2.5em;
+      color: $neutral-clr-800 !important;
+    }
   
     .nav-list {
       //padding: $size-700;
@@ -148,5 +154,31 @@ import { ref } from 'vue';
         display: none;
       }
   }
+}
+
+.opened {
+  display: block;
+  position: absolute;
+  inset: 7rem $size-400 auto;
+  border-radius: $def-br;
+  padding: 1em;
+  z-index: 999;
+
+  .listopened {
+    background-color: $neutral-clr-100;
+    display: grid;
+    gap: 1em;
+
+    li {
+      font-weight: $fw-bold;
+    }
+  }
+}
+
+.display-block {
+  display: block;
+}
+.display-none {
+  display: none;
 }
 </style>

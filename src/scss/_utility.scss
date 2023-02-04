@@ -334,6 +334,14 @@
     margin-block: 5em;
   }
 }
+  .alternative-margin-block {
+    margin-block: 3em;
+  }
+  @media (max-width:50em) {
+    .alternative-margin-block {
+    margin-block: 2em;
+  }
+}
   .default-padding-block {
     margin-block: 7.5em;
   }

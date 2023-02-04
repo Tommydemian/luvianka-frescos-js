@@ -1,7 +1,7 @@
 <template>
 <section class="container">
-  <div class="hero relative">
-    <div class="content absolute">
+  <div class="hero">
+    <div class="content">
       <h3>Elevate your everyday</h3>
       <h2>Fill <span>every moment</span> with flavor</h2>
       <p>top quality, a grade 100% health certified frozen pork prompt delivery & discount prices</p>
@@ -154,27 +154,22 @@ onMounted(() => {
   background-size: cover;
   border-radius: $size-600;
   width: 100%;
-
   &::after{
       box-shadow: inset 0px 50px 50px 30px #000000;
       content: '';
       display: block;
       height: 100%;
-      position: absolute;
       top: 0;
       width: 100%;
       border-radius: $size-600;
     }
-
-
   @media (max-width: 50em) {
     & {
-     padding-block: calc( 16.53125em); // - content height 
+     padding-block: calc( 10em); // - content height 
      
     }
   }
 }
-
   .content {
     margin-inline: auto;
     text-align: center;
@@ -183,9 +178,7 @@ onMounted(() => {
     top: 50%;  
     left: 50%; 
     z-index: 3;
-
-    transform: translate(-50%, -50%);
-    
+    transform: translate(-50%, -50%);    
     & h3 {
       font-size: $fs-675;
       text-transform: capitalize;
