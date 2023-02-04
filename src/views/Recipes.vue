@@ -16,6 +16,14 @@
                 </div>
             </div>
         </div>
+
+        <section class="hero2 | alternative-margin-block">
+          <div class="container | hero2-content">
+          <h2 class="uppercase">NOT ADDED TRANS FAT, MSG, ARTIFICIAL FLAVORS, OR COLORS</h2>
+          <p>Find out how deli should be done. Discover the world of wonderful porkmeat  from fiambres luvianka</p>
+          <button data-type="inverted" class="button">Catalogo</button>
+          </div>
+        </section>
     </section>
 </template>
 
@@ -209,6 +217,60 @@ import { ref } from 'vue'
   background: $neutral-clr-250;
   border-radius: 100vw;
   border: .25em solid $neutral-clr-275 ;
+}
+
+/*
+/ hero2 Section
+*/
+
+.hero2 {
+  background: url('../assets/images/hero2/hero2.jpg');
+  padding-block: 17.5em;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #000000;
+    opacity: 0.4;
+  }
+
+  & .hero2-content {
+    position: absolute;
+    color: $neutral-clr-50;
+    text-align: center;
+    max-width: 105ch;
+    position: absolute;
+    top: 50%;  /* position the top  edge of the element at the middle of the parent */
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%);
+  }
+  & .hero2-content > h2 {
+    font-size: $fs-900;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  @media (max-width:50em) {
+    & .hero2-content > h2 {
+      font-size: $fs-650;
+    }
+  }
+  & .hero2-content > p {
+    font-size: $fs-650;
+    font-weight: $fw-medium;
+    text-transform: capitalize;
+    padding-block: $size-400;
+  }
+  @media (max-width:50em) {
+    & .hero2-content > p {
+      font-size: $fs-300;
+    }
+  }
 }
 
 </style>

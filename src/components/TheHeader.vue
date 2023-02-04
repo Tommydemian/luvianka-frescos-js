@@ -8,18 +8,17 @@
   
           <!-- hamburguer icon svg -->
           <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-            <Icon @click="displayMenu" class="mobilemenu-icon" icon="mingcute:menu-fill" color="black" />
+            <Icon @click="displayMenu" v-if="!mobileMenuOpen" class="mobilemenu-icon" icon="mingcute:menu-fill" color="black" />
             <!-- close icon svg -->
-            <!-- <Icon @click="displayMenu" v-if="!mobileMenuClosed" class="mobilemenu-icon" icon="ep:close-bold" color="black" /> -->
+            <Icon @click="displayMenu" v-if="mobileMenuOpen" class="mobilemenu-icon" icon="ep:close-bold" color="black" /> 
             <span class="visually-hidden">Menu</span>
           </button>
           <nav class="primary-navigation" id="primary-navigation" :class="{'opened': mobileMenuOpen}">
             <ul aria-label="Primary" role="list" class="nav-list" :class="{'listopened': mobileMenuOpen}">
-              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'products'}">Productos</router-link></li>
-              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'recipes'}">Recetas</router-link></li>
-              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" to="#">Catálogo</router-link></li>
-              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name: 'who-we-are'}">Nosotros</router-link></li>
-              <li class="margin-block-auto"><router-link @click="displayMenu" class="link" :to="{name:'where-to-buy'}">Donde Comprar</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" :to="{name: 'products'}">Productos</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" :to="{name: 'recipes'}">Recetas</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" to="#">Catálogo</router-link></li>
+              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" :to="{name: 'who-we-are'}">Nosotros</router-link></li>
             </ul>
             <!-- no se si empresa y nosotros es similar? -->
         </nav>
@@ -163,25 +162,21 @@ const displayMenu = () => {
     border-radius: $def-br;
     padding: 1em;
     z-index: 999;
-  
+    box-shadow: 0px 61px 111px 92px rgba(0,0,0,0.75);
+
     .listopened {
       background-color: $neutral-clr-100;
       display: grid;
       gap: 1em;
   
-      li {
-        font-weight: $fw-bold;
+      .mobileLink{
+        font-size: $fs-400;
+        font-weight: $fw-semibold;
       }
     }
   }
-  
-  .display-block {
-    display: block;
-  }
-  .display-none {
-    display: none;
-  }  
 }
+  
 
 
 </style>

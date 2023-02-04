@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1",
     "swiper": "^8.4.7",
     "vue": "^3.2.45",
     "vue-awesome-swiper": "^5.0.1",
