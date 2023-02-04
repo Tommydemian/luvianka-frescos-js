@@ -233,7 +233,6 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     position: relative;
-    border: 2px solid lime;  
    .dropdown {
         display: flex;
         align-items: center;
