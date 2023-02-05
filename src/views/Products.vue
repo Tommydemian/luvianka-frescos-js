@@ -97,8 +97,8 @@
 
         <section class="hero2 | alternative-margin-block">
           <div class="container | hero2-content">
-          <h2 class="uppercase">NOT ADDED TRANS FAT, MSG, ARTIFICIAL FLAVORS, OR COLORS</h2>
-          <p>Find out how deli should be done. Discover the world of wonderful porkmeat  from fiambres luvianka</p>
+            <h2 class="uppercase">sin añadidos de grasas trans, sabores artificiales o colorantes.</h2>
+  <p>En Luvianka, confiamos en la fuente de nuestra carne y la controlamos rigurosamente para asegurar su frescura y calidad. Al ser nuestros propios proveedores, podemos ofrecerle la calidad que se merece. ¿Por qué no permitirnos hacerlo?</p>
           <button data-type="inverted" class="button">Catalogo</button>
           </div>
         </section>

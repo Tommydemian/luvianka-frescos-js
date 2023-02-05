@@ -16,4 +16,25 @@ This template should help get you started developing with Vue 3 in Vite. The tem
  
  ## Preguntarle a mi viejo => Si puedo separar por secciones y no por productos. 
 
+Posibilidades: 
 
+"Sabor sin igual en cada bocado."
+"Experiencia culinaria única garantizada."
+"Carne de cerdo de primera calidad."
+"El sabor que mereces."
+"La mejor carne, siempre fresca."
+"Déjate seducir por nuestro sabor."
+
+# Seccion de cortes.
+
+Cortes de lomo: lomo de cerdo, lomito de cerdo, lomo de cerdo relleno.
+
+Cortes de pierna y muslo: pierna de cerdo, muslo de cerdo, paleta de cerdo.
+
+Cortes de panceta: panceta de cerdo, tocino de cerdo.
+
+Cortes de costilla: costillas de cerdo, costillas BBQ.
+
+Cortes de cabeza y deshueses: cabeza de cerdo, orejas de cerdo, nariz de cerdo.
+
+Otros cortes: cordero, cordero lechal.

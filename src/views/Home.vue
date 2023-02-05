@@ -2,9 +2,9 @@
 <section class="container">
   <div class="hero">
     <div class="content">
-      <h3>Elevate your everyday</h3>
-      <h2>Fill <span>every moment</span> with flavor</h2>
-      <p>top quality, a grade 100% health certified frozen pork prompt delivery & discount prices</p>
+      <h3>Elevá tu día</h3>
+      <h2>Dejate sorprender por la excelencia en cada corte.</h2>
+      <p>top quality, a grade 100% health certified frozen pork.</p>
       <button v-if="showButton" data-type="inverted" class="button">Catálogo</button>
     </div>
   </div>
@@ -51,10 +51,10 @@
 <section class="ttbuild | container default-margin-block">
  <div style="--flow-spacer:.3em" class="ttbuild-grid flow">
   <div class="ttbuild-text ">
-    <h3 class="ttbuild-grid__h3">fuel your today</h3>
-    <h2 class="ttbuild-grid__h2">Togueter to build better products</h2>
+    <h3 class="ttbuild-grid__h3">Elevá tu día</h3>
+    <h2 class="ttbuild-grid__h2">Juntos para desarrollar mejores productos.</h2>
     <p class="ttbuild-grid__p">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla est animi molestiae dolorum delectus sunt aperiam iure recusandae earum corporis nesciunt magni, modi ut similique.
+      juntos con nuestros clientes estamos construyendo una experiencia culinaria única y satisfactoria. Estamos trabajando juntos para crear una comida excepcional, que ofrece calidad y sabor incomparables. Al elegir nuestros productos de carne de cerdo de alta calidad, nuestros clientes están contribuyendo a elevar su experiencia culinaria a un nivel superior. Juntos, estamos construyendo algo realmente especial..
     </p>
     <button class="button">Catalogo</button>
   </div>
@@ -68,8 +68,8 @@
 
 <section class="hero2 | default-margin-block">
   <div class="container | hero2-content">
-  <h2 class="uppercase">NOT ADDED TRANS FAT, MSG, ARTIFICIAL FLAVORS, OR COLORS</h2>
-  <p>Find out how deli should be done. Discover the world of wonderful porkmeat  from fiambres luvianka</p>
+  <h2 class="uppercase">sin añadidos de grasas trans, sabores artificiales o colorantes.</h2>
+  <p>En Luvianka, confiamos en la fuente de nuestra carne y la controlamos rigurosamente para asegurar su frescura y calidad. Al ser nuestros propios proveedores, podemos ofrecerle la calidad que se merece. ¿Por qué no permitirnos hacerlo?</p>
   <button data-type="inverted" class="button">Catalogo</button>
   </div>
 </section>
@@ -78,8 +78,8 @@
 
 <section class="why-us | container default-margin-block">
 <div class="why-us-heading">
-  <h2>Why Luvianka</h2>
-  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum</p>
+  <h2>Por qué elegir Luvianka:</h2>
+  <p class="whyus-subheading">Nuestro compromiso es ofrecerle productos frescos y de calidad, elaborados con materias primas cuidadosamente seleccionadas. Al ser nuestros propios proveedores, garantizamos la máxima calidad en cada corte.</p>
 </div>
 <div class="why-us-grid flow">
 <div class="text-center">
@@ -87,21 +87,21 @@
 
   <h3>Calidad</h3>
   <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
+     Nos enorgullece ser nuestros propios proveedores de materias primas. Si la calidad es fundamentalmente el resultado de la materia prima que se utiliza, mo hay dduda de que al elegirnos esta recibiendo productos que cumplen con los mas altos estandares de calidad en el mercado.
   </p>
 </div>
 <div class="text-center flow">
   <Icon class="why-us__icon" icon="uil:technology" color="white" />
   <h3>Tecnología</h3>
   <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
+    Nuestra tecnología de producción de vanguardia nos permite elaborar cada corte con cuidado y minimizar su manipulación, creando una experiencia única y auténtica en cada bocado. Confíe en nosotros para brindarle productos de excepcionales que hablan por sí solos.
   </p>
 </div>
 <div class="text-center flow">
   <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
   <h3>Innovación</h3>
   <p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolore nesciunt laboriosam earum
+    En Frescoes Luvianka, ofrecemos productos de calidad superior a través de nuestro enfoque en la innovación. Nos aseguramos de que cada uno de nuestros productos sea único y satisfactorio, brindándole una experiencia culinaria inolvidable
   </p>
 </div>
 </div>
@@ -326,7 +326,6 @@ onMounted(() => {
 
   & .ttbuild-text {
     margin-block: auto;
-    max-width: 50ch;
   }
 
   & .ttbuild-text h3 {
@@ -353,6 +352,7 @@ onMounted(() => {
   & .ttbuild-text p {
   font-size: $fs-500;
   margin-bottom: $size-400;
+  max-width: 50ch;
   }
   @media (max-width:50em) {
     & .ttbuild-text p {
@@ -409,7 +409,6 @@ onMounted(() => {
   & .hero2-content > p {
     font-size: $fs-650;
     font-weight: $fw-medium;
-    text-transform: capitalize;
     padding-block: $size-400;
   }
   @media (max-width:50em) {
@@ -451,7 +450,15 @@ onMounted(() => {
     }
   }
   & .why-us-heading p {
+    display: block;
     font-size: $fs-600;
+    font-style: italic;
+    font-weight: $fw-medium;
+    color: $primary-clr-400;
+    margin-inline: auto;
+    max-width: 60ch;
+    padding-top: 1em;
+    
   }
   @media (max-width:50em) {
     & .why-us-heading p{
