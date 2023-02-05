@@ -40,12 +40,11 @@
 import { Loader } from '@googlemaps/js-api-loader'
 import { ref, onMounted } from 'vue';
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyC24sMbVxqcG5eMkstlvDd2o5rnZuxQ7fQ'
 const mapDiv = ref(null);
 const luviankaLocation = ref({ lat: -34.639103, lng: -58.464193 });
 
 const loader = new Loader({
-    apiKey: GOOGLE_MAPS_API_KEY
+    apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 })
 
 onMounted(async() => {
@@ -72,7 +71,7 @@ onMounted(async() => {
   }
 .hero {
     background-image: url('../assets/images/whowearePage/company.png');
-    padding-block: 10em;
+    padding-block: 15em;
     background-position: 10% 100%;
     background-repeat: no-repeat;
     background-size:cover;
@@ -80,8 +79,8 @@ onMounted(async() => {
 
     @media (max-width: 50em) {
         & {
-            padding-block: 7.5em;
-            background-position: 60% 50%;
+            padding-block: 10em;
+            background-position: 40% 50%;
             margin-bottom: 0em;
         }
     }
