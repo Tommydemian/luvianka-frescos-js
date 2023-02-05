@@ -4,7 +4,7 @@ import MainLayout from '../layouts/Main.vue';
 import Home from '../views/Home.vue';
 
 const router = createRouter({
-history: createWebHistory(), 
+history: createWebHistory(import.meta.env.VITE_BASE_URL), 
 routes: [
     {path: '/',
     component: MainLayout,
