@@ -36,12 +36,15 @@
     </section>
 </template>
 
-<script setup>
+<script>
 import { Loader } from '@googlemaps/js-api-loader'
 import { ref, onMounted } from 'vue';
 
-const mapDiv = ref(null);
+export default {
+  setup(){
+    const mapDiv = ref(null);
 const luviankaLocation = ref({ lat: -34.639103, lng: -58.464193 });
+
 
 const loader = new Loader({
     apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
@@ -58,7 +61,12 @@ onMounted(async() => {
      map: map,
    });
 });
-
+return  {
+  mapDiv,
+  
+}
+}
+}
 </script>
 
 <style lang="scss" scoped>
