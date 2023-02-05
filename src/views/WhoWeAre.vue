@@ -45,7 +45,6 @@ export default {
     const mapDiv = ref(null);
 const luviankaLocation = ref({ lat: -34.639103, lng: -58.464193 });
 
-
 const loader = new Loader({
     apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 })
