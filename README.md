@@ -16,5 +16,4 @@ This template should help get you started developing with Vue 3 in Vite. The tem
  
  ## Preguntarle a mi viejo => Si puedo separar por secciones y no por productos. 
 
- AIzaSyC24sMbVxqcG5eMkstlvDd2o5rnZuxQ7fQ
 
