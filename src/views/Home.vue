@@ -14,7 +14,7 @@
   <h2 class="capitalize">Productos destacados</h2>
   <div class="feature-produts__cards">
     <div class="fp-card | flow">
-    <img src="../assets/images/featured-products/featuredproductstesting1.jpg" alt="producto-destacado-1">
+    <img src="../assets/images/featured-products/bondiola.png" alt="producto-destacado-1">
       <div class="card-text">
         <h3 class="capitalize | cards-title">solomillo de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
@@ -24,7 +24,7 @@
     </div>
     </div>
     <div class="fp-card | flow">
-      <img src="../assets/images/featured-products/newdestacado.jpg" alt="producto-destacado-2">
+      <img src="../assets/images/featured-products/solomillo.png" alt="producto-destacado-2">
       <div class="card-text">
         <h3 class="capitalize | cards-title">bondiola de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
@@ -34,7 +34,7 @@
     </div>
     </div>
     <div class="fp-card | flow">
-      <img src="../assets/images/featured-products/destacado.jpg" alt="producto-destacado-3">
+      <img src="../assets/images/featured-products/vacio.png" alt="producto-destacado-3">
       <div class="card-text">
         <h3 class="capitalize | cards-title">churrasquitos de cerdo</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
@@ -59,7 +59,7 @@
     <button class="button">Catalogo</button>
   </div>
   <div class="ttbuild-image-container">
-    <img class="ttbuild-image"  src="../assets/images/ttbuild/ttbuild.jpg" alt="food-image">
+    <img class="ttbuild-image"  src="../assets/images/featured-products/newdestacado.jpg" alt="food-image">
   </div>
  </div>
 </section>
@@ -112,8 +112,8 @@
 <section class="container" style="margin-block: 5em;" >
   
 <!-- <Carousel></Carousel> -->
-<CardCarrousel></CardCarrousel>
-  
+<!-- <CardCarrousel></CardCarrousel>
+   -->
 </section>
 
 </template>

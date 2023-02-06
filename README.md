@@ -38,3 +38,10 @@ Cortes de costilla: costillas de cerdo, costillas BBQ.
 Cortes de cabeza y deshueses: cabeza de cerdo, orejas de cerdo, nariz de cerdo.
 
 Otros cortes: cordero, cordero lechal.
+
+# ISSUES and Solutions: 
+- Fue la primera vez que entendi realmente  la diferencia entre development y production por que un monton de cosas no estaban fucionando en prod.
+ Tuve que cambiar multiples configuraciuones en Netlify, la primera fue agregar la variable de entorno que tenia guardada en el .env 
+ y la segunda fue la navegacion, se rompia continuamente => entonces lo que hice fue crear un _redirects.txt y .toml file en el cual aclaraba las reglas para la navegacion interna. 
+  Eso fue dificil por que yo jamas habia deployado un proyecto asi y era todo nuevo. 
+

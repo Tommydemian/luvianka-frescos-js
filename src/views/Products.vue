@@ -82,7 +82,7 @@
 
         <!-- filteredProducts cards -->
 
-        <div class="product-card-grid | snaps-inline container-alternate alternative-margin-block" :class="{'filtered-products': filtered}">
+        <div class="product-card-grid | snaps-inline container alternative-margin-block" :class="{'filtered-products': filtered}">
             <div class="product-card | flow" v-for="product in filteredProducts" :key="product.id">
                 <img height="300" width="400" :src="product.image" :alt="product.title">
                 <div class="product-card__text">
@@ -116,7 +116,7 @@ import { Icon } from '@iconify/vue';
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
     weight: '5kg Aprox',
     price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/product1new.jpg', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/Frame 5764@2x.png', import.meta.url).href
   },
   {
     id: 2,
@@ -125,7 +125,7 @@ import { Icon } from '@iconify/vue';
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
     weight: '5kg Aprox',
     price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/product2.jpg', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/bondiola.png', import.meta.url).href
     
   },
   {
@@ -135,7 +135,7 @@ import { Icon } from '@iconify/vue';
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
     weight: '5kg Aprox',
     price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/product3.jpg', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/churrasquito.png', import.meta.url).href
     },
     {
     id: 4,
@@ -144,7 +144,7 @@ import { Icon } from '@iconify/vue';
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
     weight: '8kg Aprox',
     price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/product4.jpg', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/vacio.png', import.meta.url).href
     },
     {
     id: 5,
@@ -153,7 +153,7 @@ import { Icon } from '@iconify/vue';
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
     weight: '8kg Aprox',
     price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/product5.png', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/ribs.png', import.meta.url).href
     },
     {
     id: 6,
@@ -162,7 +162,7 @@ import { Icon } from '@iconify/vue';
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
     weight: '8kg Aprox',
     price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/product6.jpg', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
     },
     ]);
     const isOpen = ref(false);
