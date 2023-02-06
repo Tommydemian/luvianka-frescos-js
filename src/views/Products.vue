@@ -85,11 +85,11 @@
         <div class="product-card-grid | snaps-inline container alternative-margin-block" :class="{'filtered-products': filtered}">
             <div class="product-card | flow" v-for="product in filteredProducts" :key="product.id">
                 <img height="300" width="400" :src="product.image" :alt="product.title">
-                <div class="product-card__text">
+                <div cFlass="product-card__text">
                     <h2 class="uppercase">{{product.title}}</h2>
                     <h3 class="uppercase" >{{product.subtitle}}</h3>
                     <p>{{product.description}} <span class="seemore">ver mas...</span></p>
-                    <div><p><span class="leftside">Weight:</span>: {{product.weight}}</p></div>
+                    <div><p><span class="leftside">Weight:</span>{{product.weight}}</p></div>
                     <div><p><span class="leftside">Price:</span>{{product.price}}</p></div>
                 </div>
             </div>
@@ -158,6 +158,33 @@ import { Icon } from '@iconify/vue';
     {
     id: 6,
     title: 'Pechito de cerdo ',
+    subtitle: 'corte del lomo',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    weight: '8kg Aprox',
+    price: '$10.50',
+    image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
+    },
+    {
+    id: 7,
+    title: 'Costillita de cerdo ',
+    subtitle: 'corte del lomo',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    weight: '8kg Aprox',
+    price: '$10.50',
+    image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
+    },
+    {
+    id: 8,
+    title: 'Matambrito de cerdo ',
+    subtitle: 'corte del lomo',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    weight: '8kg Aprox',
+    price: '$10.50',
+    image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
+    },
+    {
+    id: 9,
+    title: 'Carre deshuesados', 
     subtitle: 'corte del lomo',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
     weight: '8kg Aprox',

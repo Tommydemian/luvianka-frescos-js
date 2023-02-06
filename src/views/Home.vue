@@ -20,7 +20,6 @@
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
       </div>
       <div class="fp-card__gold-medal">
-        <Icon class="gold-medal" icon="ri:medal-fill" color="#fcc201" />
     </div>
     </div>
     <div class="fp-card | flow">
@@ -30,7 +29,6 @@
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
       </div>
       <div class="fp-card__gold-medal">
-        <Icon class="gold-medal" icon="ri:medal-fill" color="#fcc201" />
     </div>
     </div>
     <div class="fp-card | flow">
@@ -40,7 +38,6 @@
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
       </div>
       <div class="fp-card__gold-medal">
-        <Icon class="gold-medal" icon="ri:medal-fill" color="#fcc201" />
     </div>
     </div>
   </div>
@@ -59,7 +56,7 @@
     <button class="button">Catalogo</button>
   </div>
   <div class="ttbuild-image-container">
-    <img class="ttbuild-image"  src="../assets/images/featured-products/newdestacado.jpg" alt="food-image">
+    <img class="ttbuild-image"  src="../assets/images/ttbuild/sean-stone-0hOHNA3M6Ds-unsplash.jpg" alt="food-image">
   </div>
  </div>
 </section>
@@ -147,10 +144,10 @@ onMounted(() => {
 
 .hero {
   background-color: $bg-body-clr;
-  background: url(../assets/images/hero/hero.jpg);
-  background-position: center 50%;
+  background: url(../assets/images/hero/raw-pork-chop-steak-dark-wooden-surface.jpg);
+  background-position: center 10%;
   background-repeat: no-repeat;
-  padding-block: 20em;
+  padding-block: 15em;
   background-size: cover;
   border-radius: $size-600;
   width: 100%;
@@ -174,7 +171,7 @@ onMounted(() => {
   .content {
     margin-inline: auto;
     text-align: center;
-    color: $neutral-clr-100;
+    color: $neutral-clr-800;
     max-width: 70ch;
     transform: translate(-50%, -50%);    
     & h3 {
