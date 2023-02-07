@@ -74,7 +74,7 @@ const groups = ref([
       {
     id: 1,
     title: 'Solomillo de cerdo',
-    subtitle: 'corte del costado',
+    subtitle: 'El corte premium de la espalda del cerdo',
     subgroup: 'lomo',
     description: 'El solomillo de cerdo es un corte de carne de cerdo del lomo que se conoce por su sabor y suavidad. Es una pieza magra y tierna, ideal para asar, saltear o cocinar al horno.',
     weight: '5kg Aprox',
@@ -104,7 +104,7 @@ const groups = ref([
     {
     id: 9,
     title: 'Carre deshuesado', 
-    subtitle: 'corte del lomo',
+    subtitle: 'Corte de carne sin hueso para asado o a la parrilla',
     subgroup: 'lomo',
     description: 'El carré deshuesado es un corte de cerdo que proviene de la parte trasera del animal, cerca de la espalda. Es un corte ancho y plano, que se caracteriza por tener un hueso retirado, lo que lo hace fácil de cortar y servir. Se puede cocinar a la parrilla, al horno o en la sartén y es ideal para asados y guisos. Es un corte muy versátil y tierno, con una textura suave y un sabor delicioso.',
     weight: '8kg Aprox',
@@ -114,7 +114,7 @@ const groups = ref([
     {
     id: 10,
     title: 'Milanesa de cerdo', 
-    subtitle: 'corte del lomo',
+    subtitle: 'Filete de Lomo de Cerdo Adobado',
     subgroup: 'lomo',
     description: 'Las milanesas de cerdo son filetes de cerdo ligeramente marinados y luego panados y fritos hasta dorarse. Son un plato típico de la cocina argentina y sudamericana y se pueden servir como plato principal o como guarnición. Son populares por su sabor y textura crujiente, y se pueden rellenar con queso, jamón o verduras para agregar un toque extra de sabor.',
     weight: '8kg Aprox',
@@ -124,7 +124,7 @@ const groups = ref([
     {
     id: 11,
     title: 'Cuadril de cerdo', 
-    subtitle: 'corte del lomo',
+    subtitle: 'Corte premium de cuadril de cerdo',
     subgroup: 'lomo',
     description: 'El cuadril de cerdo es un corte de carne que proviene del lomo o espalda del animal. Es un corte magro y tierno, y se puede cortar en filetes o en tiras. Es ideal para la parrilla, el asado o la cocción rápida en sartén. Es una parte de la carne versátil y popular en muchos países, y se utiliza en una variedad de platos, desde ensaladas hasta platos principales.',
     weight: '8kg Aprox',
@@ -134,7 +134,7 @@ const groups = ref([
     {
     id: 14,
     title: 'Cortes para milanesa', 
-    subtitle: 'corte del lomo',
+    subtitle: 'corte ideal para empanados',
     subgroup: 'lomo',
     description: 'Los cortes de cerdo más comunes para hacer milanesas son el lomo, el filete y el cuadril. Estos cortes son magros y tiernos, lo que los hace ideales para la preparación de milanesas. Sin embargo, es fundamental que el corte sea uniforme y delgado para asegurar una buena textura y cocción en la milanesa. Además, algunas personas prefieren usar carne picada en lugar de cortes enteros para hacer milanesas, pero esto depende del gusto personal...',
     weight: '8kg Aprox',
@@ -149,7 +149,7 @@ const groups = ref([
       {
     id: 2,
     title: 'Bondiola de cerdo',
-    subtitle: 'corte del costado',
+    subtitle: 'Corte tierno y versátil"',
     subgroup: 'hombro',
     description: 'La bondiola de cerdo es un corte de carne de cerdo que proviene de la parte trasera del animal, cerca del lomo. Es un corte marmorizado, con una combinación de carne magra y grasa, ideal para asar al horno o a la parrilla. También se puede utilizar para hacer guisos y estofados. Es un corte popular y se caracteriza por su sabor suave y jugoso.',
     weight: '5kg Aprox',
@@ -160,7 +160,7 @@ const groups = ref([
   {
     id: 6,
     title: 'Pechito de cerdo ',
-    subtitle: 'corte del lomo',
+    subtitle: 'Delicioso corte de la pechuga',
     subgroup: 'hombro',
     description: 'El pechito de cerdo es un corte de carne magro y tierno que proviene del pecho del cerdo. Es un corte versátil que se puede cocinar de varias maneras, como asado, parrilla, a la plancha o a la parrilla. Se puede cortar en filetes o en tiras para hacer platos como lomitos o cordero a la parrilla. Es una opción saludable debido a su bajo contenido de grasa y alto contenido de proteínas.',
     weight: '8kg Aprox',
@@ -170,7 +170,7 @@ const groups = ref([
     {
     id: 8,
     title: 'Matambrito de cerdo ',
-    subtitle: 'corte del lomo',
+    subtitle: 'Corte Tierno y Suave',
     subgroup: 'hombro',
     description: 'El matambrito de cerdo es un corte de carne de la parte del pecho del animal. Es un corte magro y tierno que se suele utilizar para hacer asados o para milanesas. A menudo se considera una opción saludable debido a su bajo contenido de grasa y su alto contenido de proteínas.',
     weight: '8kg Aprox',
@@ -180,7 +180,7 @@ const groups = ref([
     {
     id: 12,
     title: 'Chuleta de paleta', 
-    subtitle: 'corte del lomo',
+    subtitle: 'Hueso en T para cocinar a la parrilla',
     subgroup: 'hombro',
     description: 'La chuleta de paleta de cerdo es un corte de carne de la parte superior del hombro del animal. Es un corte tierno y con poca grasa, por lo que es ideal para cocinar a la parrilla o al horno. Se puede cortar en filetes gruesos o en tiras finas, y se utiliza comúnmente en la cocina argentina y uruguaya.',
     weight: '8kg Aprox',
@@ -190,7 +190,7 @@ const groups = ref([
     {
     id: 13,
     title: 'Chuleta de pernil', 
-    subtitle: 'corte del lomo',
+    subtitle: 'Corte suculento de pernil de cerdo',
     subgroup: 'hombro',
     description: 'La chuleta de pernil es un corte de carne de cerdo que proviene de la parte trasera del animal, cerca de la cola. Es un corte fácil de preparar y se puede cocinar a la parrilla, al horno o en una sartén. Es una parte de la carne magra y tierna, por lo que es una opción saludable para aquellos que siguen una dieta equilibrada. Además, su sabor es suave y versátil, por lo que se puede combinar con diferentes sabores y es una opción popular para cenas familiares.',
     weight: '8kg Aprox',
@@ -205,18 +205,17 @@ const groups = ref([
       {
     id: 5,
     title: 'Ribs de Cerdo ',
-    subtitle: 'corte del lomo',
+    subtitle: 'Deliciosas y tiernas costillas',
     subgroup: 'costilla',
     description: 'Las ribs o costillas de cerdo son un corte de carne de la parte posterior del animal. Se caracterizan por tener una capa de grasa y una capa de carne, lo que las hace muy sabrosas. Se pueden asar o ahumar para conseguir un sabor ahumado y tierno, y se utilizan comúnmente en platos como el barbecue o el asado.',
     weight: '8kg Aprox',
     image: new URL('../assets/images/productsPage/productGallery/ribs.png', import.meta.url).href,
     readmore: false
     },
-    
     {
     id: 7,
     title: 'Costillita de cerdo ',
-    subtitle: 'corte del lomo',
+    subtitle: 'La reina de la barbacoa',
     subgroup: 'costilla',
     description: 'Las costillitas de cerdo son cortes de carne de la espalda del animal, compuestos de la costilla y una porción de la carne adyacente. Son populares en la cocina de barbeque y se pueden asar, cocinar a la parrilla o hacer a la parrilla hasta que estén tiernas y doradas, con una textura suave y sabores intensos. Se pueden servir como plato principal o como aperitivo, y son una opción popular en la cocina estadounidense y sudamericana.',
     weight: '8kg Aprox',
@@ -270,6 +269,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 @import '../scss/_utility.scss';
+@import '../scss/mixins.scss';
 
 .flow * + * {
     margin-top: var(--flow-spacer, .5em);
@@ -327,7 +327,7 @@ onMounted(() => {
         color:$neutral-clr-290;
         border-radius: 100vw;
         border: 1px solid $neutral-clr-260;
-        flex-basis: 75%;
+        flex-basis: 100%;
         padding-inline: 1em;
         padding-block: .5em;
         flex-shrink:2;
@@ -454,6 +454,12 @@ onMounted(() => {
   display: block;
   margin-inline: auto;
   padding-inline: $size-400;
+
+  @include mq(small){
+    & {
+      padding-inline:0;
+    }
+  }
 }
 
 .snaps-inline {

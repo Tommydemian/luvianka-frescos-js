@@ -4,7 +4,6 @@
     <div class="content">
       <h3>Elevá tu día</h3>
       <h2>Dejate sorprender por la excelencia en cada corte.</h2>
-      <p>top quality, a grade 100% health certified frozen pork.</p>
       <button v-if="showButton" data-type="inverted" class="button">Catálogo</button>
     </div>
   </div>
@@ -13,33 +12,9 @@
 <section class="featured-products | container default-margin-block">
   <h2 class="capitalize">Productos destacados</h2>
   <div class="feature-produts__cards">
-    <div class="fp-card | flow">
-    <img src="../assets/images/featured-products/bondiola.png" alt="producto-destacado-1">
-      <div class="card-text">
-        <h3 class="capitalize | cards-title">solomillo de cerdo</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
-      </div>
-      <div class="fp-card__gold-medal">
-    </div>
-    </div>
-    <div class="fp-card | flow">
-      <img src="../assets/images/featured-products/solomillo.png" alt="producto-destacado-2">
-      <div class="card-text">
-        <h3 class="capitalize | cards-title">bondiola de cerdo</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
-      </div>
-      <div class="fp-card__gold-medal">
-    </div>
-    </div>
-    <div class="fp-card | flow">
-      <img src="../assets/images/featured-products/vacio.png" alt="producto-destacado-3">
-      <div class="card-text">
-        <h3 class="capitalize | cards-title">churrasquitos de cerdo</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam ea obcaecati iste minus veniam.</p>
-      </div>
-      <div class="fp-card__gold-medal">
-    </div>
-    </div>
+    
+    <ProductCard :products="products" />
+    
   </div>
 </section>
 
@@ -105,19 +80,72 @@
 </section>
 </template>
 
-<script setup >
-import { Icon } from '@iconify/vue';
-
+<script>
+import ProductCard from '../components/ProductCard.vue';
 import {ref, computed, onMounted} from 'vue'
 
-const screenWidth = ref(window.innerWidth);
-const showButton = computed(() => screenWidth.value < 800);
+import { Icon } from '@iconify/vue';
 
-onMounted(() => {
-  window.addEventListener('resize', () => {
-    screenWidth.value = window.innerWidth;
-  });
-})
+export default {
+  components: {
+    Icon, 
+    ProductCard
+  },
+  setup() {
+    const screenWidth = ref(window.innerWidth);
+    const showButton = computed(() => screenWidth.value < 800);
+
+
+    const products = ref([
+      {
+        id: 11,
+        title: 'Cuadril de cerdo', 
+        subtitle: 'Corte premium de cuadril de cerdo',
+        subgroup: 'lomo',
+        description: 'El cuadril de cerdo es un corte de carne que proviene del lomo o espalda del animal. Es un corte magro y tierno, y se puede cortar en filetes o en tiras. Es ideal para la parrilla, el asado o la cocción rápida en sartén. Es una parte de la carne versátil y popular en muchos países, y se utiliza en una variedad de platos, desde ensaladas hasta platos principales.',
+        weight: '8kg Aprox',
+        image: new URL('../assets/images/productsPage/productGallery/cuadril.png', import.meta.url).href,
+        readmore: false
+        },
+        {
+        id: 2,
+        title: 'Bondiola de cerdo',
+        subtitle: 'Corte tierno y versátil"',
+        subgroup: 'hombro',
+        description: 'La bondiola de cerdo es un corte de carne de cerdo que proviene de la parte trasera del animal, cerca del lomo. Es un corte marmorizado, con una combinación de carne magra y grasa, ideal para asar al horno o a la parrilla. También se puede utilizar para hacer guisos y estofados. Es un corte popular y se caracteriza por su sabor suave y jugoso.',
+        weight: '5kg Aprox',
+        image: new URL('../assets/images/productsPage/productGallery/bondiola.png', import.meta.url).href,
+        readmore: false
+    
+      },
+      {
+        id: 7,
+        title: 'Costillita de cerdo ',
+        subtitle: 'La reina de la barbacoa',
+        subgroup: 'costilla',
+        description: 'Las costillitas de cerdo son cortes de carne de la espalda del animal, compuestos de la costilla y una porción de la carne adyacente. Son populares en la cocina de barbeque y se pueden asar, cocinar a la parrilla o hacer a la parrilla hasta que estén tiernas y doradas, con una textura suave y sabores intensos. Se pueden servir como plato principal o como aperitivo, y son una opción popular en la cocina estadounidense y sudamericana.',
+        weight: '8kg Aprox',
+        image: new URL('../assets/images/productsPage/productGallery/costillita.png', import.meta.url).href,
+        readmore: false
+        },
+    ])
+    onMounted(() => {
+      window.addEventListener('resize', () => {
+        screenWidth.value = window.innerWidth;
+      });
+    })
+
+    return {
+      products,
+      showButton
+
+    }
+  }
+}
+
+
+
+
 
 </script>
 
@@ -132,7 +160,7 @@ onMounted(() => {
 
 .hero {
   background-color: $bg-body-clr;
-  background: url(../assets/images/hero/raw-pork-chop-steak-dark-wooden-surface.jpg);
+  background: url(../assets/images/hero/heromobile.jpg);
   background-position: center 10%;
   background-repeat: no-repeat;
   padding-block: 15em;
@@ -164,10 +192,8 @@ onMounted(() => {
     background: rgba(245, 245, 245, 0.23);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
 padding: 1em;
+margin-left: 0;
 
     & h3 {
       font-size: $fs-675;
@@ -345,10 +371,14 @@ padding: 1em;
   font-size: $fs-500;
   margin-bottom: $size-400;
   max-width: 50ch;
+  font-weight: $fw-light;
+  color: $neutral-clr-800;
   }
   @media (max-width:50em) {
     & .ttbuild-text p {
       font-size: $fs-500;
+      font-weight: $fw-light;
+      color: $neutral-clr-800;
     } 
   }
 
