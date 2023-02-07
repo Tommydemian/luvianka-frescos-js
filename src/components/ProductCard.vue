@@ -5,9 +5,9 @@
             <h2 class="uppercase">{{product.title}}</h2>
             <h3 class="uppercase" >{{product.subtitle}}</h3>          
 
-                <p class="inline" v-if="!readMore" >{{ (product.description).slice(0, product.description.indexOf('.')) + '...'}}</p>
+                <p class="inline" v-if="!product.readmore" >{{ (product.description).slice(0, product.description.indexOf('.')) + '...'}}</p>
                 <p class="inline" v-else>{{  product.description }}</p>
-                <button class="inline seemore" @click="toggleFullText">Ver {{ readMore ? 'Menos' : 'Mas' }}</button> 
+                <button class="inline seemore" @click="product.readmore = !product.readmore">Ver {{ readMore ? 'Menos' : 'Mas' }}</button> 
             
             <div><p><span class="leftside">Weight:</span>{{product.weight}}</p></div>
         </div>
@@ -24,22 +24,8 @@ export default {
         }
     },
     setup (props) {
-    // const ellipsis = ref(false);
-
-    // function iterateTroughDesc(description){
-    //  const descWords = description.split(" ").length
-    //  if (descWords > 30 ) ellipsis.value = true
-    //  return description;
-    // }
-    const readMore = ref(false);
-
-    function toggleFullText (){
-        readMore.value = !readMore.value
-    }
-        
-        return {
-            readMore, 
-            toggleFullText
+        return { 
+            
         }
     }
 }
