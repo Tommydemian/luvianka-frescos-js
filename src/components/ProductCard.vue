@@ -4,9 +4,8 @@
         <div cFlass="product-card__text">
             <h2 class="uppercase">{{product.title}}</h2>
             <h3 class="uppercase" >{{product.subtitle}}</h3>           
-                <!-- <p class="ellipsis-text" v-if="!showFullText">{{ (product.description) }}</p> {{ showFullText }} -->
                 <p>{{ product.description }}</p>
-                <!-- <button v-if="truncatedDescription !== product.description" @click="toggleFullText">See {{ showFullText ? 'Less' : 'More' }}</button> -->
+                <button @click="toggleFullText">See {{ showFullText ? 'Less' : 'More' }}</button> 
             
             <div><p><span class="leftside">Weight:</span>{{product.weight}}</p></div>
         </div>
@@ -14,7 +13,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 export default {
     props: {
         products: {
@@ -30,6 +29,13 @@ export default {
     //  if (descWords > 30 ) ellipsis.value = true
     //  return description;
     // }
+
+    
+        for (const product in props.products){
+            console.log(product)
+        }
+    
+
     const showFullText = ref(false);
 
     function truncateWords(text, maxWords) {
@@ -43,12 +49,20 @@ export default {
     function toggleFullText() {
      showFullText.value = !showFullText.value;
     }
+
+    // const fullOrTruncatedText = computed(() => {
+    //   if (showFullText.value) {
+    //     return product.description;
+    //   }
+    //   return truncateWords(product.description, maxWords);
+    // });
         
 
         return {
             truncateWords,
             toggleFullText,
-            showFullText
+            showFullText,
+            // fullOrTruncatedText
         }
     }
 }
