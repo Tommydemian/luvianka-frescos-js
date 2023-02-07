@@ -21,49 +21,12 @@
             <div v-if="isOpen" class="dropdown-content | absolute">    
               <ul class="flow">
                   <li v-if="selected !== 'All'" @click="resetFilter">Todos</li>
-                  <li v-for="product in products" :key="product.id" :class="{'selectedprod': selected == product.title}" @click="selectProduct(product.title)">
-                    {{ product.title }}
+                  <li v-for="group in groups" :key="group.name" :class="{'selectedprod': selected == group.name}" @click="selectProduct(group.name)">
+                    {{ group.name }}
                   </li>
                 </ul>
-              
-            
-                <!-- <div>
-                    <h3>Especiales</h3>
-                    <ul class="flow">
-                        <li>Pechito de cerdo</li>
-                        <li>Bondiola de cerdo</li>
-                        <li>Costillita de cerdo</li>
-                        <li>Solomillo de cerdo</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Destacados</h3>
-                    <ul class="flow">
-                        <li>Matambrito de cerdo</li>
-                        <li>Milanesas de cerdo</li>
-                        <li>Carre Deshuesado</li>
-                        <li>Cuadril de cerdo</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Elite</h3>
-                    <ul class="flow">
-                        <li>Ribs de cerdo</li>
-                        <li>Chuleta de paleta de cerdo</li> 
-                        <li>Chuleta de pernil</li>
-                        <li>Churrasquito de cerdo</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Ganadores</h3>
-                    <ul class="flow">
-                        <li>Cortes de cerdo para milanesa</li>
-                        <li>Centro de pechito</li> 
-                        <li>Vacio</li>
-                    </ul>
-                </div> -->
             </div>
-            <div class="sortby | relative">
+            <!-- <div class="sortby | relative">
               <div class="sortby-mobile-content">
                 <Icon v-if="isMobile" class="arrowdown-icon" icon="ph:arrow-fat-lines-down-bold" color="#ae0908" />
               </div>
@@ -76,23 +39,18 @@
                 <li>Mas relevante</li>
                 <li>Mas caro</li>
                 <li>Mas barato</li>
-            </ul>
-        </div>
+            </ul> -->
+        <!-- </div> -->
         </div>
 
         <!-- filteredProducts cards -->
 
-        <div class="product-card-grid | snaps-inline container alternative-margin-block" :class="{'filtered-products': filtered}">
-            <div class="product-card | flow" v-for="product in filteredProducts" :key="product.id">
-                <img height="300" width="400" :src="product.image" :alt="product.title">
-                <div cFlass="product-card__text">
-                    <h2 class="uppercase">{{product.title}}</h2>
-                    <h3 class="uppercase" >{{product.subtitle}}</h3>
-                    <p>{{product.description}} <span class="seemore">ver mas...</span></p>
-                    <div><p><span class="leftside">Weight:</span>{{product.weight}}</p></div>
-                    <div><p><span class="leftside">Price:</span>{{product.price}}</p></div>
-                </div>
-            </div>
+        
+        <div v-for="group in filteredGroups" class="snaps-inline container alternative-margin-block" :class="{'filtered-products': filtered}">
+          <h2 class="products-subgroups" :key="group.name" >{{group.name}}</h2>
+        <div class="product-card-grid">
+          <ProductCard :products="group.products" />
+        </div>
         </div>
 
         <section class="hero2 | alternative-margin-block">
@@ -108,92 +66,159 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { Icon } from '@iconify/vue';
-  const products = ref([
+import ProductCard from '../components/ProductCard.vue';
+const groups = ref([
   {
+    'name': 'cortes del lomo',
+    products: [
+      {
     id: 1,
     title: 'Solomillo de cerdo',
     subtitle: 'corte del costado',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    subgroup: 'lomo',
+    description: 'El solomillo de cerdo es un corte de carne de cerdo del lomo que se conoce por su sabor y suavidad. Es una pieza magra y tierna, ideal para asar, saltear o cocinar al horno.',
     weight: '5kg Aprox',
-    price: '$10.50',
     image: new URL('../assets/images/productsPage/productGallery/Frame 5764@2x.png', import.meta.url).href
-  },
-  {
-    id: 2,
-    title: 'Bondiola de cerdo',
-    subtitle: 'corte del costado',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-    weight: '5kg Aprox',
-    price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/bondiola.png', import.meta.url).href
-    
   },
   {
     id: 3,
     title: 'Churrasquito de cerdo',
     subtitle: 'corte del costado',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    subgroup: 'lomo',
+    description: 'El churrasquito de cerdo es un corte de carne de cerdo que se obtiene de la parte superior del lomo. Se trata de un corte magro y tierno que se puede cocinar de varias formas y es ideal para platos asados.',
     weight: '5kg Aprox',
-    price: '$10.50',
     image: new URL('../assets/images/productsPage/productGallery/churrasquito.png', import.meta.url).href
     },
     {
     id: 4,
     title: 'Vacio ',
     subtitle: 'corte del lomo',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    subgroup: 'lomo',
+    description: 'El vacío de cerdo es un corte magro y tierno de la parte trasera del animal, ideal para asado y parrilla. Es una parte rica en proteínas y baja en grasas, haciéndolo una opción saludable para dietas equilibradas. Se encuentra cerca de la cola y se puede cortar en filetes o tiras, es común en la cocina argentina y uruguaya.',
     weight: '8kg Aprox',
-    price: '$10.50',
     image: new URL('../assets/images/productsPage/productGallery/vacio.png', import.meta.url).href
     },
     {
-    id: 5,
-    title: 'Ribs de Cerdo ',
+    id: 9,
+    title: 'Carre deshuesado', 
     subtitle: 'corte del lomo',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    subgroup: 'lomo',
+    description: 'El carré deshuesado es un corte de cerdo que proviene de la parte trasera del animal, cerca de la espalda. Es un corte ancho y plano, que se caracteriza por tener un hueso retirado, lo que lo hace fácil de cortar y servir. Se puede cocinar a la parrilla, al horno o en la sartén y es ideal para asados y guisos. Es un corte muy versátil y tierno, con una textura suave y un sabor delicioso.',
     weight: '8kg Aprox',
-    price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/ribs.png', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/carredeshuesado.png', import.meta.url).href
     },
     {
+    id: 10,
+    title: 'Milanesa de cerdo', 
+    subtitle: 'corte del lomo',
+    subgroup: 'lomo',
+    description: 'Las milanesas de cerdo son filetes de cerdo ligeramente marinados y luego panados y fritos hasta dorarse. Son un plato típico de la cocina argentina y sudamericana y se pueden servir como plato principal o como guarnición. Son populares por su sabor y textura crujiente, y se pueden rellenar con queso, jamón o verduras para agregar un toque extra de sabor.',
+    weight: '8kg Aprox',
+    image: new URL('../assets/images/productsPage/productGallery/milanesa.png', import.meta.url).href
+    },
+    {
+    id: 11,
+    title: 'Cuadril de cerdo', 
+    subtitle: 'corte del lomo',
+    subgroup: 'lomo',
+    description: 'El cuadril de cerdo es un corte de carne que proviene del lomo o espalda del animal. Es un corte magro y tierno, y se puede cortar en filetes o en tiras. Es ideal para la parrilla, el asado o la cocción rápida en sartén. Es una parte de la carne versátil y popular en muchos países, y se utiliza en una variedad de platos, desde ensaladas hasta platos principales.',
+    weight: '8kg Aprox',
+    image: new URL('../assets/images/productsPage/productGallery/cuadril.png', import.meta.url).href
+    },
+    {
+    id: 14,
+    title: 'Cortes para milanesa', 
+    subtitle: 'corte del lomo',
+    subgroup: 'lomo',
+    description: 'Los cortes de cerdo más comunes para hacer milanesas son el lomo, el filete y el cuadril. Estos cortes son magros y tiernos, lo que los hace ideales para la preparación de milanesas. Sin embargo, es fundamental que el corte sea uniforme y delgado para asegurar una buena textura y cocción en la milanesa. Además, algunas personas prefieren usar carne picada en lugar de cortes enteros para hacer milanesas, pero esto depende del gusto personal...',
+    weight: '8kg Aprox',
+    image: new URL('../assets/images/productsPage/productGallery/cortesparamilanesa.png', import.meta.url).href
+    }
+    ],
+  },
+  {
+    name: 'Cortes del hombro',
+    products: [
+      {
+    id: 2,
+    title: 'Bondiola de cerdo',
+    subtitle: 'corte del costado',
+    subgroup: 'hombro',
+    description: 'La bondiola de cerdo es un corte de carne de cerdo que proviene de la parte trasera del animal, cerca del lomo. Es un corte marmorizado, con una combinación de carne magra y grasa, ideal para asar al horno o a la parrilla. También se puede utilizar para hacer guisos y estofados. Es un corte popular y se caracteriza por su sabor suave y jugoso.',
+    weight: '5kg Aprox',
+    image: new URL('../assets/images/productsPage/productGallery/bondiola.png', import.meta.url).href
+
+  },
+  {
     id: 6,
     title: 'Pechito de cerdo ',
     subtitle: 'corte del lomo',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    subgroup: 'hombro',
+    description: 'El pechito de cerdo es un corte de carne magro y tierno que proviene del pecho del cerdo. Es un corte versátil que se puede cocinar de varias maneras, como asado, parrilla, a la plancha o a la parrilla. Se puede cortar en filetes o en tiras para hacer platos como lomitos o cordero a la parrilla. Es una opción saludable debido a su bajo contenido de grasa y alto contenido de proteínas.',
     weight: '8kg Aprox',
-    price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
-    },
-    {
-    id: 7,
-    title: 'Costillita de cerdo ',
-    subtitle: 'corte del lomo',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-    weight: '8kg Aprox',
-    price: '$10.50',
     image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
     },
     {
     id: 8,
     title: 'Matambrito de cerdo ',
     subtitle: 'corte del lomo',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    subgroup: 'hombro',
+    description: 'El matambrito de cerdo es un corte de carne de la parte del pecho del animal. Es un corte magro y tierno que se suele utilizar para hacer asados o para milanesas. A menudo se considera una opción saludable debido a su bajo contenido de grasa y su alto contenido de proteínas.',
     weight: '8kg Aprox',
-    price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/matambrito.png', import.meta.url).href
     },
     {
-    id: 9,
-    title: 'Carre deshuesados', 
+    id: 12,
+    title: 'Chuleta de paleta', 
     subtitle: 'corte del lomo',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
+    subgroup: 'hombro',
+    description: 'La chuleta de paleta de cerdo es un corte de carne de la parte superior del hombro del animal. Es un corte tierno y con poca grasa, por lo que es ideal para cocinar a la parrilla o al horno. Se puede cortar en filetes gruesos o en tiras finas, y se utiliza comúnmente en la cocina argentina y uruguaya.',
     weight: '8kg Aprox',
-    price: '$10.50',
-    image: new URL('../assets/images/productsPage/productGallery/pechito.png', import.meta.url).href
+    image: new URL('../assets/images/productsPage/productGallery/chuletadepaleta.png', import.meta.url).href
     },
-    ]);
+    {
+    id: 13,
+    title: 'Chuleta de pernil', 
+    subtitle: 'corte del lomo',
+    subgroup: 'hombro',
+    description: 'La chuleta de pernil es un corte de carne de cerdo que proviene de la parte trasera del animal, cerca de la cola. Es un corte fácil de preparar y se puede cocinar a la parrilla, al horno o en una sartén. Es una parte de la carne magra y tierna, por lo que es una opción saludable para aquellos que siguen una dieta equilibrada. Además, su sabor es suave y versátil, por lo que se puede combinar con diferentes sabores y es una opción popular para cenas familiares.',
+    weight: '8kg Aprox',
+    image: new URL('../assets/images/productsPage/productGallery/chuletadepernil.png', import.meta.url).href
+    }
+  ]
+  },
+  {
+    name: 'Cortes de la Costilla',
+    products: [
+      {
+    id: 5,
+    title: 'Ribs de Cerdo ',
+    subtitle: 'corte del lomo',
+    subgroup: 'costilla',
+    description: 'Las ribs o costillas de cerdo son un corte de carne de la parte posterior del animal. Se caracterizan por tener una capa de grasa y una capa de carne, lo que las hace muy sabrosas. Se pueden asar o ahumar para conseguir un sabor ahumado y tierno, y se utilizan comúnmente en platos como el barbecue o el asado.',
+    weight: '8kg Aprox',
+    image: new URL('../assets/images/productsPage/productGallery/ribs.png', import.meta.url).href
+    },
+    
+    {
+    id: 7,
+    title: 'Costillita de cerdo ',
+    subtitle: 'corte del lomo',
+    subgroup: 'costilla',
+    description: 'Las costillitas de cerdo son cortes de carne de la espalda del animal, compuestos de la costilla y una porción de la carne adyacente. Son populares en la cocina de barbeque y se pueden asar, cocinar a la parrilla o hacer a la parrilla hasta que estén tiernas y doradas, con una textura suave y sabores intensos. Se pueden servir como plato principal o como aperitivo, y son una opción popular en la cocina estadounidense y sudamericana.',
+    weight: '8kg Aprox',
+    image: new URL('../assets/images/productsPage/productGallery/costillita.png', import.meta.url).href
+    },
+    ]
+  }
+])
     const isOpen = ref(false);
     const filterOpen = ref(false);
+
+
+
+
+      
 
     const displayProducts = () => {
       isOpen.value = !isOpen.value;
@@ -209,10 +234,10 @@ import { Icon } from '@iconify/vue';
       isOpen.value = false;
     };
 
-    const filteredProducts = computed(() => {
+    const filteredGroups = computed(() => {
       return selected.value === 'All'
-        ? products.value
-        : products.value.filter(product => product.title === selected.value);
+        ? groups.value
+        : groups.value.filter(group => group.name === selected.value);
     });
 
     const filtered = computed(() => selected.value !== 'All'); // # a "All".
@@ -388,6 +413,14 @@ onMounted(() => {
   }
 }
 
+.products-subgroups {
+  font-size: 2rem;
+  color: $primary-clr-400;
+  font-weight: $fw-semibold;
+  margin-block: 1em;
+  text-align: center;
+  text-transform: capitalize;
+}
 
 
 .product-card-grid {
@@ -406,68 +439,7 @@ onMounted(() => {
     }
   }
 }
-.product-card {
-    border-radius: $def-br; //20px
-    color: $neutral-clr-800;
-    background-color: $neutral-clr-50;
-    width: 25em;
 
-    @media (max-width: 50em) {
-        &{
-            width: 100%;
-            margin-block: 1.5em;
-        }
-      }
-
-      & .product-card__text {
-        padding: 1em;
-        
-      }
-
-
-    img {
-        border-radius: $def-br; //20px
-        aspect-ratio: 16/9;
-    }
-    h2 {
-        color: $primary-clr-400;
-        font-size: $fs-650;
-        @media (max-width: 50em) {
-            &{
-                font-size: $fs-400;
-            }
-          }
-    }
-    h3 {
-        color: $neutral-clr-275;
-        font-size: $fs-500;
-        @media (max-width: 50em) {
-            &{
-                font-size: $fs-200;
-            }
-          }
-    }
-    p {
-        max-width: 40ch;
-        .seemore {
-            font-style:italic;
-            color: $primary-clr-400 !important;
-        }
-        @media (max-width: 50em) {
-            &{
-                font-size: $fs-300;
-            }
-          }
-    }
-    .leftside {
-      color: $neutral-clr-275;
-      @media (max-width: 50em) {
-        &{
-            font-size: $fs-300 ;
-        }
-      }
-    } 
-}
 
 .filtered-products {
   display: block;

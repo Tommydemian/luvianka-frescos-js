@@ -173,7 +173,6 @@ onMounted(() => {
     text-align: center;
     color: $neutral-clr-800;
     max-width: 70ch;
-    transform: translate(-50%, -50%);    
     background: rgba(245, 245, 245, 0.23);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
