@@ -11,10 +11,7 @@
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.15.1",
     "dotenv": "^16.0.3",
-    "swiper": "^8.4.7",
-    "vue": "^3.2.45",
-    "vue-awesome-swiper": "^5.0.1",
-    "vue-carousel-3d": "^1.0.1"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@iconify/vue": "^4.1.0",

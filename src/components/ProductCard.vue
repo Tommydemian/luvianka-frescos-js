@@ -1,11 +1,13 @@
 <template>
     <div class="product-card | flow" v-for="product in products" :key="product.id">
         <img height="300" width="400" :src="product.image" :alt="product.title">
-        <div cFlass="product-card__text">
+        <div class="product-card__text">
             <h2 class="uppercase">{{product.title}}</h2>
-            <h3 class="uppercase" >{{product.subtitle}}</h3>           
-                <p>{{ product.description }}</p>
-                <button @click="toggleFullText">See {{ showFullText ? 'Less' : 'More' }}</button> 
+            <h3 class="uppercase" >{{product.subtitle}}</h3>          
+
+                <p class="inline" v-if="!readMore" >{{ (product.description).slice(0, product.description.indexOf('.')) + '...'}}</p>
+                <p class="inline" v-else>{{  product.description }}</p>
+                <button class="inline seemore" @click="toggleFullText">Ver {{ readMore ? 'Menos' : 'Mas' }}</button> 
             
             <div><p><span class="leftside">Weight:</span>{{product.weight}}</p></div>
         </div>
@@ -29,40 +31,15 @@ export default {
     //  if (descWords > 30 ) ellipsis.value = true
     //  return description;
     // }
+    const readMore = ref(false);
 
-    
-        for (const product in props.products){
-            console.log(product)
-        }
-    
-
-    const showFullText = ref(false);
-
-    function truncateWords(text, maxWords) {
-    const words = text.split(" ");
-    if (words.length <= maxWords) {
-    return text;
+    function toggleFullText (){
+        readMore.value = !readMore.value
     }
-    return words.slice(0, maxWords).join(" ") + "...";
-    }
-
-    function toggleFullText() {
-     showFullText.value = !showFullText.value;
-    }
-
-    // const fullOrTruncatedText = computed(() => {
-    //   if (showFullText.value) {
-    //     return product.description;
-    //   }
-    //   return truncateWords(product.description, maxWords);
-    // });
         
-
         return {
-            truncateWords,
-            toggleFullText,
-            showFullText,
-            // fullOrTruncatedText
+            readMore, 
+            toggleFullText
         }
     }
 }
@@ -71,6 +48,19 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 @import '../scss/_utility.scss';
+
+.inline {
+    display: inline;
+}
+.seemore {
+  border: none;
+  background-color: transparent;
+  color: $primary-clr-400;
+  font-style: italic;
+  cursor: pointer;
+  text-decoration: underline;
+  padding-left: .5em;
+}
 
 .ellipsis-text {
   text-overflow: ellipsis;

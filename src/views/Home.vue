@@ -103,21 +103,9 @@
 </div>
 </div>
 </section>
-
-<!-- our Products section -->
-
-<section class="container" style="margin-block: 5em;" >
-  
-<!-- <Carousel></Carousel> -->
-<!-- <CardCarrousel></CardCarrousel>
-   -->
-</section>
-
 </template>
 
 <script setup >
-import CardCarrousel from '../components/CardCarrousel.vue';
-
 import { Icon } from '@iconify/vue';
 
 import {ref, computed, onMounted} from 'vue'
