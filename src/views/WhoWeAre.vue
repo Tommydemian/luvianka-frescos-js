@@ -8,29 +8,40 @@
             <div class="aboutus-grid container default-margin-block flow">
             <div class="aboutus-text">
                 <h2>Sobre Nosotros</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit eveniet, quos explicabo, asperiores illo rerum iste ut fugit commodi aut neque! Eligendi eaque exercitationem quos necessitatibus explicabo ab hic soluta.</p>
+                <p>Red Deer SRL es una empresa argentina ubicada en la provincia de Buenos Aires, especializada en la elaboración de salazones y chacinados. Nuestro establecimiento cuenta con equipos de alta tecnología y un personal capacitado y experimentado.</p>
             </div>
-                <img src="../assets/images/whowearePage/luviankaworkers.jpg" alt="trabajadores en la fabrica">
+                <img height="600" src="../assets/images/whowearePage/luviankaphotos21.png" alt="trabajadores en la fabrica">
             </div>
             <div class="ourmission-grid container default-margin-block flow">
-                <img src="../assets/images/whowearePage/luviankaworkers2.png" alt="trabajador en la fabrica cargando cortes">
+                <img height="600" src="../assets/images/whowearePage/luviankaphotos15.png" alt="trabajador en la fabrica cargando cortes">
             <div class="ourmission-text">
                 <h2>Nuestra mision</h2>
-                <p>The main mission is to provide a product that meets the needs of our customers, without neglecting the commitment to food safety. To achieve this, we work with quality and safety tools such as:
-                    • HACCP System (Hazard Analysis and Critical Control Points)
-                    • BPM
-                    • POES
-                    • MIP
-                    We carry out controls on raw materials, water, the manufacturing process, and finished products. and supplier audits.</p>
+                <p>En Red Deer SRL, nuestra misión es ofrecer productos de la más alta calidad a nuestros clientes. Para lograr esto, nos aseguramos de trabajar con los mejores proveedores, utilizar tecnología de vanguardia, y contar con un equipo altamente capacitado y comprometido.
+
+                  Nuestro objetivo es ser reconocidos como una empresa líder en la elaboración de salazones y chacinados, y seguir mejorando día a día para ofrecer un producto aún mejor a nuestros clientes.</p>
             </div>
             </div>
 
-            <div class="whereweat container default-margin-block flow">
+            <div class="whereweat container | default-margin-block flow">
                 <h2>Donde Estamos</h2>
                 <div class="img-grid">
-                    <div ref="mapDiv" style="width:100%; height:50vh"></div>
-            
-                    
+                    <div>
+                      <h4>Planta Avellaneda</h4>
+                      <p>Tte. Cnel. Lafuente 740</p>
+                      <div ref="mapDiv1" style="width:100%; height:50vh"></div>
+                    </div>
+                    <br>
+                    <div>
+                      <h4>Planta Florencio Varela</h4>
+                        <p>Gabriela Mistral 2235</p>
+                      <div ref="mapDiv2" style="width:100%; height:50vh"></div>
+                    </div>
+                    <br>      
+                    <div>
+                      <h4>Depósito</h4>
+                        <p>Velez Sarfield 1545</p>
+                      <div ref="mapDiv3" style="width:100%; height:50vh"></div>
+                    </div>      
                 </div>
             </div>
     </section>
@@ -42,8 +53,13 @@ import { ref, onMounted } from 'vue';
 
 export default {
   setup(){
-    const mapDiv = ref(null);
-const luviankaLocation = ref({ lat: -34.639103, lng: -58.464193 });
+    const mapDiv1 = ref(null);
+    const mapDiv2 = ref(null);
+    const mapDiv3 = ref(null);
+
+const luviankaLocation = ref({ lat: -34.678290436422586, lng: -58.37197683068231 });
+const luvianFlorencioVarelaLocation = ref({ lat: -34.792578786734005, lng: -58.266577773103926 });
+const luvianDepositLocation = ref({ lat: -34.67993446435894, lng: -58.37595125397654 });
 
 const loader = new Loader({
     apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
@@ -51,20 +67,42 @@ const loader = new Loader({
 
 onMounted(async() => {
   await loader.load()
-  const map = new google.maps.Map(mapDiv.value, {
+  const map = new google.maps.Map(mapDiv1.value, {
     center: luviankaLocation.value,
-    zoom: 19
+    zoom: 17
   })
   new google.maps.Marker({
      position: luviankaLocation.value,
      map: map,
    });
+
+  const map2 = new google.maps.Map(mapDiv2.value, {
+        center: luvianFlorencioVarelaLocation.value,
+        zoom: 15
+  })
+
+  new google.maps.Marker({
+    position: luvianFlorencioVarelaLocation.value,
+    map: map2
+  })
+
+  const map3 = new google.maps.Map(mapDiv3.value, {
+        center: luvianDepositLocation.value,
+        zoom: 15
+  })
+
+  new google.maps.Marker({
+    position: luvianDepositLocation.value,
+    map: map3
+  })
+
 });
 return  {
-  mapDiv,
-  
-}
-}
+  mapDiv1,
+  mapDiv2,
+  mapDiv3,
+    }
+  }
 }
 </script>
 
@@ -139,6 +177,7 @@ return  {
   }
   p{
     font-size: $fs-500;
+    font-weight: $fw-light;
   }
   img {
     border-radius: 2.1875em;
@@ -158,6 +197,7 @@ return  {
   }
   .ourmission-text {
     max-width: 60ch;
+    font-weight: $fw-light;
     order: 2;
     @include mq(small){
         & {
@@ -185,4 +225,18 @@ return  {
       }
   }
 }
+
+.img-grid {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  column-gap: 1em;
+  flex-wrap: wrap;
+}
+
+.img-grid div {
+  width: calc(90% / 3);
+  min-width: 346px;
+}
+
 </style>
