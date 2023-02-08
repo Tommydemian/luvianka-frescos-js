@@ -10,10 +10,10 @@
                 <h2>Sobre Nosotros</h2>
                 <p>Red Deer SRL es una empresa argentina ubicada en la provincia de Buenos Aires, especializada en la elaboración de salazones y chacinados. Nuestro establecimiento cuenta con equipos de alta tecnología y un personal capacitado y experimentado.</p>
             </div>
-                <img height="600" src="../assets/images/whowearePage/luviankaphotos21.png" alt="trabajadores en la fabrica">
+                <img height="600" src="../assets/images/whowearePage/Rectangle115desktop.png" alt="trabajadores en la fabrica">
             </div>
             <div class="ourmission-grid container default-margin-block flow">
-                <img height="600" src="../assets/images/whowearePage/luviankaphotos15.png" alt="trabajador en la fabrica cargando cortes">
+                <img height="600" src="../assets/images/whowearePage/Rectangle116desktop.png" alt="trabajador en la fabrica cargando cortes">
             <div class="ourmission-text">
                 <h2>Nuestra mision</h2>
                 <p>En Red Deer SRL, nuestra misión es ofrecer productos de la más alta calidad a nuestros clientes. Para lograr esto, nos aseguramos de trabajar con los mejores proveedores, utilizar tecnología de vanguardia, y contar con un equipo altamente capacitado y comprometido.

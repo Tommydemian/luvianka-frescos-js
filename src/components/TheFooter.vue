@@ -7,34 +7,10 @@
                 <img src="../../src/assets/images/logo/luvianka.png" alt="Luvinaka logo">
                 <img src="../../src/assets/images/logo/logo_red-deer.png" alt="Red-deer logo">
               </div>
-              <p>
-                Luvianka is an Argentine company dedicated to the production of salted meats and cured meats, located in the province of Buenos Aires.
+              <p style="padding-top: .5em">
+                © Luvianka {{ year }} <br>
+                Todos los derechos reservados..
               </p>
-              <!-- <h3 class="fs-terciary-heading uppercase social-header">social media</h3>
-    
-              <ul class="social-list" role="none" aria-label="social media links">
-                <li><a aria-label="facebook" href="#">
-                    <svg class="social-icon">
-                      <use xlink:href="../assets/svgs/socialsites.svg#facebook"></use>
-                    </svg>
-                  </a></li>
-                <li><a aria-label="instagram" href="#">
-                    <svg class="social-icon">
-                      <use xlink:href="../assets/svgs/socialsites.svg#icon-instagram"></use>
-                    </svg>
-                  </a>
-                </li>
-                <li><a aria-label="linkedin" href="#">
-                    <svg class="social-icon">
-                      <use xlink:href="../assets/svgs/socialsites.svg#icon-twitter"></use>
-                    </svg>
-                  </a></li>
-                <li><a aria-label="twitter" href="#">
-                    <svg class="social-icon">
-                      <use xlink:href="../assets/svgs/socialsites.svg#icon-youtube"></use>
-                    </svg>
-                  </a></li>
-              </ul> -->
             </div>
             <div>
               <nav class="footer-nav">
@@ -67,7 +43,26 @@
       </footer>
 </template>
 
-<script setup lang="ts">
+<script>
+import { onMounted, ref } from 'vue';
+
+export default {
+  setup(){
+    let year = ref(0)
+  
+    function getCurrentYear() {
+    const date = new Date();
+    year.value = date.getFullYear();
+    return year.value
+  }
+  onMounted(() => getCurrentYear());
+    return {
+      year
+    }
+  }
+}
+
+
 
 </script>
 
@@ -111,6 +106,7 @@
 
 .footer-logos__imgs {
   display: flex;
+  align-items: baseline;
   column-gap: 1em;
 
   img {
