@@ -97,6 +97,7 @@ export default {
     }
     p {
         max-width: 40ch;
+        font-weight: $fw-regular;
         .seemore {
             font-style:italic;
             color: $primary-clr-400 !important;
@@ -104,6 +105,7 @@ export default {
         @media (max-width: 50em) {
             &{
                 font-size: $fs-300;
+                font-weight: $fw-regular;
             }
           }
     }
