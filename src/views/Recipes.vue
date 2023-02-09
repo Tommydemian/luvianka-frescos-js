@@ -34,40 +34,31 @@ import { ref } from 'vue'
         id: 1,
         title: 'Sirloin Tacos',
         description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
-        // description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-        image: new URL('../assets/images/recipesPage/recipe-gallery/recipes1.jpg', import.meta.url).href
+        image: new URL('../assets/images/recipesPage/recipe-gallery/receta1.jpg', import.meta.url).href
         
     },
-    // {
-    //     id: 2,
-    //     title: 'Bondiola de cerdo',
-    //     subtitle: 'corte del costado',
-    //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-    //     weight: '5kg Aprox',
-    //     price: '$10.50',
-    //     image: new URL('../assets/images/productsPage/productGallery/product2.jpg', import.meta.url).href
+    {
+        id: 2,
+        title: 'Sirloin Tacos',
+        description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
+        image: new URL('../assets/images/recipesPage/recipe-gallery/receta2.jpg.jpg', import.meta.url).href
         
-    // },
-    // {
-    //     id: 3,
-    //     title: 'Churrasquito de cerdo',
-    //     subtitle: 'corte del costado',
-    //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-    //     weight: '5kg Aprox',
-    //     price: '$10.50',
-    //     image: new URL('../assets/images/productsPage/productGallery/product3.jpg', import.meta.url).href
+    },
+    {
+        id: 3,
+        title: 'Sirloin Tacos',
+        description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
+        image: new URL('../assets/images/recipesPage/recipe-gallery/receta3.jpg', import.meta.url).href
         
-    // },
-    // {
-    //     id: 4,
-    //     title: 'Vacio ',
-    //     subtitle: 'corte del lomo',
-    //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.',
-    //     weight: '8kg Aprox',
-    //     price: '$10.50',
-    //     image: new URL('../assets/images/productsPage/productGallery/product4.jpg', import.meta.url).href
+    },
+    {
+        id: 4,
+        title: 'Sirloin Tacos',
+        description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
+        image: new URL('../assets/images/recipesPage/recipe-gallery/receta4.jpg', import.meta.url).href
         
-    // },
+    },
+    
     ]);
 </script>
 

@@ -8,39 +8,74 @@
             <div class="aboutus-grid container default-margin-block flow">
             <div class="aboutus-text">
                 <h2>Sobre Nosotros</h2>
-                <p>Red Deer SRL es una empresa argentina ubicada en la provincia de Buenos Aires, especializada en la elaboración de salazones y chacinados. Nuestro establecimiento cuenta con equipos de alta tecnología y un personal capacitado y experimentado.</p>
+                <p>Red Deer SRL es una empresa 100% argentina ubicada en la provincia de Buenos Aires, que se dedica a la elaboración de productos cárnicos de alta calidad. Con más de 10 años de experiencia en el mercado, la empresa se ha consolidado como un referente en la producción de salazones y chacinados.
+                  <br>
+                  <br>
+                  En Red Deer SRL, nos esforzamos por ofrecer productos de la máxima calidad a nuestros clientes. Para ello, contamos con equipos de alta tecnología y un personal altamente capacitado y experimentado. Todos nuestros productos son elaborados con materias primas de primera calidad y se someten a rigurosos controles de calidad en cada etapa de producción.
+                  <br>
+                  <br>
+                  En Red Deer SRL estamos comprometidos con la producción de productos cárnicos de alta calidad. Nos esforzamos por ofrecer a nuestros clientes productos deliciosos y confiables. Estamos en constante evolución y trabajamos arduamente para mejorar y asegurarnos de que nuestros productos cumplan con los estándares de calidad más altos.</p>
             </div>
-                <img height="600" src="../assets/images/whowearePage/Rectangle115desktop.png" alt="trabajadores en la fabrica">
+                <img class="srcset-img" height="600" width="560" src="../assets/images/whowearePage/Rectangle115desktop.png"
+                srcset="../assets/images/whowearePage/Rectangle115desktop.png 560w,
+                  '../assets/images/whowearePage/Rectangle117mobile.png 355w'
+                "   
+                
+                
+                alt="trabajadores en la fabrica">
             </div>
             <div class="ourmission-grid container default-margin-block flow">
-                <img height="600" src="../assets/images/whowearePage/Rectangle116desktop.png" alt="trabajador en la fabrica cargando cortes">
+                <img class="srcset-img" height="600" width="560" src="../assets/images/whowearePage/Rectangle116desktop.png"
+                 srcset="../assets/images/whowearePage/Rectangle116desktop.png 560w,
+                '../assets/images/whowearePage/Rectangle118mobile.png 365w'
+                 "
+                 alt="trabajador en la fabrica cargando cortes">
+                 
             <div class="ourmission-text">
                 <h2>Nuestra mision</h2>
-                <p>En Red Deer SRL, nuestra misión es ofrecer productos de la más alta calidad a nuestros clientes. Para lograr esto, nos aseguramos de trabajar con los mejores proveedores, utilizar tecnología de vanguardia, y contar con un equipo altamente capacitado y comprometido.
+                <p>En Red Deer SRL, nuestra misión es ofrecer productos cárnicos de alta calidad a nuestros clientes. Para lograr este objetivo, nos enfocamos en los siguientes puntos clave:
+                  <br>
 
-                  Nuestro objetivo es ser reconocidos como una empresa líder en la elaboración de salazones y chacinados, y seguir mejorando día a día para ofrecer un producto aún mejor a nuestros clientes.</p>
+
+                  <ul role="list" class="ourmission-list">
+                    <li>Trabajar con los mejores proveedores: Nos aseguramos de seleccionar cuidadosamente a nuestros proveedores para garantizar que solo utilicemos materias primas de la máxima calidad.</li>
+                    
+                    <li>Utilizar tecnología de vanguardia: Contamos con equipos de alta tecnología para asegurarnos de que nuestros productos cumplan con los estándares de calidad más altos.</li>
+                    
+                    <li>Contar con un equipo altamente capacitado y comprometido: Nuestro equipo está compuesto por profesionales altamente capacitados y experimentados que están comprometidos con la producción de productos de alta calidad.</li>
+                    
+                    <li>Ser reconocidos como una empresa líder en la elaboración de salazones y chacinados: Nos esforzamos por ser reconocidos como una empresa líder en la industria de la elaboración de salazones y chacinados.</li>
+                    
+                  </ul>
+                  </p>
             </div>
             </div>
 
-            <div class="whereweat container | default-margin-block flow">
-                <h2>Donde Estamos</h2>
+            <div class="whereweat container | default-margin-block">
+                <h2 class="whereweat-heading">Donde Estamos</h2>
                 <div class="img-grid">
-                    <div>
-                      <h4>Planta Avellaneda</h4>
-                      <p>Tte. Cnel. Lafuente 740</p>
-                      <div ref="mapDiv1" style="width:100%; height:50vh"></div>
+                    <div class="map-container">
+                      <div class="map" ref="mapDiv1" style="width:100%; height:50vh"></div>  
+                        <div class="map-text">
+                          <h4>Planta Avellaneda</h4>
+                          <p>Tte. Cnel. Lafuente 740</p>
+                        </div>
                     </div>
                     <br>
-                    <div>
-                      <h4>Planta Florencio Varela</h4>
-                        <p>Gabriela Mistral 2235</p>
-                      <div ref="mapDiv2" style="width:100%; height:50vh"></div>
+                    <div class="map-container">
+                      <div class="map" ref="mapDiv2" style="width:100%; height:50vh"></div>
+                      <div class="map-text">
+                        <h4>Planta Florencio Varela</h4>
+                          <p>Gabriela Mistral 2235</p>
+                      </div>
                     </div>
                     <br>      
-                    <div>
-                      <h4>Depósito</h4>
-                        <p>Velez Sarfield 1545</p>
-                      <div ref="mapDiv3" style="width:100%; height:50vh"></div>
+                    <div class="map-container">
+                      <div class="map" ref="mapDiv3" style="width:100%; height:50vh"></div>
+                      <div class="map-text">
+                        <h4>Depósito</h4>
+                          <p>Velez Sarfield 1545</p>
+                      </div>
                     </div>      
                 </div>
             </div>
@@ -174,10 +209,16 @@ return  {
     color: $primary-clr-400;
     font-weight: $fw-semibold;
     font-size: 2.5rem; // 40px
+    @include mq(small) {
+      font-size: $fs-650;
+    }
   }
   p{
     font-size: $fs-500;
     font-weight: $fw-light;
+    @include mq(small) {
+      font-size: $fs-300;
+    }
   }
   img {
     border-radius: 2.1875em;
@@ -199,9 +240,11 @@ return  {
     max-width: 60ch;
     font-weight: $fw-light;
     order: 2;
+    margin-left: auto;
     @include mq(small){
         & {
             order: 1;
+            margin-left: 0;
         }
       }
 
@@ -211,9 +254,15 @@ return  {
     color: $primary-clr-400;
     font-weight: $fw-semibold;
     font-size: 2.5rem; // 40px
+    @include mq(small) {
+      font-size: $fs-650;
+    }
   }
   p{
     font-size: $fs-500;
+    @include mq(small) {
+      font-size: $fs-300;
+    }
   }
   img {
     border-radius: 2.1875em;
@@ -226,17 +275,73 @@ return  {
   }
 }
 
+.ourmission-list {
+  list-style: inside;
+}
+
+.whereweat-heading {
+  color: $primary-clr-400;
+  font-weight: $fw-semibold;
+  font-size: 2.5rem; // 40px
+  text-align: center;
+  padding-block: 1em;
+
+  @include mq(small) {
+    font-size: $fs-650;
+  }
+}
+
 .img-grid {
   display: flex;
   justify-content: space-between;
   width: 100%;
   column-gap: 1em;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .img-grid div {
   width: calc(90% / 3);
-  min-width: 346px;
+  min-width: 300px;
 }
+
+.map-text {
+  width: auto !important;
+  background-color: $primary-clr-400;
+  color: $neutral-clr-50;
+  border-radius: 5px;
+  padding-left: $size-600;
+  padding-block: $size-200;
+  & h4 {
+    font-size: $fs-650 ;
+    font-weight: $fw-medium;
+    @include mq(small) {
+      font-size: $fs-500;
+    }
+  }
+  & p {
+    font-size: $fs-400;
+    font-weight: $fw-regular;
+    @include mq(small) {
+      font-size: $fs-200;
+    }
+  }
+}
+
+.srcset-img {
+  max-width: 1560px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
+}
+
+@media (max-width: 640px) {
+  .srcset-img {
+    width: 90%;
+    height: auto;
+  }
+}
+
+
 
 </style>
