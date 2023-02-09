@@ -43,13 +43,9 @@ export default {
             width: 100%;
             margin-block: 1.5em;
         }
-      }
-      
-      
-      
+      }  
       img {
           border-radius: $def-br; //20px
-          aspect-ratio: 16/9;
           position: relative;
           
         }
