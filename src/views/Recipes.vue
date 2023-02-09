@@ -8,13 +8,7 @@
         </div>
 
         <div style="margin-block:2em" class="product-card-grid | snaps-inline container-alternate default-margin-block">
-            <div class="product-card | flow relative" v-for="product in products" :key="product.id">
-                <img height="500" width="400" :src="product.image" :alt="product.title">
-                <div class="product-card__text">
-                    <h2>{{product.title}}</h2>
-                    <p>{{product.description}}</p>
-                </div>
-            </div>
+          <RecipeCard :recipes="recipes" />
         </div>
 
         <section class="hero2 | alternative-margin-block">
@@ -28,32 +22,33 @@
 </template>
 
 <script setup>
+import RecipeCard from '../components/RecipeCard.vue';
 import { ref } from 'vue'
-    const products = ref([
+    const recipes = ref([
     {
         id: 1,
-        title: 'Sirloin Tacos',
+        title: 'Solomillo de cerdo en salsa',
         description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
         image: new URL('../assets/images/recipesPage/recipe-gallery/receta1.jpg', import.meta.url).href
         
     },
     {
         id: 2,
-        title: 'Sirloin Tacos',
+        title: 'Cochinillo al horno',
         description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
-        image: new URL('../assets/images/recipesPage/recipe-gallery/receta2.jpg.jpg', import.meta.url).href
+        image: new URL('../assets/images/recipesPage/recipe-gallery/receta2.jpg', import.meta.url).href
         
     },
     {
         id: 3,
-        title: 'Sirloin Tacos',
+        title: 'costilla de cerdo al horno',
         description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
         image: new URL('../assets/images/recipesPage/recipe-gallery/receta3.jpg', import.meta.url).href
         
     },
     {
         id: 4,
-        title: 'Sirloin Tacos',
+        title: 'Pulled pork (sandwich)',
         description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
         image: new URL('../assets/images/recipesPage/recipe-gallery/receta4.jpg', import.meta.url).href
         
@@ -124,68 +119,7 @@ import { ref } from 'vue'
     }
   }
 }
-.product-card {
-    border-radius: $def-br; //20px
-    color: $neutral-clr-800;
-    background-color: $neutral-clr-50;
-    width: 25em;
 
-    @media (max-width: 50em) {
-        &{
-            width: 100%;
-            margin-block: 1.5em;
-        }
-      }
-      
-      
-      
-      img {
-          border-radius: $def-br; //20px
-          aspect-ratio: 16/9;
-          position: relative;
-          
-        }
-        & .product-card__text {
-        padding: 1em;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        border-bottom-left-radius: $def-br;
-        border-bottom-right-radius: $def-br;
-        background: rgba(0, 0, 0, 0.6); 
-        backdrop-filter: blur(2px);
-        color: $neutral-clr-50;
-
-
-
-        
-      }
-    h2 {
-        font-size: $fs-600;
-        font-weight: $fw-medium;
-        @media (max-width: 50em) {
-            &{
-                font-size: $fs-400;
-            }
-          }
-    }
-    p {
-        max-width: 40ch;
-        font-size: $fs-400;
-        font-weight: $fw-light;
-
-        .seemore {
-            font-style:italic;
-            color: $primary-clr-400 !important;
-        }
-        @media (max-width: 50em) {
-            &{
-                font-size: $fs-300;
-            }
-          }
-    } 
-}
 
 .snaps-inline {
   scroll-snap-type: inline mandatory;

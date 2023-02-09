@@ -4,7 +4,7 @@
     <div class="content">
       <h3>Elevá tu día</h3>
       <h2>Dejate sorprender por la excelencia en cada corte.</h2>
-      <button v-if="showButton" data-type="inverted" class="button">Catálogo</button>
+      <button v-if="onMobile" data-type="inverted" class="button">Catálogo</button>
     </div>
   </div>
 </section>
@@ -110,7 +110,7 @@ export default {
   },
   setup() {
     const screenWidth = ref(window.innerWidth);
-    const showButton = computed(() => screenWidth.value < 800);
+    const onMobile = computed(() => screenWidth.value < 800);
 
 
     const products = ref([
@@ -154,7 +154,7 @@ export default {
 
     return {
       products,
-      showButton
+      onMobile
 
     }
   }
@@ -170,6 +170,7 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables'; 
 @import '../scss/utility'; 
+@import '../scss/mixins'; 
 
 .flow * + * {
   margin-top: var(--flow-spacer, .5em);
@@ -198,6 +199,9 @@ export default {
     & {
      padding-block: calc( 10em); // - content height 
      margin-top: 2em;
+     background-image: url(../assets/images/hero/quick.jpg);
+      background-size: cover;
+      background-position: 20% 10%;
     }
   }
 }
@@ -250,7 +254,7 @@ margin-left: 0;
       font-size: $fs-500;
     }
     & h2 {
-      font-size: $fs-670;
+      font-size: 1.6rem;
     }
     & p {
       font-size: $fs-300;
