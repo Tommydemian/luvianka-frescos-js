@@ -17,8 +17,8 @@
                   En Red Deer SRL estamos comprometidos con la producción de productos cárnicos de alta calidad. Nos esforzamos por ofrecer a nuestros clientes productos deliciosos y confiables. Estamos en constante evolución y trabajamos arduamente para mejorar y asegurarnos de que nuestros productos cumplan con los estándares de calidad más altos.</p>
             </div>
                 <img class="srcset-img" height="600" width="560" src="../assets/images/whowearePage/Rectangle115desktop.png"
-                srcset="'../assets/images/whowearePage/Rectangle115desktop.png 560w',
-                  '../assets/images/whowearePage/Rectangle117mobile.png 355w'
+                srcset="../assets/images/whowearePage/Rectangle115desktop.png 560w,
+                  ../assets/images/whowearePage/Rectangle117mobile.png 355w
                 "   
                 
                 
@@ -26,8 +26,8 @@
             </div>
             <div class="ourmission-grid container default-margin-block flow">
                 <img class="srcset-img" height="600" width="560" src="../assets/images/whowearePage/Rectangle116desktop.png"
-                 srcset="'../assets/images/whowearePage/Rectangle116desktop.png 560w',
-                '../assets/images/whowearePage/Rectangle118mobile.png 365w'
+                 srcset="../assets/images/whowearePage/Rectangle116desktop.png 560w,
+                ../assets/images/whowearePage/Rectangle118mobile.png 365w
                  "
                  alt="trabajador en la fabrica cargando cortes">
                  
