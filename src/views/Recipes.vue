@@ -242,7 +242,8 @@ const recipes = ref([
         grid-auto-columns: 87%;
         overflow-x: scroll;
         overscroll-behavior-inline: contain; // containing the scrolling behaviour if it reaches the end
-    }
+        justify-content: flex-start;
+      }
   }
 }
 

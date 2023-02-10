@@ -63,6 +63,8 @@ export default {
     @media (max-width: 50em) {
         &{
             margin-block: 1.5em;
+            max-width: 100%;
+            justify-content: center;
         }
       }
 
