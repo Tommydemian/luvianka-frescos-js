@@ -9,6 +9,8 @@
 
         <!-- DropDown Filter -->
 
+        DropDownFilter
+
         <div class="dropdown-section | container alternative-margin-block">
             <div class="dropdown relative">
                 <p class="lookfor">Buscar productos...</p>    
@@ -26,24 +28,8 @@
                   </li>
                 </ul>
             </div>
-            <!-- <div class="sortby | relative">
-              <div class="sortby-mobile-content">
-                <Icon v-if="isMobile" class="arrowdown-icon" icon="ph:arrow-fat-lines-down-bold" color="#ae0908" />
-              </div>
-                <div v-if="!isMobile" class="sortby-desktop-content">
-                  <p>Filtrar por: <span>Mas vendido</span></p>
-                  <Icon @click="displayFilter" class="sortby-icon" icon="material-symbols:keyboard-arrow-down-rounded" color="#ae0908" />
-                </div>
-            </div>
-            <div class="filters | absolute" v-if="filterOpen"><ul>
-                <li>Mas relevante</li>
-                <li>Mas caro</li>
-                <li>Mas barato</li>
-            </ul> -->
-        <!-- </div> -->
         </div>
 
-        <!-- filteredProducts cards -->
 
         
         <div v-for="group in filteredGroups" class="snaps-inline container alternative-margin-block" :class="{'filtered-products': filtered}">
@@ -53,20 +39,29 @@
         </div>
         </div>
 
-        <section class="hero2 | alternative-margin-block">
-          <div class="container | hero2-content">
-            <h2 class="uppercase">sin añadidos de grasas trans, sabores artificiales o colorantes.</h2>
-  <p>En Luvianka, confiamos en la fuente de nuestra carne y la controlamos rigurosamente para asegurar su frescura y calidad. Al ser nuestros propios proveedores, podemos ofrecerle la calidad que se merece. ¿Por qué no permitirnos hacerlo?</p>
-          <button data-type="inverted" class="button">Catálogo</button>
-          </div>
-        </section>
+        <!-- Hero 2 Section -->
+
+        <HeroBannerWithText />
+
     </section>
 </template>
 
-<script setup>
+<script>
 import { ref, computed, onMounted } from 'vue'
-import { Icon } from '@iconify/vue';
+
 import ProductCard from '../components/ProductCard.vue';
+import HeroBannerWithText from '../components/HeroBannerWithText.vue';
+import DropdownFilter from '../components/DropdownFilter.vue';
+
+import { Icon } from '@iconify/vue';
+
+export default {
+  components: {
+    ProductCard,
+    HeroBannerWithText,
+    DropDownFilter
+  },
+  setup(){  
 const groups = ref([
   {
     'name': 'cortes del lomo',
@@ -226,14 +221,10 @@ const groups = ref([
   }
 ])
     const isOpen = ref(false);
-    const filterOpen = ref(false);
 
     const displayProducts = () => {
       isOpen.value = !isOpen.value;
     };
-    const displayFilter = () => {
-        filterOpen.value = !filterOpen.value;
-    }
 
     const selected = ref('All');
 
@@ -254,15 +245,17 @@ const groups = ref([
       selected.value = "All";
     }
 
-// Desktop & mobile # renders.
-const screenWidth = ref(window.innerWidth);
-const isMobile = computed(() => screenWidth.value < 800);
-
 onMounted(() => {
   window.addEventListener('resize', () => {
     screenWidth.value = window.innerWidth;
   });
 })
+  return {
+
+  }
+
+}
+}
 
 </script>
 
@@ -492,62 +485,4 @@ onMounted(() => {
   border-radius: 100vw;
   border: .25em solid $neutral-clr-275 ;
 }
-
-/*
-/ hero2 Section
-*/
-
-.hero2 {
-  background: url('../assets/images/hero2/hero2.jpg');
-  padding-block: 17.5em;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  @include mq (medium) {
-    padding-block: 19em;
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: #000000;
-    opacity: 0.4;
-  }
-
-  & .hero2-content {
-    position: absolute;
-    color: $neutral-clr-50;
-    text-align: center;
-    max-width: 105ch;
-    position: absolute;
-    top: 50%;  /* position the top  edge of the element at the middle of the parent */
-    left: 50%; /* position the left edge of the element at the middle of the parent */
-
-    transform: translate(-50%, -50%);
-  }
-  & .hero2-content > h2 {
-    font-size: $fs-900;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  @media (max-width:50em) {
-    & .hero2-content > h2 {
-      font-size: $fs-650;
-    }
-  }
-  & .hero2-content > p {
-    font-size: $fs-650;
-    font-weight: $fw-medium;
-    text-transform: capitalize;
-    padding-block: $size-400;
-  }
-  @media (max-width:50em) {
-    & .hero2-content > p {
-      font-size: $fs-300;
-    }
-  }
-}
-
 </style>

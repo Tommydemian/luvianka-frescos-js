@@ -79,14 +79,23 @@
                     </div>      
                 </div>
             </div>
-    </section>
+            
+            <HeroBannerWithText />
+            
+          </section>
+
+
 </template>
 
 <script>
 import { Loader } from '@googlemaps/js-api-loader'
 import { ref, onMounted } from 'vue';
+import HeroBannerWithText from '../components/HeroBannerWithText.vue';
 
 export default {
+  components: {
+    HeroBannerWithText
+  },
   setup(){
     const mapDiv1 = ref(null);
     const mapDiv2 = ref(null);
