@@ -1,15 +1,14 @@
 <template>
     <div class="recipe-card | flow relative" v-for="recipe in recipes" :key="recipe.id">
         <router-link 
-        :to="`recetas/${recipe.id}`"
+        :to="{ name: 'recipe-details', params: { id: recipe.id } }"
         :props="{ recipes: recipe }">
-        <img height="400" width="600" :src="recipe.image" :alt="recipe.title">
+        <img height="500" width="600" :src="recipe.image" :alt="recipe.title">
         <div class="recipe-card__text">
             <h2>{{recipe.title}}</h2>
             <p>{{recipe.description}}</p>
         </div>
     </router-link>
-    <button @click="handleClick">view Recipe</button>
     </div>
 </template>
 
@@ -22,20 +21,8 @@ export default {
             required: true
         }
     },
-    setup () {
-
-        
+    setup () {        
     const router = useRouter()
-
-    const handleClick = () => {
-    for (recipe of props.recipes){
-        router.push({ name: 'recipe-details', params: { id: recipe.id }, props: { recipe: recipe } })
-    }
-    }
-
-        
-
-        return {handleClick}
     }
 }
 </script>
@@ -43,6 +30,7 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 @import '../scss/_utility.scss';
+@import '../scss/mixins.scss';
 
 .flow * + * {
     margin-top: var(--flow-spacer, .5em);
@@ -63,6 +51,9 @@ export default {
       img {
           border-radius: $def-br; //20px
           position: relative;
+          @include mq (small) {
+            height: 400px;
+          }
           
         }
         & .recipe-card__text {
@@ -76,6 +67,10 @@ export default {
         background: rgba(0, 0, 0, 0.6); 
         backdrop-filter: blur(2px);
         color: $neutral-clr-50;
+        height: 35%;
+        @include mq (small) {
+            height: 43%;
+        }
 
 
 

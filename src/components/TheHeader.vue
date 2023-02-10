@@ -43,6 +43,7 @@ const displayMenu = () => {
 <style lang="scss" scoped>
 /* Dropdown menu */
 @import '../scss/variables';
+@import '../scss/mixins';
 .primary-header {
   background-color: $bg-header-clr;
   padding-block: .5em;
@@ -170,7 +171,7 @@ const displayMenu = () => {
       gap: 1em;
   
       .mobileLink{
-        font-size: $fs-400;
+        font-size: $fs-600;
         font-weight: $fw-semibold;
       }
     }

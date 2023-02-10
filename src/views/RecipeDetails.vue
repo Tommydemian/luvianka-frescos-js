@@ -1,62 +1,34 @@
 <template>
  <section>
     <div class="hero"></div>
-
-
-<div class="container | default-margin-block">
-    
-
+<div class="container">
         <h2 class="rd-heading">{{ filteredRecipe.title }}</h2>
-        <p class="rd-description">Easy and delicious, you’ll love making these sirloin tacos using Fiambres Luvianka’s quality Pork Loin cuts. The wonderful texture of the pork mixed with soft tortilla and flavorful spices creates a wonderful dish to remember. Perfect for a casual dinner or special occasions. </p>
-
+        <p class="rd-description">{{ filteredRecipe.description }}</p>
+       
 
         <div class="rd-main | alternative-margin-block">
             <div class="ingredients-container flow">
                 <h3 class="ingredients-heading">Ingredientes</h3>
                 <ul class="ingredients-list">
-                    <li>solomillo de cerdo.</li>     
-                    <li>1 hoja de laurel o 1 ramita de tomillo o 1 ramita de romero.</li>
-                    <li>1 lata de cerveza, puede ser rubia o negra ¡quedan súper!.</li>
-                    <li>Sal.</li>
-                    <li>1/2 taza de salsa de soja.</li>
-                    <li> cebollas medianas.</li>
-                    <li>hoja de laurel o 1 ramita de tomillo o 1 ramita de romero.</li>
-                    <li>1 hoja de laurel o 1 ramita de tomillo o 1 ramita de romero.</li>
-                    <li>1 hoja de laurel o 1 ramita de tomillo o 1 ramita de romero.</li>
-                    <li>1 hoja de laurel o 1 ramita de tomillo o 1 ramita de romero.</li>
+                    <li v-for="ingredients in filteredRecipe.ingredientes " >{{ingredients}}</li>     
                 </ul>
             </div>
-            <div class="vl"></div>
             <div class="directions-container">
                 <h3 class="directions-heading">Como prepararlo:</h3>
                 
                     <div class="directions-list">
-                        <div class="li">
-                            <span>1</span> 
-                            <p>Season both sides of the pork loin and cook according to package directions. Let meat rest.</p>
-                          </div>
-                          <div class="li">
-                            <span>2</span> 
-                            <p>Mix tomato, onion, and jalapeno in a bowl. Toss with lemon juice, salt, and pepper.</p>
-                          </div>
-                          <div class="li">
-                            <span>3</span> 
-                            <p>Heat tortillas and fill with pork and vegetable mixture. Enjoy!</p>
+                        <div v-for="(steps, index) in filteredRecipe.steps" class="li">
+                            <span>{{index + 1}}</span> 
+                            <p>{{steps}}</p>
                           </div>
                     </div>
             
         </div>
         </div>
 
-    <div class="random-images">
-        
-            <div class="recipe-card |  flow relative container" v-for="randomrecipe in randomRecipes">
-                <img height="400" width="600" :src="randomrecipe.image" :alt="randomrecipe.title">
-                <div class="recipe-card__text">
-                        <h2>{{randomrecipe.title}}</h2>
-                        <p>{{randomrecipe.description}}</p>
-                    </div>
-                </div>
+        <h2 class="discoverrecipes-heading">Descubra más recetas..</h2>
+    <div class="random-images | alternative-margin-block">
+                <RecipeCard :recipes="randomRecipes" />
     </div>
 </div>
 
@@ -65,67 +37,201 @@
 
 <script>
 import { useRoute } from 'vue-router';
-import { ref, computed  } from 'vue'
+import { ref, computed, watch  } from 'vue'
+import RecipeCard from '../components/RecipeCard.vue';
+
 
 export default {
+    components: {
+        RecipeCard
+    },
     setup () {
         const route = useRoute();
         const recipeID = ref(route.params.id)
- 
-        const recipes = ref([
-    {
-        id: 1,
-        title: 'Solomillo de cerdo en salsa',
-        description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
-        image: new URL('../assets/images/recipesPage/recipe-gallery/receta1.jpg', import.meta.url).href
-        
-    },
-    {
-        id: 2,
-        title: 'Cochinillo al horno',
-        description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
-        image: new URL('../assets/images/recipesPage/recipe-gallery/receta2.jpg', import.meta.url).href
-        
-    },
-    {
-        id: 3,
-        title: 'costilla de cerdo al horno',
-        description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
-        image: new URL('../assets/images/recipesPage/recipe-gallery/receta3.jpg', import.meta.url).href
-        
-    },
-    {
-        id: 4,
-        title: 'Pulled pork (sandwich)',
-        description: 'Lorem ipsum dolor sit amet, adipiscing elit tempor',
-        image: new URL('../assets/images/recipesPage/recipe-gallery/receta4.jpg', import.meta.url).href
-        
-    },
-    ]);
 
-    // computed => filter object to display.
-    const filteredRecipe = computed(() => recipes.value.filter( recipe => recipe.id == recipeID.value)) 
-
-  // 3 random objects function.
+    const recipes = ref([
+        {
+    id: 1,        
+    title: 'Lomo de Cerdo con Salsa de Miel y Mostaza',
+    description: 'Una receta clásica con solo 6 ingredientes y 4 pasos. Lomo de cerdo adobado con una salsa dulce y picante.',
+    ingredientes: [
+      'Lomo de cerdo',
+      'Mostaza Dijon',
+      'Miel',
+      'Ajo',
+      'Sal y pimienta'
+    ],
+    steps: [
+      'Mezclar mostaza, miel, ajo, sal y pimienta en un tazón pequeño.',
+      'Adobar el lomo de cerdo con la mezcla de la salsa.',
+      'Cocinar en una sartén hasta que esté dorado por ambos lados.',
+      'Verter la salsa sobre el lomo de cerdo y continuar cocinando hasta que esté completamente cocido.'
+    ],
+    image: new URL('../assets/images/recipesPage/recipeGallery/lomo-de-cerdo-recetas-miel-mostaza.jpg', import.meta.url).href
+  },
+  {
+    id: 2,
+    title: "Cerdo en Adobo",
+    description: "Este platillo mexicano requiere 8 ingredientes y solo 4 pasos para una carne de cerdo suave y sabrosa.",
+    ingredientes: [
+      "Carne de cerdo",
+      "Ajo",
+      "Comino",
+      "Oregano",
+      "Vinagre blanco",
+      "Agua",
+      "Sal",
+      "Pimienta negra"
+    ],
+    steps: [
+      "Mezclar los ingredientes de adobo en un tazón grande.",
+      "Añadir la carne de cerdo y marinar por un mínimo de 2 horas.",
+      "Cocinar la carne de cerdo en una sartén hasta que esté dorada por ambos lados.",
+      "Verter el adobo sobre la carne y continuar cocinando hasta que esté suave y tierno."
+    ],
+    image: new URL('../assets/images/recipesPage/recipeGallery/cerdoadobo.jpg', import.meta.url).href
+  },
+  { id: 3,
+    title: "Cerdo Ahumado con Papas",
+    description: "Una cena fácil de hacer en solo 9 ingredientes y 4 pasos. La carne de cerdo ahumada se cocina junto con papas para una comida completa.",
+    ingredientes: [
+      "Papas",
+      "Carne de cerdo ahumada",
+      "Cebolla",
+      "Ajo",
+      "Aceite de oliva",
+      "Tomates cherry",
+      "Sal y pimienta",
+      "Tomillo",
+      "Orégano"
+    ],
+    steps: [
+      "Precalentar el horno a 200 grados Celsius.",
+      "Cortar las papas en cubos y mezclarlas con cebolla, ajo, aceite de oliva, tomates cherry, sal, pimienta, tomillo y orégano.",
+      "Colocar la mezcla de papas en una bandeja para hornear.",
+      "Añadir la carne de cerdo ahumada y hornear por 25 minutos o hasta que estén doradas."
+    ],
+    image: new URL('../assets/images/recipesPage/recipeGallery/cerdoahumadopapas.jpg', import.meta.url).href
+  },
+  {
+    id: 4,
+    title: "Cerdo en Salsa de Naranja",
+    description: "Una combinación dulce y picante de 7 ingredientes y 4 pasos para una carne de cerdo tierna y sabrosa.",
+    ingredientes: [
+      "Carne de cerdo",
+      "Jugo de naranja",
+      "Miel",
+      "Soja",
+      "Ajo",
+      "Gengibre",
+      "Cebolla"
+    ],
+    steps: [
+      "Mezclar el jugo de naranja, miel, soja, ajo, gengibre y cebolla en un tazón pequeño.",
+      "Cortar la carne de cerdo en tiras y marinar en la salsa por un mínimo de 1 hora.",
+      "Cocinar la carne de cerdo en una sartén hasta que esté dorada por ambos lados.",
+      "Verter la salsa sobre la carne y continuar cocinando hasta que esté completamente cocida."
+    ],
+    image: new URL('../assets/images/recipesPage/recipeGallery/cerdonaranja.webp', import.meta.url).href
+  },
+  {
+    id: 5,
+    title: "Chuletas de Cerdo con Salsa de Manzana",
+    description: "Un platillo clásico con 7 ingredientes y 4 pasos para una carne de cerdo tierna y sabrosa con un toque dulce de manzana.",
+    "ingredientes": [
+    "Chuletas de cerdo",
+    "Manzana",
+    "Cebolla",
+    "Ajo",
+    "Vinagre balsámico",
+    "Miel",
+    "Sal y pimienta"
+    ],
+    steps: [
+    "Cortar la manzana y la cebolla en cubos pequeños.",
+    "Mezclar ajo, vinagre balsámico, miel, sal y pimienta en un tazón pequeño para crear la salsa.",
+    "Cocinar las chuletas de cerdo en una sartén hasta que estén doradas por ambos lados.",
+    "Añadir la manzana y la cebolla a la sartén con las chuletas y verter la salsa sobre ellas. Cocinar hasta que la manzana esté suave y la salsa se haya espesado."
+    ],
+    image: new URL('../assets/images/recipesPage/recipeGallery/cerdomanzana.jpg', import.meta.url).href
+    },
+    {
+    id: 6,
+    title: "Costillas de Cerdo al Horno con BBQ",
+    description: "Un platillo fácil de hacer con 7 ingredientes y 4 pasos para costillas de cerdo tiernas y con un sabor ahumado a barbacoa.",
+    "ingredientes": [
+    "Costillas de cerdo",
+    "Ketchup",
+    "Miel",
+    "Vinagre de manzana",
+    "Mostaza dijon",
+    "Ajo",
+    "Sal y pimienta"
+    ],
+    steps: [
+    "Mezclar ketchup, miel, vinagre de manzana, mostaza dijon, ajo, sal y pimienta en un tazón pequeño para crear la salsa de barbacoa.",
+    "Cubrir las costillas de cerdo con la salsa de barbacoa y dejar marinar por un mínimo de 2 horas.",
+    "Precalentar el horno a 220 grados Celsius.",
+    "Colocar las costillas en una bandeja para hornear y hornear por 45 minutos o hasta que estén tiernas y doradas. Servir con más salsa de barbacoa al gusto."
+    ],
+    image: new URL('../assets/images/recipesPage/recipeGallery/costillas-de-cerdo-en-salsa-barbicue.jpg', import.meta.url).href
+    },
+    {
+    id: 7,
+    title: " Solomillo de cerdo con salsa de cerezas",
+    description: "El cerdo y las frutas se complementan a la perfección de manera sencilla y elegante y en esta meravillosa receta.",
+    "ingredientes": 
+    ["2 solomillos de cerdo",
+    "2 naranjas",
+    "1 limón",
+    "200g de cerezas",
+    "4 cucharadas de miel",
+    "un poco de whisky",
+    "sal y pimienta"]
+    ,
+    steps: [
+        "Mezclar zumo de naranja y limón con miel y agua. Pintar solomillos con esta mezcla y dejar marinar por unas horas.",
+        "Cocinar las cerezas con zumo de naranja y limón, whisky y miel en una cazuela a fuego lento.",
+        "Reducir la salsa hasta que quede espesa.",
+        "Cocinar los solomillos marinados hasta que estén listos. Servir con la salsa de cerezas por encima."
+    ],
+    image: new URL('../assets/images/recipesPage/recipeGallery/cerezaycerdo.jpg', import.meta.url).href
+    }
+    ])
+  
+    
+    // 3 random objects function.
   function getRandomRecipes(recipes) {
   let randomRecipes = [];
   let usedIndexes = [];
-
+  
   while (randomRecipes.length < 3) {
-    let randomIndex = Math.floor(Math.random() * recipes.length);
-
-    if (!usedIndexes.includes(randomIndex)) {
-      randomRecipes.push(recipes[randomIndex]);
-      usedIndexes.push(randomIndex);
+      let randomIndex = Math.floor(Math.random() * recipes.length);
+      
+      if (!usedIndexes.includes(randomIndex)) {
+          randomRecipes.push(recipes[randomIndex]);
+          usedIndexes.push(randomIndex);
+        }
     }
-  }
-
-  return randomRecipes;
+    
+    return randomRecipes;
 }
 
-const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
 
-        return {
+watch(
+    () => recipeID.value, // first param, your object
+    (params) => {
+        console.log(params);
+        changeValue(currValue); //changeValue is a function
+        
+    }
+    )
+    
+    const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
+    
+    // computed => filter object to display.
+    const filteredRecipe = computed(() => recipes.value.filter( recipe => recipe.id == recipeID.value)) 
+    return {
             recipeID,
              filteredRecipe: filteredRecipe.value[0],
              randomRecipes
@@ -166,11 +272,24 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
     color: $primary-clr-400;
     font-size: $fs-950;
     font-weight: $fw-bold;
+    padding-bottom: .5em;
     text-align: center;
     @include mq (small) {
         font-size: $fs-700;
     }
 }
+
+.rd-subheading {
+  display: flex;
+  justify-content: flex-start;
+  img {
+    height: 300px;
+  }
+  p {
+    max-width: 20ch;
+  }
+}
+
 .rd-description {
     font-size: $fs-600;
     font-weight: $fw-regular;
@@ -209,8 +328,8 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
         .ingredients-list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        list-style-image: url(../assets/svgs/circle.svg);
         list-style: inside;
+        list-style-image: url(../assets/svgs/circle.svg);
 
         li {
             padding-block: 1em;
@@ -318,11 +437,19 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
     } 
 }
 
+.discoverrecipes-heading {
+    color: $primary-clr-400;
+    font-weight: $fw-semibold;
+    font-size: $fs-750;
+}
 .random-images {
     display: flex;
+    justify-content: space-between;
     @include mq (small){
         display: block;
     }
 }
 
 </style>
+
+

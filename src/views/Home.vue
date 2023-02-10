@@ -497,7 +497,6 @@ margin-left: 0;
     font-size: $fs-600;
     font-style: italic;
     font-weight: $fw-medium;
-    color: $primary-clr-400;
     margin-inline: auto;
     max-width: 60ch;
     padding-top: 1em;

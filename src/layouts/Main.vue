@@ -9,6 +9,7 @@
           <div>
             <router-view
               :style="{ height: getScreenHeight }"
+              :key="$route.path"
             />
           </div>
         </main>
