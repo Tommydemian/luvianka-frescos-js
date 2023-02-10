@@ -13,97 +13,38 @@
 <section class="featured-products | container default-margin-block">
   <h2 class="capitalize">Productos destacados</h2>
   <div class="feature-produts__cards">
-    
     <ProductCard :products="products" />
-    
   </div>
 </section>
-
 <!-- ttbuild Section -->
-
-<section class="ttbuild | container default-margin-block">
- <div style="--flow-spacer:.3em" class="ttbuild-grid flow">
-  <div class="ttbuild-text ">
-    <h3 class="ttbuild-grid__h3">Elevá tu día</h3>
-    <h2 class="ttbuild-grid__h2">Juntos para desarrollar mejores productos.</h2>
-    <p class="ttbuild-grid__p">
-      Trabajamos mano a mano con nuestros clientes para crear una experiencia gastronómica única y satisfactoria. Ofrecemos productos de cerdo de alta calidad que combinan calidad y sabor. Al elegir nuestros productos, nuestros clientes elevan su jornada culinaria a un nivel superior. Juntos, estamos construyendo algo realmente especial..
-    </p>
-    <button class="button">Catálogo</button>
-  </div>
-  <div class="ttbuild-image-container">
-    <img class="ttbuild-image"  src="../assets/images/ttbuild/sean-stone-0hOHNA3M6Ds-unsplash.jpg" alt="food-image">
-  </div>
- </div>
-</section>
-
-<!-- hero2 section -->
-
+<TTBuild />
+<!-- hero2 Section -->
 <HeroBannerWithText />
-
 <!-- why-us Section -->
-
-<section class="why-us | container default-margin-block">
-<div class="why-us-heading">
-  <h2>Por qué elegir Luvianka:</h2>
-  <p class="whyus-subheading">Nuestro compromiso es ofrecerle productos frescos y de calidad, elaborados con materias primas cuidadosamente seleccionadas. Al ser nuestros propios proveedores, garantizamos la máxima calidad en cada corte.</p>
-</div>
-<div class="why-us-grid flow">
-<div class="text-center">
-    <Icon class="why-us__icon" icon="mdi:medal-outline" color="white" />
-
-  <h3>Calidad</h3>
-  <p>
-    Mantenemos un alto estándar de calidad en la selección de los animales y en la elaboración de cada corte. Brindamos productos de máxima calidad y frescura a nuestros clientes. Mantenemos estándares éticos y de calidad reconociéndonos como una de las mejores empresas de cortes de cerdo en el mercado.
-  </p>
-</div>
-<div class="text-center flow">
-  <Icon class="why-us__icon" icon="uil:technology" color="white" />
-  <h3>Tecnología</h3>
-  <p>
-    Nuestra tecnología de producción de vanguardia nos permite elaborar cada corte con cuidado y minimizar su manipulación, creando una experiencia única y auténtica en cada bocado. Confíe en nosotros para brindarle productos de excepcionales que hablan por sí solos.
-  </p>
-</div>
-<div class="text-center flow">
-  <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
-  <h3>Innovación</h3>
-  <p>
-    En Frescoes Luvianka, ofrecemos productos de calidad superior a través de nuestro enfoque en la innovación. Nos aseguramos de que cada uno de nuestros productos sea único y satisfactorio, brindándole una experiencia culinaria inolvidable.
-  </p>
-</div>
-</div>
-</section>
-
-<section class="social-media">
-  <div class="container | social-media-icons">
-    <a href="https://m.facebook.com/fiambresluvianka/">
-      <Icon class="social-media-icon" icon="ri:facebook-fill" color="#af0808" />
-    </a>
-    <a href="https://www.instagram.com/fiambresluvianka/">
-      <Icon class="social-media-icon" icon="mdi:instagram" color="#af0808" />
-    </a>
-    <a href="https://www.linkedin.com/company/fiambres-luvianka/">
-      <Icon class="social-media-icon" icon="mdi:linkedin" color="#af0808" />
-    </a>
-    <a href="https://twitter.com/fluviankaok">
-      <Icon class="social-media-icon" icon="mdi:twitter" color="#af0808" />
-    </a>
-  </div>
-</section>
+<WhyUs />
+<!-- socialMedia Section -->
+<SocialMedia />
 </template>
 
 <script>
+import {ref, computed, onMounted} from 'vue'
+
+import TTBuild from '../components/TTBuild.vue';
 import ProductCard from '../components/ProductCard.vue';
 import HeroBannerWithText from '../components/HeroBannerWithText.vue';
-import {ref, computed, onMounted} from 'vue'
+import WhyUs from '../components/WhyUs.vue'; 
+import SocialMedia from '../components/SocialMedia.vue';
 
 import { Icon } from '@iconify/vue';
 
 export default {
   components: {
     Icon, 
+    TTBuild,
     ProductCard,
-    HeroBannerWithText
+    HeroBannerWithText,
+    WhyUs,
+    SocialMedia
   },
   setup() {
     const screenWidth = ref(window.innerWidth);
@@ -353,190 +294,4 @@ margin: 1em;
     max-width: 50ch;  
   }
 }
-.stars {
-  display: flex;
-  align-items: center;
-.star-icon {
-  width: 2em;
-  height: 2em;
-}
-}
-
-/*
-/ ttbuild Section
-*/
-
-.ttbuild-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-
-  @media (max-width: 50em) {
-    display: block;
-  }
-
-  & .ttbuild-text {
-    margin-block: auto;
-  }
-
-  & .ttbuild-text h3 {
-    color: $primary-clr-400;
-    font-size: $fs-650;
-    font-weight: $fw-medium;
-    text-transform: uppercase;
-  }
-  @media (max-width:50em) {
-    & .ttbuild-text h3 {
-      font-size: $fs-650 ;
-    } 
-  }
-  & .ttbuild-text h2 {
-    font-size: $fs-800;
-    font-weight: $fw-bold;
-    line-height: 1.3;
-  }
-  @media (max-width:50em) {
-    & .ttbuild-text h2 {
-      font-size: 26px;
-    } 
-  }
-  & .ttbuild-text p {
-  font-size: $fs-500;
-  margin-bottom: $size-400;
-  max-width: 50ch;
-  font-weight: $fw-light;
-  color: $neutral-clr-800;
-  }
-  @media (max-width:50em) {
-    & .ttbuild-text p {
-      font-size: $fs-500;
-      font-weight: $fw-light;
-      color: $neutral-clr-800;
-    } 
-  }
-
-  & .ttbuild-image {
-    border-radius: 0.625em;
-  }
-}
-
-/*
-/ why-us Section
-*/
-
-.why-us {
-  background-color: $neutral-clr-900;
-  padding: 4em;
-  border-radius: 2.5em;
-
-  @media (max-width: 50em) {
-    padding: 1.5em;
-  }
-  & .why-us-heading {
-    color: $neutral-clr-50;
-    text-align: center;
-    margin-bottom: 4em;
-  }
-  @media (max-width: 50em) {
-    & .why-us-heading {
-      margin-bottom: 1em;
-    } 
-  }
-  & .why-us-heading h2 {
-    font-size: $fs-750;
-    font-weight: $fw-semibold;
-  }
-  @media (max-width:50em) {
-    & .why-us-heading h2{
-      font-size: $fs-650;
-    }
-  }
-  & .why-us-heading p {
-    display: block;
-    font-size: $fs-600;
-    font-style: italic;
-    font-weight: $fw-medium;
-    margin-inline: auto;
-    max-width: 60ch;
-    padding-top: 1em;
-    
-  }
-  @media (max-width:50em) {
-    & .why-us-heading p{
-      font-size: $fs-300;
-      font-weight: $fw-light;
-    }
-  }
-  & .why-us-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    gap: 3em;
-    color: $neutral-clr-50;
-  }
-  @media (max-width:50em) {
-    & .why-us-grid  {
-      display: block;
-    }  
-    & .why-us-grid div  {
-      padding-block: 2em;
-    } 
-    @media (max-width:50em) {
-      & .why-us-grid div  {
-        padding-block: 1em;
-      } 
-    } 
-  }
-
-  .why-us__icon {
-    width: 5em;
-    height: 5em;
-    padding: 1em;
-    text-align: center;
-    display: block;
-    margin-inline: auto;
-    background-color: $primary-clr-400;
-    border-radius: 100vw;
-    }
-  
-  & .why-us-grid h3 {
-    font-size: 1.23rem;
-    font-weight: $fw-semibold;
-  }
-  @media (max-width:50em) {
-    & .why-us-grid h3 {
-      font-size: $fs-500;
-    }
-  }
-  
-  & .why-us-grid p {
-    font-size: $fs-600;
-  }
-  @media (max-width:50em) {
-    & .why-us-grid p {
-      font-size: $fs-200;
-    }
-  }
-}
-
-.social-media {
-  padding-block: 1em;
-  background-color: $primary-clr-400;
-  .social-media-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 1em;
-  }
-  .social-media-icon {
-    width: 2.5em;
-    height: 2.5em;
-    background-color: $neutral-clr-50;
-    padding: .5em;
-    border-radius: 100vw;
-    cursor: pointer;
-  }
-
-}
-
 </style>

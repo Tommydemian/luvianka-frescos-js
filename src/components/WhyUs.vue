@@ -1,0 +1,148 @@
+<template>
+    <section class="why-us | container default-margin-block">
+        <div class="why-us-heading">
+          <h2>Por qué elegir Luvianka:</h2>
+          <p class="whyus-subheading">Nuestro compromiso es ofrecerle productos frescos y de calidad, elaborados con materias primas cuidadosamente seleccionadas. Al ser nuestros propios proveedores, garantizamos la máxima calidad en cada corte.</p>
+        </div>
+        <div class="why-us-grid flow">
+        <div class="text-center">
+            <Icon class="why-us__icon" icon="mdi:medal-outline" color="white" />
+        
+          <h3>Calidad</h3>
+          <p>
+            Mantenemos un alto estándar de calidad en la selección de los animales y en la elaboración de cada corte. Brindamos productos de máxima calidad y frescura a nuestros clientes. Mantenemos estándares éticos y de calidad reconociéndonos como una de las mejores empresas de cortes de cerdo en el mercado.
+          </p>
+        </div>
+        <div class="text-center flow">
+          <Icon class="why-us__icon" icon="uil:technology" color="white" />
+          <h3>Tecnología</h3>
+          <p>
+            Nuestra tecnología de producción de vanguardia nos permite elaborar cada corte con cuidado y minimizar su manipulación, creando una experiencia única y auténtica en cada bocado. Confíe en nosotros para brindarle productos de excepcionales que hablan por sí solos.
+          </p>
+        </div>
+        <div class="text-center flow">
+          <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
+          <h3>Innovación</h3>
+          <p>
+            En Frescoes Luvianka, ofrecemos productos de calidad superior a través de nuestro enfoque en la innovación. Nos aseguramos de que cada uno de nuestros productos sea único y satisfactorio, brindándole una experiencia culinaria inolvidable.
+          </p>
+        </div>
+        </div>
+        </section>
+        
+</template>
+
+<script>
+import { Icon } from '@iconify/vue'
+export default {
+  components: {
+    Icon
+  },
+    setup () {
+        
+
+        return {}
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+@import '../scss/variables'; 
+@import '../scss/utility'; 
+@import '../scss/mixins'; 
+.why-us {
+    background-color: $neutral-clr-900;
+    padding: 4em;
+    border-radius: 2.5em;
+  
+    @media (max-width: 50em) {
+      padding: 1.5em;
+    }
+    & .why-us-heading {
+      color: $neutral-clr-50;
+      text-align: center;
+      margin-bottom: 4em;
+    }
+    @media (max-width: 50em) {
+      & .why-us-heading {
+        margin-bottom: 1em;
+      } 
+    }
+    & .why-us-heading h2 {
+      font-size: $fs-750;
+      font-weight: $fw-semibold;
+    }
+    @media (max-width:50em) {
+      & .why-us-heading h2{
+        font-size: $fs-650;
+      }
+    }
+    & .why-us-heading p {
+      display: block;
+      font-size: $fs-600;
+      font-style: italic;
+      font-weight: $fw-medium;
+      margin-inline: auto;
+      max-width: 60ch;
+      padding-top: 1em;
+      
+    }
+    @media (max-width:50em) {
+      & .why-us-heading p{
+        font-size: $fs-300;
+        font-weight: $fw-light;
+      }
+    }
+    & .why-us-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 3em;
+      color: $neutral-clr-50;
+    }
+    @media (max-width:50em) {
+      & .why-us-grid  {
+        display: block;
+      }  
+      & .why-us-grid div  {
+        padding-block: 2em;
+      } 
+      @media (max-width:50em) {
+        & .why-us-grid div  {
+          padding-block: 1em;
+        } 
+      } 
+    }
+  
+    .why-us__icon {
+      width: 5em;
+      height: 5em;
+      padding: 1em;
+      text-align: center;
+      display: block;
+      margin-inline: auto;
+      background-color: $primary-clr-400;
+      border-radius: 100vw;
+      }
+    
+    & .why-us-grid h3 {
+      font-size: 1.23rem;
+      font-weight: $fw-semibold;
+    }
+    @media (max-width:50em) {
+      & .why-us-grid h3 {
+        font-size: $fs-500;
+      }
+    }
+    
+    & .why-us-grid p {
+      font-size: $fs-600;
+    }
+    @media (max-width:50em) {
+      & .why-us-grid p {
+        font-size: $fs-200;
+      }
+    }
+  }
+
+</style>
