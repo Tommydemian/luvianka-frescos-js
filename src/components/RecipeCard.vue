@@ -70,11 +70,7 @@ export default {
         height: 35%;
         @include mq (small) {
             height: 43%;
-        }
-
-
-
-        
+        }        
       }
     h2 {
         font-size: $fs-600;

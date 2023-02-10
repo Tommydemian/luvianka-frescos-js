@@ -15,11 +15,18 @@
     </section>
 </template>
 
-<script setup>
+<script>
+import { ref } from 'vue'
+
 import RecipeCard from '../components/RecipeCard.vue';
 import HeroBannerWithText from '../components/HeroBannerWithText.vue';
-import { ref } from 'vue'
-    
+
+export default {
+  components: {
+    RecipeCard, 
+    HeroBannerWithText, 
+  },
+  setup(){
 const recipes = ref([
         {
     id: 1,        
@@ -169,6 +176,9 @@ const recipes = ref([
     image: new URL('../assets/images/recipesPage/recipeGallery/cerezaycerdo.jpg', import.meta.url).href
     }
     ])
+    return { recipes }
+  }
+  }
 </script>
 
 <style lang="scss" scoped>
