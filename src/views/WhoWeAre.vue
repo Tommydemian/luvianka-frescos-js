@@ -295,7 +295,7 @@ return  {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  column-gap: 1em;
+  gap: 1em;
   flex-wrap: wrap;
   justify-content: center;
 }

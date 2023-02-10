@@ -1,14 +1,20 @@
 <template>
     <div class="recipe-card | flow relative" v-for="recipe in recipes" :key="recipe.id">
+        <router-link 
+        :to="`recetas/${recipe.id}`"
+        :props="{ recipes: recipe }">
         <img height="400" width="600" :src="recipe.image" :alt="recipe.title">
         <div class="recipe-card__text">
             <h2>{{recipe.title}}</h2>
             <p>{{recipe.description}}</p>
         </div>
+    </router-link>
+    <button @click="handleClick">view Recipe</button>
     </div>
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 export default {
     props: {
         recipes:{
@@ -17,9 +23,19 @@ export default {
         }
     },
     setup () {
+
+        
+    const router = useRouter()
+
+    const handleClick = () => {
+    for (recipe of props.recipes){
+        router.push({ name: 'recipe-details', params: { id: recipe.id }, props: { recipe: recipe } })
+    }
+    }
+
         
 
-        return {}
+        return {handleClick}
     }
 }
 </script>

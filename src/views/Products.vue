@@ -57,7 +57,7 @@
           <div class="container | hero2-content">
             <h2 class="uppercase">sin añadidos de grasas trans, sabores artificiales o colorantes.</h2>
   <p>En Luvianka, confiamos en la fuente de nuestra carne y la controlamos rigurosamente para asegurar su frescura y calidad. Al ser nuestros propios proveedores, podemos ofrecerle la calidad que se merece. ¿Por qué no permitirnos hacerlo?</p>
-          <button data-type="inverted" class="button">Catalogo</button>
+          <button data-type="inverted" class="button">Catálogo</button>
           </div>
         </section>
     </section>

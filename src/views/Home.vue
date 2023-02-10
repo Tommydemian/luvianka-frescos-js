@@ -26,9 +26,9 @@
     <h3 class="ttbuild-grid__h3">Elevá tu día</h3>
     <h2 class="ttbuild-grid__h2">Juntos para desarrollar mejores productos.</h2>
     <p class="ttbuild-grid__p">
-      juntos con nuestros clientes estamos construyendo una experiencia culinaria única y satisfactoria. Estamos trabajando juntos para crear una comida excepcional, que ofrece calidad y sabor incomparables. Al elegir nuestros productos de carne de cerdo de alta calidad, nuestros clientes están contribuyendo a elevar su experiencia culinaria a un nivel superior. Juntos, estamos construyendo algo realmente especial..
+      Trabajamos mano a mano con nuestros clientes para crear una experiencia gastronómica única y satisfactoria. Ofrecemos productos de cerdo de alta calidad que combinan calidad y sabor. Al elegir nuestros productos, nuestros clientes elevan su jornada culinaria a un nivel superior. Juntos, estamos construyendo algo realmente especial..
     </p>
-    <button class="button">Catalogo</button>
+    <button class="button">Catálogo</button>
   </div>
   <div class="ttbuild-image-container">
     <img class="ttbuild-image"  src="../assets/images/ttbuild/sean-stone-0hOHNA3M6Ds-unsplash.jpg" alt="food-image">
@@ -42,7 +42,7 @@
   <div class="container | hero2-content">
   <h2 class="uppercase">sin añadidos de grasas trans, sabores artificiales o colorantes.</h2>
   <p>En Luvianka, confiamos en la fuente de nuestra carne y la controlamos rigurosamente para asegurar su frescura y calidad. Al ser nuestros propios proveedores, podemos ofrecerle la calidad que se merece. ¿Por qué no permitirnos hacerlo?</p>
-  <button data-type="inverted" class="button">Catalogo</button>
+  <button data-type="inverted" class="button">Catálogo</button>
   </div>
 </section>
 
@@ -59,7 +59,7 @@
 
   <h3>Calidad</h3>
   <p>
-     Nos enorgullece ser nuestros propios proveedores de materias primas. Si la calidad es fundamentalmente el resultado de la materia prima que se utiliza, mo hay dduda de que al elegirnos esta recibiendo productos que cumplen con los mas altos estandares de calidad en el mercado.
+    Mantenemos un alto estándar de calidad en la selección de los animales y en la elaboración de cada corte. Brindamos productos de máxima calidad y frescura a nuestros clientes. Mantenemos estándares éticos y de calidad reconociéndonos como una de las mejores empresas de cortes de cerdo en el mercado.
   </p>
 </div>
 <div class="text-center flow">
@@ -73,7 +73,7 @@
   <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
   <h3>Innovación</h3>
   <p>
-    En Frescoes Luvianka, ofrecemos productos de calidad superior a través de nuestro enfoque en la innovación. Nos aseguramos de que cada uno de nuestros productos sea único y satisfactorio, brindándole una experiencia culinaria inolvidable
+    En Frescoes Luvianka, ofrecemos productos de calidad superior a través de nuestro enfoque en la innovación. Nos aseguramos de que cada uno de nuestros productos sea único y satisfactorio, brindándole una experiencia culinaria inolvidable.
   </p>
 </div>
 </div>
@@ -178,7 +178,7 @@ export default {
 
 .hero {
   background-color: $bg-body-clr;
-  background: url(../assets/images/hero/heromobile.jpg);
+  background: url(../assets/images/hero/alternate.jpg);
   background-position: center 10%;
   background-repeat: no-repeat;
   padding-block: 15em;

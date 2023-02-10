@@ -25,6 +25,12 @@ routes: [
         component: () => import('../views/Recipes.vue'),
       },
       {
+        path: '/recetas/:id',
+        name: 'recipe-details',
+        component: () => import('../views/RecipeDetails.vue'),
+        props: true
+      },
+      {
         path: '/donde-comprar',
         name: 'where-to-buy',
         component: () => import('../views/WhereToBuy.vue'),
