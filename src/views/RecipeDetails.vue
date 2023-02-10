@@ -167,10 +167,16 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
     font-size: $fs-950;
     font-weight: $fw-bold;
     text-align: center;
+    @include mq (small) {
+        font-size: $fs-700;
+    }
 }
 .rd-description {
     font-size: $fs-600;
     font-weight: $fw-regular;
+    @include mq (small) {
+        font-size: $fs-400;
+    }
 }
 
 .rd-main {
@@ -180,11 +186,20 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
     background-color: $neutral-clr-50;
     border-radius: 2.5em;
     padding: 3em;
+    @include mq (small ){
+        flex-direction: column;
+        padding: 1em;
+    }
 
     .ingredients-container {
         padding-inline:1em ;
-        border-right: 2px solid red;
+        border-right: 2px solid $primary-clr-400;
         flex-basis: 50%;
+        @include mq (small ){
+            border-right: none;
+            border-bottom: 2px solid $primary-clr-400 ; 
+            padding-inline: 0;
+        }
         
         .ingredients-heading {
             color: $primary-clr-400;
@@ -195,6 +210,7 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         list-style-image: url(../assets/svgs/circle.svg);
+        list-style: inside;
 
         li {
             padding-block: 1em;
@@ -207,6 +223,9 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
     .directions-container {
         padding-inline:1em ;
         flex-basis: 50%;
+        @include mq (small ){
+            padding-inline: 0;
+        }
         .directions-heading {
             color: $primary-clr-400;
             font-weight: $fw-semibold;
@@ -226,7 +245,8 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
                 height:25px;
                 border-radius:50%;
                 background-color:$primary-clr-400;
-                color:#fff;
+                color: $neutral-clr-50;
+                padding: .5em;
               }      
               p {
                 max-width: 40ch;
@@ -300,6 +320,9 @@ const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
 
 .random-images {
     display: flex;
+    @include mq (small){
+        display: block;
+    }
 }
 
 </style>
