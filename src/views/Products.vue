@@ -452,7 +452,8 @@ onMounted(() => {
         grid-auto-columns: 71%;
         overflow-x: scroll;
         overscroll-behavior-inline: contain; // containing the scrolling behaviour if it reaches the end
-    }
+        justify-content: flex-start;
+      }
   }
 }
 
