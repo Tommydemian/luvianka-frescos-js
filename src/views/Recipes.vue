@@ -3,13 +3,12 @@
         <div class="hero">
         <div class="hero-content | container">
             <h1>Recetas</h1>
-            <p>Explore the endless possibilities our products have to offer. From premium meat to delicious meals, we guarantee a satisfying experience.</p>
+            <p> Descubre las infinitas posibilidades que ofrecen nuestros productos. Desde carnes de alta calidad hasta platos deliciosos, garantizamos una experiencia satisfactoria.</p>
         </div>
         </div>
 
         <div style="margin-block:2em" class="product-card-grid | snaps-inline container-alternate default-margin-block">
-          <RecipeCard :recipes="recipes" />        
-        </div>
+          <RecipeCard :recipes="recipes" />        </div>
 
         <section class="hero2 | alternative-margin-block">
           <div class="container | hero2-content">
@@ -179,6 +178,7 @@ const recipes = ref([
 <style lang="scss" scoped>
 @import '../scss/_variables.scss';
 @import '../scss/_utility.scss';
+@import '../scss/mixins.scss';
 
 .flow * + * {
     margin-top: var(--flow-spacer, .5em);
@@ -228,8 +228,15 @@ const recipes = ref([
   grid-template-rows: auto;
   gap: 1em;
 
+  @include mq (medium){
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
   @media (max-width: 50em) {
     &{
+        display: grid;
         grid-template-columns: none;
         grid-auto-flow: column;
         grid-auto-columns: 87%;
@@ -274,6 +281,9 @@ const recipes = ref([
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  @include mq (medium){
+    padding-block: 19em;
+  }
 
   &::before {
     content: '';

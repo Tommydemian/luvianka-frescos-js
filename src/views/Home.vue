@@ -1,9 +1,10 @@
 <template>
 <section class="container">
   <div class="hero">
-    <div class="content">
+    <div class="content ">
       <h3>Elevá tu día</h3>
       <h2>Dejate sorprender por la excelencia en cada corte.</h2>
+      <p>cerdo congelado de alta calidad y certificación de salud al 100%</p>
       <button v-if="onMobile" data-type="inverted" class="button">Catálogo</button>
     </div>
   </div>
@@ -177,11 +178,12 @@ export default {
 }
 
 .hero {
+  position: relative;
   background-color: $bg-body-clr;
-  background: url(../assets/images/hero/alternate.jpg);
+  background: url(../assets/images/hero/AdobeStock_168473491.jpeg);
   background-position: center 10%;
   background-repeat: no-repeat;
-  padding-block: 15em;
+  padding-block: 25em;
   background-size: cover;
   border-radius: $size-600;
   width: 100%;
@@ -202,26 +204,35 @@ export default {
      background-image: url(../assets/images/hero/quick.jpg);
       background-size: cover;
       background-position: 20% 10%;
+      position: static;
     }
   }
 }
-  .content {
-    margin-inline: auto;
-    text-align: center;
-    color: $neutral-clr-800;
-    max-width: 70ch;
-    background: rgba(245, 245, 245, 0.23);
+.content {
+position: absolute;
+bottom: 0;
+margin-inline: auto;
+text-align: center;
+color: $neutral-clr-50;
+max-width: 50ch;
+background: hsla(0, 0, 0, 0.4);
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 padding: 1em;
-margin-left: 0;
+margin: 1em;
+
+
+@include mq (small) {
+  position: static;
+}
+
 
     & h3 {
-      font-size: $fs-675;
+      font-size: $fs-500;
       text-transform: capitalize;
     }
     & h2 {
-      font-size: $fs-950;
+      font-size: $fs-750;
       font-weight: $fw-bold;
       text-transform: capitalize;
     }
@@ -288,6 +299,11 @@ margin-left: 0;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: $size-500;
+    @include mq (medium) {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
 
     & .fp-card {
       position: relative;
@@ -419,6 +435,10 @@ margin-left: 0;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  @include mq (medium) {
+    padding-block: 19em;
+  }
+   
 
   &::before {
     content: '';

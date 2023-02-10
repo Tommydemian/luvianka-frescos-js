@@ -65,6 +65,10 @@ const displayMenu = () => {
     justify-content: space-around;
     align-items: center;
     column-gap: 6.3125em;
+    @include mq (medium){
+      justify-content: center;
+      column-gap: 3em;
+    }
   }
 }
   .nav-list button {

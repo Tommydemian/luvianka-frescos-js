@@ -3,7 +3,7 @@
         <div class="hero">
         <div class="hero-content | container">
             <h1>Productos</h1>
-            <p>At Fiambres Luvianka, we are dedicated to providing high-quality meat selections. Our products are 100% health certified and sourced from reputable local farms.</p>
+            <p>En Fiambres Luvianka, nos dedicamos a ofrecer selecciones de carnes de alta calidad. Nuestros productos están 100% certificados en cuanto a salud y nos aseguramos de elegir cuidadosamente la materia prima.</p>
         </div>
         </div>
 
@@ -437,9 +437,16 @@ onMounted(() => {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1em;
+  @include mq (medium){
+    display: flex;
+    justify-content: space-evenly;
+    row-gap: 2em;
+    flex-wrap: wrap;
+  }
 
   @media (max-width: 50em) {
     &{
+        display: grid;
         grid-template-columns: none;
         grid-auto-flow: column;
         grid-auto-columns: 71%;
@@ -496,6 +503,9 @@ onMounted(() => {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  @include mq (medium) {
+    padding-block: 19em;
+  }
 
   &::before {
     content: '';
