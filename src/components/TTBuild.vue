@@ -82,6 +82,7 @@ export default {
     }
   
     & .ttbuild-image {
+      margin-top: .5em;
       border-radius: 0.625em;
     }
   }

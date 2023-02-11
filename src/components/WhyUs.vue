@@ -5,22 +5,22 @@
           <p class="whyus-subheading">Nuestro compromiso es ofrecerle productos frescos y de calidad, elaborados con materias primas cuidadosamente seleccionadas. Al ser nuestros propios proveedores, garantizamos la máxima calidad en cada corte.</p>
         </div>
         <div class="why-us-grid flow">
-        <div class="text-center">
+        <div class="why-us-content | text-center">
             <Icon class="why-us__icon" icon="mdi:medal-outline" color="white" />
         
           <h3>Calidad</h3>
           <p>
-            Mantenemos un alto estándar de calidad en la selección de los animales y en la elaboración de cada corte. Brindamos productos de máxima calidad y frescura a nuestros clientes. Mantenemos estándares éticos y de calidad reconociéndonos como una de las mejores empresas de cortes de cerdo en el mercado.
+            Ofrecemos calidad superior en la selección de animales y elaboración de cortes, brindando productos frescos y de máxima calidad a nuestros clientes. Somos reconocidos como una de las mejores empresas en el mercado con estándares éticos y de calidad.
           </p>
         </div>
-        <div class="text-center flow">
+        <div class="why-us-content | text-center flow">
           <Icon class="why-us__icon" icon="uil:technology" color="white" />
           <h3>Tecnología</h3>
           <p>
             Nuestra tecnología de producción de vanguardia nos permite elaborar cada corte con cuidado y minimizar su manipulación, creando una experiencia única y auténtica en cada bocado. Confíe en nosotros para brindarle productos de excepcionales que hablan por sí solos.
           </p>
         </div>
-        <div class="text-center flow">
+        <div class="why-us-content | text-center flow">
           <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
           <h3>Innovación</h3>
           <p>
@@ -112,6 +112,12 @@ export default {
           padding-block: 1em;
         } 
       } 
+    }
+
+    .why-us-content {
+      @include mq (small) {
+        padding-inline: 1em;
+      }
     }
   
     .why-us__icon {
