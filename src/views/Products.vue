@@ -45,7 +45,6 @@ export default {
     const store = useStore()
 
     const productGroups = computed(() => store.state.productGroups)
-    console.log(productGroups.value)
 
     const selected = ref('All');
 

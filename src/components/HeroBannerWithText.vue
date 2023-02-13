@@ -70,7 +70,6 @@ export default {
     & .hero2-content > p {
       font-size: $fs-650;
       font-weight: $fw-medium;
-      text-transform: capitalize;
       padding-block: $size-400;
     }
     @media (max-width:50em) {

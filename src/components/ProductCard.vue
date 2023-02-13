@@ -9,7 +9,6 @@
                 <p class="inline" v-else>{{  product.description }}</p>
                 <button class="inline seemore" @click="product.readmore = !product.readmore">Ver {{ readMore ? 'Menos' : 'Mas' }}</button> 
             
-            <div><p><span class="leftside">Peso: </span>{{product.weight}}</p></div>
         </div>
     </div>
 </template>

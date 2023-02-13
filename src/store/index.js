@@ -319,6 +319,9 @@ const store = createStore({
 
     }, 
     getters: {
+        productGroups(state) {
+            return state.productGroups;
+        }
 
     }
 });

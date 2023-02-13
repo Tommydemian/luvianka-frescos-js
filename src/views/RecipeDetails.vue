@@ -36,8 +36,10 @@
 </template>
 
 <script>
+import { ref, computed  } from 'vue'
 import { useRoute } from 'vue-router';
-import { ref, computed, watch  } from 'vue'
+import { useStore } from 'vuex'
+
 import RecipeCard from '../components/RecipeCard.vue';
 
 
@@ -46,160 +48,13 @@ export default {
         RecipeCard
     },
     setup () {
-        const route = useRoute();
-        const recipeID = ref(route.params.id)
-
-    const recipes = ref([
-        {
-    id: 1,        
-    title: 'Lomo de Cerdo con Salsa de Miel y Mostaza',
-    description: 'Una receta clásica con solo 6 ingredientes y 4 pasos. Lomo de cerdo adobado con una salsa dulce y picante.',
-    ingredientes: [
-      'Lomo de cerdo',
-      'Mostaza Dijon',
-      'Miel',
-      'Ajo',
-      'Sal y pimienta'
-    ],
-    steps: [
-      'Mezclar mostaza, miel, ajo, sal y pimienta en un tazón pequeño.',
-      'Adobar el lomo de cerdo con la mezcla de la salsa.',
-      'Cocinar en una sartén hasta que esté dorado por ambos lados.',
-      'Verter la salsa sobre el lomo de cerdo y continuar cocinando hasta que esté completamente cocido.'
-    ],
-    image: new URL('../assets/images/recipesPage/recipeGallery/lomo-de-cerdo-recetas-miel-mostaza.jpg', import.meta.url).href
-  },
-  {
-    id: 2,
-    title: "Cerdo en Adobo",
-    description: "Este platillo mexicano requiere 8 ingredientes y solo 4 pasos para una carne de cerdo suave y sabrosa.",
-    ingredientes: [
-      "Carne de cerdo",
-      "Ajo",
-      "Comino",
-      "Oregano",
-      "Vinagre blanco",
-      "Agua",
-      "Sal",
-      "Pimienta negra"
-    ],
-    steps: [
-      "Mezclar los ingredientes de adobo en un tazón grande.",
-      "Añadir la carne de cerdo y marinar por un mínimo de 2 horas.",
-      "Cocinar la carne de cerdo en una sartén hasta que esté dorada por ambos lados.",
-      "Verter el adobo sobre la carne y continuar cocinando hasta que esté suave y tierno."
-    ],
-    image: new URL('../assets/images/recipesPage/recipeGallery/cerdoadobo.jpg', import.meta.url).href
-  },
-  { id: 3,
-    title: "Cerdo Ahumado con Papas",
-    description: "Una cena fácil de hacer en solo 9 ingredientes y 4 pasos. La carne de cerdo ahumada se cocina junto con papas para una comida completa.",
-    ingredientes: [
-      "Papas",
-      "Carne de cerdo ahumada",
-      "Cebolla",
-      "Ajo",
-      "Aceite de oliva",
-      "Tomates cherry",
-      "Sal y pimienta",
-      "Tomillo",
-      "Orégano"
-    ],
-    steps: [
-      "Precalentar el horno a 200 grados Celsius.",
-      "Cortar las papas en cubos y mezclarlas con cebolla, ajo, aceite de oliva, tomates cherry, sal, pimienta, tomillo y orégano.",
-      "Colocar la mezcla de papas en una bandeja para hornear.",
-      "Añadir la carne de cerdo ahumada y hornear por 25 minutos o hasta que estén doradas."
-    ],
-    image: new URL('../assets/images/recipesPage/recipeGallery/cerdoahumadopapas.jpg', import.meta.url).href
-  },
-  {
-    id: 4,
-    title: "Cerdo en Salsa de Naranja",
-    description: "Una combinación dulce y picante de 7 ingredientes y 4 pasos para una carne de cerdo tierna y sabrosa.",
-    ingredientes: [
-      "Carne de cerdo",
-      "Jugo de naranja",
-      "Miel",
-      "Soja",
-      "Ajo",
-      "Gengibre",
-      "Cebolla"
-    ],
-    steps: [
-      "Mezclar el jugo de naranja, miel, soja, ajo, gengibre y cebolla en un tazón pequeño.",
-      "Cortar la carne de cerdo en tiras y marinar en la salsa por un mínimo de 1 hora.",
-      "Cocinar la carne de cerdo en una sartén hasta que esté dorada por ambos lados.",
-      "Verter la salsa sobre la carne y continuar cocinando hasta que esté completamente cocida."
-    ],
-    image: new URL('../assets/images/recipesPage/recipeGallery/cerdonaranja.webp', import.meta.url).href
-  },
-  {
-    id: 5,
-    title: "Chuletas de Cerdo con Salsa de Manzana",
-    description: "Un platillo clásico con 7 ingredientes y 4 pasos para una carne de cerdo tierna y sabrosa con un toque dulce de manzana.",
-    "ingredientes": [
-    "Chuletas de cerdo",
-    "Manzana",
-    "Cebolla",
-    "Ajo",
-    "Vinagre balsámico",
-    "Miel",
-    "Sal y pimienta"
-    ],
-    steps: [
-    "Cortar la manzana y la cebolla en cubos pequeños.",
-    "Mezclar ajo, vinagre balsámico, miel, sal y pimienta en un tazón pequeño para crear la salsa.",
-    "Cocinar las chuletas de cerdo en una sartén hasta que estén doradas por ambos lados.",
-    "Añadir la manzana y la cebolla a la sartén con las chuletas y verter la salsa sobre ellas. Cocinar hasta que la manzana esté suave y la salsa se haya espesado."
-    ],
-    image: new URL('../assets/images/recipesPage/recipeGallery/cerdomanzana.jpg', import.meta.url).href
-    },
-    {
-    id: 6,
-    title: "Costillas de Cerdo al Horno con BBQ",
-    description: "Un platillo fácil de hacer con 7 ingredientes y 4 pasos para costillas de cerdo tiernas y con un sabor ahumado a barbacoa.",
-    "ingredientes": [
-    "Costillas de cerdo",
-    "Ketchup",
-    "Miel",
-    "Vinagre de manzana",
-    "Mostaza dijon",
-    "Ajo",
-    "Sal y pimienta"
-    ],
-    steps: [
-    "Mezclar ketchup, miel, vinagre de manzana, mostaza dijon, ajo, sal y pimienta en un tazón pequeño para crear la salsa de barbacoa.",
-    "Cubrir las costillas de cerdo con la salsa de barbacoa y dejar marinar por un mínimo de 2 horas.",
-    "Precalentar el horno a 220 grados Celsius.",
-    "Colocar las costillas en una bandeja para hornear y hornear por 45 minutos o hasta que estén tiernas y doradas. Servir con más salsa de barbacoa al gusto."
-    ],
-    image: new URL('../assets/images/recipesPage/recipeGallery/costillas-de-cerdo-en-salsa-barbicue.jpg', import.meta.url).href
-    },
-    {
-    id: 7,
-    title: " Solomillo de cerdo con salsa de cerezas",
-    description: "El cerdo y las frutas se complementan a la perfección de manera sencilla y elegante y en esta meravillosa receta.",
-    "ingredientes": 
-    ["2 solomillos de cerdo",
-    "2 naranjas",
-    "1 limón",
-    "200g de cerezas",
-    "4 cucharadas de miel",
-    "un poco de whisky",
-    "sal y pimienta"]
-    ,
-    steps: [
-        "Mezclar zumo de naranja y limón con miel y agua. Pintar solomillos con esta mezcla y dejar marinar por unas horas.",
-        "Cocinar las cerezas con zumo de naranja y limón, whisky y miel en una cazuela a fuego lento.",
-        "Reducir la salsa hasta que quede espesa.",
-        "Cocinar los solomillos marinados hasta que estén listos. Servir con la salsa de cerezas por encima."
-    ],
-    image: new URL('../assets/images/recipesPage/recipeGallery/cerezaycerdo.jpg', import.meta.url).href
-    }
-    ])
-  
+    const route = useRoute();
+    const store = useStore()
     
+    const recipeID = ref(route.params.id)
+
+    const recipes = computed(() => store.state.recipes) 
+
     // 3 random objects function.
   function getRandomRecipes(recipes) {
   let randomRecipes = [];
@@ -217,15 +72,6 @@ export default {
     return randomRecipes;
 }
 
-
-watch(
-    () => recipeID.value, // first param, your object
-    (params) => {
-        console.log(params);
-        changeValue(currValue); //changeValue is a function
-        
-    }
-    )
     
     const randomRecipes = computed(() => getRandomRecipes(recipes.value)) ;
     

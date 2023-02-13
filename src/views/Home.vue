@@ -4,7 +4,7 @@
     <div class="content ">
       <h3>Elevá tu día</h3>
       <h2>Dejate sorprender por la excelencia en cada corte.</h2>
-      <p>cerdo congelado de alta calidad y certificación de salud al 100%</p>
+      <p>Cortes de cerdo de alta calidad</p>
       <button v-if="onMobile" data-type="inverted" class="button">Catálogo</button>
     </div>
   </div>
