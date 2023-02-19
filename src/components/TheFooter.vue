@@ -19,7 +19,6 @@
                   <li><router-link class="footer-link" :to="{name:'recipes'}">Recetas</router-link></li>
                   <li><router-link class="footer-link" to="#">Catálogo</router-link></li>
                   <li><router-link class="footer-link" :to="{name:'who-we-are'}">Nosotros</router-link></li>
-                  <li><router-link class="footer-link" :to="{name:'where-to-buy'}">Donde Comprar</router-link></li>
                 </ul>
               </nav>
             </div>

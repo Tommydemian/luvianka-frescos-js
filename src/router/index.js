@@ -31,17 +31,17 @@ routes: [
         props: true
       },
       {
-        path: '/donde-comprar',
-        name: 'where-to-buy',
-        component: () => import('../views/WhereToBuy.vue'),
-      },
-      {
         path: '/nosotros',
         name: 'who-we-are',
         component: () => import('../views/WhoWeAre.vue')
       },
     ]}
-]
+], 
+scrollBehavior (to, from, savedPosition) {
+  // return desired position\
+  return { top: 0 }
+}
+
 });
 
 export default router;
