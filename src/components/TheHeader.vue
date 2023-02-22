@@ -1,6 +1,9 @@
 <template>
-    <header class="primary-header">
-      <div class="container">
+  <header class="primary-header">
+    <!-- The Modal is actually hiddden until it pops up out of the div="app" -->
+    <Modal :showModal="showModal" @close-modal="closeModal" ref="modalRef" title="Whatever" message="What haaaaaaaaaaapens?" />
+    
+    <div class="container">
         <div class="nav-wrapper">
           <router-link to="/">
             <img class="logo" src="../assets/images/logo/luvianka.png" alt="Logo">
@@ -13,29 +16,65 @@
             <Icon @click="displayMenu" v-if="mobileMenuOpen" class="mobilemenu-icon" icon="ep:close-bold" color="black" /> 
             <span class="visually-hidden">Menu</span>
           </button>
+
           <nav class="primary-navigation" id="primary-navigation" :class="{'opened': mobileMenuOpen}">
             <ul aria-label="Primary" role="list" class="nav-list" :class="{'listopened': mobileMenuOpen}">
-              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" :to="{name: 'products'}">Productos</router-link></li>
-              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" :to="{name: 'recipes'}">Recetas</router-link></li>
-              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" to="#">Catálogo</router-link></li>
-              <li class="margin-block-auto"><router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" :to="{name: 'who-we-are'}">Nosotros</router-link></li>
+              <li v-for="link in links" :key="link.linkto" class="margin-block-auto">
+                <router-link @click="displayMenu" :class="{'mobileLink': mobileMenuOpen}" class="link" :to="{name: link.linkto}">
+                  {{ link.title }}
+                </router-link>
+              </li>
             </ul>
-            <!-- no se si empresa y nosotros es similar? -->
         </nav>
-        <button class="button | hidde-in-mobile">Catálogo</button>
+        <button @click="openModal" class="button | hidde-in-mobile">Catálogo</button> 
+
+        
     </div>
     </div>
     </header>  
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import Modal from './Modal.vue';
 import { Icon } from '@iconify/vue';
-import { ref} from 'vue'
 
+const links = ref([
+  {
+    title: 'Productos',
+    linkto: 'products',    
+  },
+  {
+    title: 'Recetas',
+    linkto: 'recipes',    
+  },
+  {
+    title: 'Catálogo',
+    linkto: 'catalog',    
+  },
+  {
+    title: 'Nosotros',
+    linkto: 'who-we-are',    
+  }
+])
+
+// mobile menu logic
 const mobileMenuOpen = ref(false);
 
 const displayMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;  
+}
+
+// modal 
+const modalRef = ref(null);
+const showModal = ref(false);
+
+const openModal = () => {
+  showModal.value = true;
+}
+
+const closeModal = () => {
+  showModal.value = false;
 }
 
 </script>

@@ -7,14 +7,15 @@
 
                 <p class="inline" v-if="!product.readmore" >{{ (product.description).slice(0, product.description.indexOf('.')) + '...'}}</p>
                 <p class="inline" v-else>{{  product.description }}</p>
-                <button class="inline seemore" @click="product.readmore = !product.readmore">Ver {{ readMore ? 'Menos' : 'Mas' }}</button> 
+                <button class="inline seemore" @click="product.readmore = !product.readmore">Ver {{ product.readmore ? 'Menos' : 'Más' }}</button>
+
+                
             
         </div>
     </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
 export default {
     props: {
         products: {
@@ -24,6 +25,8 @@ export default {
     },
     setup (props) {
         return { 
+
+
             
         }
     }

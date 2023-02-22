@@ -20,6 +20,11 @@ routes: [
         component: () => import('../views/Products.vue'),
       },
       {
+        path: '/catálogo',
+        name: 'catalog',
+        component: () => import('../views/Catalog.vue'),
+      },
+      {
         path: '/recetas',
         name: 'recipes',
         component: () => import('../views/Recipes.vue'),
