@@ -6,7 +6,7 @@
                     <ModalContent
                         :title="title"
                         :message="message" />
-                     <button class="button | close-modal-button" @click="$emit('closeModal')">Cerrar</button>
+                     <button class="button | close-modal" @click="$emit('closeModal')">Cerrar</button>
                 </div>
             </div>
         </teleport>
@@ -46,7 +46,7 @@ defineEmits(['closeModal'])
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
     height: 100%;
     display: flex;
@@ -56,7 +56,11 @@ defineEmits(['closeModal'])
 
 .modal > div {
     background-color: $neutral-clr-50;
-    padding: 3.125em;
+    padding: 1em;
     border-radius: 10px;
+}
+
+.close-modal {
+  float: right;    
 }
 </style>

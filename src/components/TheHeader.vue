@@ -1,7 +1,12 @@
 <template>
   <header class="primary-header">
     <!-- The Modal is actually hiddden until it pops up out of the div="app" -->
-    <Modal :showModal="showModal" @close-modal="closeModal" ref="modalRef" title="Whatever" message="What haaaaaaaaaaapens?" />
+    <Modal 
+    :showModal="showModal"
+     @close-modal="closeModal"
+      ref="modalRef"
+      title="Proximamente."
+      message="Estamos trabajando para subirlo a la brevedad." />
     
     <div class="container">
         <div class="nav-wrapper">
