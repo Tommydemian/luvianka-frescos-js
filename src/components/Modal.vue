@@ -36,6 +36,7 @@ defineEmits(['closeModal'])
 <style lang="scss" scoped>
 @import '../scss/variables';
 @import '../scss/utility';
+@import '../scss/mixins';
 .root {
     position: relative;
 }

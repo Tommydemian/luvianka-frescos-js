@@ -21,6 +21,8 @@ defineProps({
 
 <style lang="scss" scoped>
 @import '../scss/variables';
+@import '../scss/utility';
+@import '../scss/mixins';
 
 .title {
     font-size: $fs-670;
@@ -28,5 +30,9 @@ defineProps({
 }
 .mssg {
     padding-block: 1em;
+
+    @include mq (small){
+        max-width: 25ch;
+    }
 }
 </style>
