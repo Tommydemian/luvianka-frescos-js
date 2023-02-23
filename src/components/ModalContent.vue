@@ -10,11 +10,11 @@
 defineProps({
     title: {
         type: String, 
-        required: true
+        default: 'Proximamente'
     }, 
     message: {
         type: String, 
-        required: true
+        default: 'Estamos trabajando para subirlo a la brevedad.' 
     }
 })
 </script>

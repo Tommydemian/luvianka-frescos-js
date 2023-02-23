@@ -22,6 +22,7 @@ routes: [
       {
         path: '/catálogo',
         name: 'catalog',
+        redirect: { name: 'products' }, 
         component: () => import('../views/Catalog.vue'),
       },
       {

@@ -5,8 +5,7 @@
     :showModal="showModal"
      @close-modal="closeModal"
       ref="modalRef"
-      title="Proximamente."
-      message="Estamos trabajando para subirlo a la brevedad." />
+       />
     
     <div class="container">
         <div class="nav-wrapper">
@@ -31,9 +30,7 @@
               </li>
             </ul>
         </nav>
-        <button @click="openModal" class="button | hidde-in-mobile">Catálogo</button> 
-
-        
+        <button @click="openModal" class="button | hidde-in-mobile">Catálogo</button>      
     </div>
     </div>
     </header>  
@@ -41,6 +38,9 @@
 
 <script setup>
 import { ref } from 'vue';
+
+import { useModal } from '../assets/composables/useModal';
+
 import Modal from './Modal.vue';
 import { Icon } from '@iconify/vue';
 
@@ -63,6 +63,7 @@ const links = ref([
   }
 ])
 
+
 // mobile menu logic
 const mobileMenuOpen = ref(false);
 
@@ -70,18 +71,7 @@ const displayMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value;  
 }
 
-// modal 
-const modalRef = ref(null);
-const showModal = ref(false);
-
-const openModal = () => {
-  showModal.value = true;
-}
-
-const closeModal = () => {
-  showModal.value = false;
-}
-
+const {showModal, modalRef, openModal, closeModal } = useModal();
 </script>
 
 <style lang="scss" scoped>

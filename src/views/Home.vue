@@ -1,11 +1,18 @@
 <template>
 <section class="container">
+
+  <Modal 
+  :showModal="showModal"
+   @close-modal="closeModal"
+    ref="modalRef"
+     />
+
   <div class="hero">
     <div class="content ">
       <h3>Elevá tu día</h3>
       <h2>Dejate sorprender por la excelencia en cada corte.</h2>
       <p>Cortes de cerdo de alta calidad</p>
-      <button v-if="onMobile" data-type="inverted" class="button">Catálogo</button>
+      <button @click="openModal" v-if="onMobile" data-type="inverted" class="button">Catálogo</button>
     </div>
   </div>
 </section>
@@ -29,11 +36,15 @@
 <script>
 import {ref, computed, onMounted} from 'vue'
 
+import { useModal } from '../assets/composables/useModal';
+
 import TTBuild from '../components/TTBuild.vue';
 import ProductCard from '../components/ProductCard.vue';
 import HeroBannerWithText from '../components/HeroBannerWithText.vue';
 import WhyUs from '../components/WhyUs.vue'; 
 import SocialMedia from '../components/SocialMedia.vue';
+
+import Modal from '../components/Modal.vue';
 
 import { Icon } from '@iconify/vue';
 
@@ -44,11 +55,15 @@ export default {
     ProductCard,
     HeroBannerWithText,
     WhyUs,
-    SocialMedia
+    SocialMedia,
+    Modal
   },
   setup() {
     const screenWidth = ref(window.innerWidth);
     const onMobile = computed(() => screenWidth.value < 800);
+    
+  // modal 
+  const {closeModal, modalRef, openModal, showModal} = useModal()
 
 
     const products = ref([
@@ -92,7 +107,11 @@ export default {
 
     return {
       products,
-      onMobile
+      onMobile, 
+      modalRef, 
+      showModal, 
+      openModal, 
+      closeModal
 
     }
   }

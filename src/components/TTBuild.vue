@@ -1,5 +1,13 @@
 <template>
 <section class="ttbuild | container default-margin-block">
+
+  <Modal 
+  :showModal="showModal"
+   @close-modal="closeModal"
+    ref="modalRef"
+     />
+
+
     <div style="--flow-spacer:.3em" class="ttbuild-grid flow">
      <div class="ttbuild-text ">
        <h3 class="ttbuild-grid__h3">Elevá tu día</h3>
@@ -7,7 +15,7 @@
        <p class="ttbuild-grid__p">
          Trabajamos mano a mano con nuestros clientes para crear una experiencia gastronómica única y satisfactoria. Ofrecemos productos de cerdo de alta calidad que combinan calidad y sabor. Al elegir nuestros productos, nuestros clientes elevan su jornada culinaria a un nivel superior. Juntos, estamos construyendo algo realmente especial..
        </p>
-       <button class="button">Catálogo</button>
+       <button @click="openModal" class="button">Catálogo</button>
      </div>
      <div class="ttbuild-image-container">
        <img class="ttbuild-image"  src="../assets/images/ttbuild/sean-stone-0hOHNA3M6Ds-unsplash.jpg" alt="food-image">
@@ -17,14 +25,14 @@
    
 </template>
 
-<script>
-export default {
-    setup () {
-        
+<script setup>
+import { useModal } from '../assets/composables/useModal';
 
-        return {}
-    }
-}
+import Modal from './Modal.vue';
+
+// modal 
+const {closeModal, modalRef, openModal, showModal} = useModal();
+
 </script>
 
 <style lang="scss" scoped>

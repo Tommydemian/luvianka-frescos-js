@@ -1,21 +1,27 @@
 <template>
-    <section class="hero2 | default-margin-block">
+    <section id="hero2" class="hero2 | default-margin-block">
+
+      <Modal 
+    :showModal="showModal"
+     @close-modal="closeModal"
+      ref="modalRef"
+       />
+
         <div class="container | hero2-content">
         <h2 class="uppercase">sin añadidos de grasas trans, sabores artificiales o colorantes.</h2>
         <p>En Luvianka, confiamos en la fuente de nuestra carne y la controlamos rigurosamente para asegurar su frescura y calidad. Al ser nuestros propios proveedores, podemos ofrecerle la calidad que se merece. ¿Por qué no permitirnos hacerlo?</p>
-        <button data-type="inverted" class="button">Catálogo</button>
+        <button @click="openModal" data-type="inverted" class="button">Catálogo</button>
         </div>
-      </section>
+    </section>
 </template>
 
-<script>
-export default {
-    setup () {
-        
+<script setup>
+import { useModal } from '../assets/composables/useModal';
 
-        return {}
-    }
-}
+import Modal from './Modal.vue';
+
+// modal 
+const { closeModal, modalRef, openModal, showModal } = useModal()
 </script>
 
 <style lang="scss" scoped>
