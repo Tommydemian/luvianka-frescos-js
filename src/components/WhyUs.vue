@@ -4,27 +4,13 @@
           <h2>Por qué elegir Luvianka:</h2>
           <p class="whyus-subheading">Nuestro compromiso es ofrecerle productos frescos y de calidad, elaborados con materias primas cuidadosamente seleccionadas. Al ser nuestros propios proveedores, garantizamos la máxima calidad en cada corte.</p>
         </div>
+
         <div class="why-us-grid flow">
-        <div class="why-us-content | text-center">
-            <Icon class="why-us__icon" icon="mdi:medal-outline" color="white" />
-        
-          <h3>Calidad</h3>
-          <p>
-            Ofrecemos calidad superior en la selección de animales y elaboración de cortes, brindando productos frescos y de máxima calidad a nuestros clientes. Somos reconocidos como una de las mejores empresas en el mercado con estándares éticos y de calidad.
-          </p>
-        </div>
-        <div class="why-us-content | text-center flow">
-          <Icon class="why-us__icon" icon="uil:technology" color="white" />
-          <h3>Tecnología</h3>
-          <p>
-            Nuestra tecnología de producción de vanguardia nos permite elaborar cada corte con cuidado y minimizar su manipulación, creando una experiencia única y auténtica en cada bocado. Confíe en nosotros para brindarle productos de excepcionales que hablan por sí solos.
-          </p>
-        </div>
-        <div class="why-us-content | text-center flow">
-          <Icon class="why-us__icon" icon="academicons:ideas-repec" color="white" />
-          <h3>Innovación</h3>
-          <p>
-            En Frescoes Luvianka, ofrecemos productos de calidad superior a través de nuestro enfoque en la innovación. Nos aseguramos de que cada uno de nuestros productos sea único y satisfactorio, brindándole una experiencia culinaria inolvidable.
+        <div class="why-us-content | text-center" v-for="el in whyusElements" :key="el.id">
+            <Icon class="why-us__icon" :icon="el.icon" color="white" /> 
+          <h3>{{el.title}}</h3>
+          <p class="why-us-desc">
+            {{ el.description }}
           </p>
         </div>
         </div>
@@ -32,18 +18,30 @@
         
 </template>
 
-<script>
+<script setup>
 import { Icon } from '@iconify/vue'
-export default {
-  components: {
-    Icon
-  },
-    setup () {
-        
 
-        return {}
-    }
-}
+const whyusElements = [
+  {
+    id: 1,
+    icon: 'mdi:medal-outline',
+    title: 'Calidad', 
+    description: 'Ofrecemos calidad superior en la selección de animales y elaboración de cortes, brindando productos frescos y de máxima calidad a nuestros clientes. Somos reconocidos como una de las mejores empresas en el mercado con estándares éticos y de calidad.'
+  },
+  {
+    id: 2,
+    icon: 'uil:technology',
+    title: 'Tecnología', 
+    description: 'Nuestra tecnología de producción de vanguardia nos permite elaborar cada corte con cuidado y minimizar su manipulación, creando una experiencia única y auténtica en cada bocado. Confíe en nosotros para brindarle productos de excepcionales que hablan por sí solos.'
+  },
+  {
+    id: 3,
+    icon: 'academicons:ideas-repec',
+    title: 'Innovación', 
+    description: 'En Frescoes Luvianka, ofrecemos productos de calidad superior a través de nuestro enfoque en la innovación. Nos aseguramos de que cada uno de nuestros productos sea único y satisfactorio, brindándole una experiencia culinaria inolvidable.'
+  },
+]
+
 </script>
 
 <style lang="scss" scoped>
@@ -143,6 +141,7 @@ export default {
     
     & .why-us-grid p {
       font-size: $fs-600;
+      padding-block: 1em;
     }
     @media (max-width:50em) {
       & .why-us-grid p {
